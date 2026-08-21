@@ -11,8 +11,7 @@ export function PartnersSection({
   locale: Locale;
   dict: Dictionary;
 }) {
-  const featured = partners.filter((p) => p.featured);
-  const rest = partners.filter((p) => !p.featured);
+  const items = partners.filter((p) => p.featured && p.logo);
 
   return (
     <section id="partners" className="section-pad border-t border-white/10">
@@ -34,51 +33,33 @@ export function PartnersSection({
           </FadeIn>
         </div>
 
-        <div className="col-span-12 mt-16 grid grid-cols-1 gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((partner) => (
+        <div className="col-span-12 mt-16 grid grid-cols-2 gap-px bg-white/10 sm:grid-cols-3 lg:grid-cols-5">
+          {items.map((partner) => (
             <div
               key={partner.id}
-              className="flex min-h-[140px] flex-col justify-between bg-[#080808] px-6 py-6"
+              className="group flex min-h-[120px] flex-col justify-between bg-[#080808] px-5 py-5 transition-colors duration-300 hover:bg-[#0e0e0e]"
             >
-              <div className="flex h-12 items-center">
-                {partner.logo ? (
-                  <Image
-                    src={partner.logo}
-                    alt={partner.name[locale]}
-                    width={180}
-                    height={48}
-                    className="h-10 w-auto max-w-[180px] object-contain opacity-80"
-                  />
-                ) : (
-                  <span className="text-sm font-medium tracking-[-0.02em]">
-                    {partner.name[locale]}
-                  </span>
-                )}
+              <div className="flex h-16 items-center">
+                <Image
+                  src={partner.logo!}
+                  alt={partner.name[locale]}
+                  width={220}
+                  height={64}
+                  unoptimized
+                  className="h-10 w-auto max-w-[170px] object-contain object-left opacity-90 transition-opacity duration-300 group-hover:opacity-100 sm:h-11 sm:max-w-[190px]"
+                />
               </div>
-              <div className="mt-6">
-                {partner.logo ? (
-                  <p className="text-sm text-ink/80">{partner.name[locale]}</p>
-                ) : null}
-                <p className="label-mono mt-2 text-[10px] text-muted">
+              <div className="mt-5">
+                <p className="text-[13px] leading-snug text-ink/75">
+                  {partner.name[locale]}
+                </p>
+                <p className="label-mono mt-2 text-[9px] text-muted">
                   {partner.relationLabel[locale]}
                 </p>
               </div>
             </div>
           ))}
         </div>
-
-        {rest.length > 0 ? (
-          <div className="col-span-12 mt-10 flex flex-wrap gap-x-8 gap-y-3">
-            {rest.map((partner) => (
-              <div key={partner.id} className="min-w-[180px]">
-                <p className="text-sm text-ink/80">{partner.name[locale]}</p>
-                <p className="label-mono mt-1 text-[10px] text-muted">
-                  {partner.relationLabel[locale]}
-                </p>
-              </div>
-            ))}
-          </div>
-        ) : null}
       </div>
     </section>
   );

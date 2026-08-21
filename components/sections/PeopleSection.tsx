@@ -77,13 +77,13 @@ export function PeopleSection({
                   <h3 className="text-xl font-medium tracking-[-0.02em]">
                     {person.name[locale]}
                   </h3>
-                  <p className="mt-1 label-mono text-[10px] text-muted">
+                  <p className="mt-1 label-mono text-[12px] text-muted">
                     {person.role[locale]}
                   </p>
                   <p className="mt-3 text-sm leading-relaxed text-muted">
                     {person.focus[locale]}
                   </p>
-                  <p className="label-mono mt-4 text-[10px] text-ink/70">
+                  <p className="label-mono mt-5 text-[12px] text-ink/80">
                     {dict.people.viewProfile} →
                   </p>
                 </div>

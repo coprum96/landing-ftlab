@@ -86,7 +86,14 @@ export function GenerativeMedia({
         raf = 0;
         return;
       }
-      const t = reduced ? 0 : (now - t0) * 0.001;
+      // rAF `now` can briefly precede effect-local performance.now() → negative t.
+      // Negative modulo in JS yields negative indices and crashes node lookups.
+      const t = reduced ? 0 : Math.max(0, (now - t0) * 0.001);
+
+      if (width < 1 || height < 1) {
+        if (!reduced) raf = requestAnimationFrame(draw);
+        return;
+      }
 
       ctx.clearRect(0, 0, width, height);
       paintBase(ctx, width, height, kind);
@@ -110,8 +117,9 @@ export function GenerativeMedia({
   return (
     <div
       className={cx("relative overflow-hidden bg-[#0a0a0a]", className)}
-      role="img"
-      aria-label={label || "Abstract research visualization"}
+      {...(label
+        ? { role: "img" as const, "aria-label": label }
+        : { "aria-hidden": true as const })}
     >
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(8,8,8,0.55))]" />
@@ -304,16 +312,26 @@ function drawMesh(
     ctx.fill();
   }
 
-  // Travelling accent packet
-  const i = Math.floor((t * 1.4) % nodes.length);
-  const j = (i + 1 + Math.floor(t) % 3) % nodes.length;
-  const p = (t * 1.4) % 1;
-  const x = nodes[i].x + (nodes[j].x - nodes[i].x) * p;
-  const y = nodes[i].y + (nodes[j].y - nodes[i].y) * p;
+  // Travelling accent packet — require valid node pair before reading .x/.y
+  if (nodes.length < 2) return;
+  const i = Math.floor(positiveMod(t * 1.4, nodes.length));
+  const j = positiveMod(i + 1 + (Math.floor(t) % 3), nodes.length);
+  const a = nodes[i];
+  const b = nodes[j];
+  if (!a || !b) return;
+  const p = positiveMod(t * 1.4, 1);
+  const x = a.x + (b.x - a.x) * p;
+  const y = a.y + (b.y - a.y) * p;
   ctx.beginPath();
   ctx.fillStyle = "rgba(158,27,50,0.85)";
   ctx.arc(x, y, 2.4, 0, Math.PI * 2);
   ctx.fill();
+}
+
+/** JS `%` preserves sign; normalize to [0, m). */
+function positiveMod(n: number, m: number) {
+  if (!Number.isFinite(n) || !Number.isFinite(m) || m === 0) return 0;
+  return ((n % m) + m) % m;
 }
 
 function drawOrbit(

@@ -151,7 +151,10 @@ export function DecisionNetwork({
         const i = Math.floor(Math.random() * nodes.length);
         const j = Math.floor(Math.random() * nodes.length);
         if (i === j) continue;
-        const d = Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y);
+        const ni = nodes[i];
+        const nj = nodes[j];
+        if (!ni || !nj) continue;
+        const d = Math.hypot(ni.x - nj.x, ni.y - nj.y);
         if (d < cfg.connectDistance && d > 40) {
           if (!best || d < best.d) best = { i, j, d };
         }
@@ -174,6 +177,11 @@ export function DecisionNetwork({
       const dt = lastNow ? Math.min(32, now - lastNow) : 16;
       lastNow = now;
       time += reduced ? 0 : dt;
+
+      if (width < 1 || height < 1 || nodes.length === 0) {
+        raf = requestAnimationFrame(draw);
+        return;
+      }
 
       ctx.clearRect(0, 0, width, height);
 
@@ -221,6 +229,7 @@ export function DecisionNetwork({
         for (let j = i + 1; j < nodes.length; j++) {
           const a = nodes[i];
           const b = nodes[j];
+          if (!a || !b) continue;
           const dx = a.x - b.x;
           const dy = a.y - b.y;
           const dist = Math.hypot(dx, dy);

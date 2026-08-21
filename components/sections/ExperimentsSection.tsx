@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { FadeIn } from "@/components/motion/RevealText";
 import { DecisionNetwork } from "@/components/visual/DecisionNetwork";
@@ -49,7 +50,7 @@ export function ExperimentsSection({ dict }: { dict: Dictionary }) {
     const started = performance.now();
     let raf = 0;
     const tick = (now: number) => {
-      const elapsed = (now - started) / 1000;
+      const elapsed = Math.max(0, (now - started) / 1000);
       const remain = Math.max(0, DURATION - elapsed);
       setLeft(remain);
       if (remain <= 0) {
@@ -77,6 +78,7 @@ export function ExperimentsSection({ dict }: { dict: Dictionary }) {
     setPhase("caught");
   };
 
+  const done = phase === "caught" || phase === "missed";
   const cta =
     phase === "idle"
       ? dict.experiments.cta
@@ -116,7 +118,7 @@ export function ExperimentsSection({ dict }: { dict: Dictionary }) {
             >
               {dict.experiments.supporting}
             </p>
-            <p className="label-mono mt-6 text-[10px] text-muted/80">
+            <p className="label-mono mt-6 text-[12px] text-muted">
               {dict.experiments.probeHint}
             </p>
           </FadeIn>
@@ -131,16 +133,16 @@ export function ExperimentsSection({ dict }: { dict: Dictionary }) {
           >
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="label-mono text-[10px] text-accent">
+                <p className="label-mono text-[12px] text-accent">
                   {dict.experiments.probePrompt}
                 </p>
-                <p className="mt-3 max-w-sm text-sm leading-relaxed text-ink/90 md:text-base">
+                <p className="mt-3 max-w-sm text-[15px] leading-relaxed text-ink/90 md:text-base">
                   {dict.experiments.probeBody}
                 </p>
               </div>
               {phase === "running" ? (
                 <div className="shrink-0 text-right" aria-live="polite">
-                  <p className="label-mono text-[9px] text-muted">
+                  <p className="label-mono text-[11px] text-muted">
                     {dict.experiments.probeTimer}
                   </p>
                   <p className="mt-1 font-mono text-2xl tabular-nums tracking-tight text-accent">
@@ -159,16 +161,16 @@ export function ExperimentsSection({ dict }: { dict: Dictionary }) {
               </div>
             ) : null}
 
-            {levers.length > 0 ? (
+            {levers.length > 0 && phase === "running" ? (
               <div className="mt-6">
-                <p className="label-mono text-[9px] text-muted">
+                <p className="label-mono text-[11px] text-muted">
                   {dict.experiments.probeLevers}
                 </p>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {levers.map((lever) => (
                     <span
                       key={lever}
-                      className="label-mono border border-white/12 px-2 py-1 text-[9px] text-ink/80"
+                      className="label-mono border border-white/12 px-3 py-2 text-[11px] text-ink/85"
                     >
                       {lever}
                     </span>
@@ -177,26 +179,79 @@ export function ExperimentsSection({ dict }: { dict: Dictionary }) {
               </div>
             ) : null}
 
-            {phase === "caught" || phase === "missed" ? (
-              <p
-                className={cx(
-                  "mt-6 text-sm leading-relaxed",
-                  phase === "caught" ? "text-ink" : "text-accent",
-                )}
-                aria-live="polite"
-              >
-                {phase === "caught"
-                  ? dict.experiments.probeResultCaught
-                  : dict.experiments.probeResultMissed}
-              </p>
+            {done ? (
+              <div className="mt-6 space-y-6" aria-live="polite">
+                <div>
+                  <p className="label-mono text-[12px] text-accent">
+                    {dict.experiments.resultTitle}
+                  </p>
+                  <p
+                    className={cx(
+                      "mt-2 text-[15px] leading-relaxed md:text-base",
+                      phase === "caught" ? "text-ink" : "text-accent",
+                    )}
+                  >
+                    {phase === "caught"
+                      ? dict.experiments.probeResultCaught
+                      : dict.experiments.probeResultMissed}
+                  </p>
+                  <p className="mt-3 text-[14px] leading-relaxed text-muted">
+                    {phase === "caught"
+                      ? dict.experiments.whyCaught
+                      : dict.experiments.whyMissed}
+                  </p>
+                </div>
+
+                <div>
+                  <p className="label-mono text-[12px] text-accent">
+                    {dict.experiments.influencedTitle}
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {levers.map((lever) => (
+                      <span
+                        key={lever}
+                        className="label-mono border border-white/12 px-3 py-2 text-[11px] text-ink/85"
+                      >
+                        {lever}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <p className="label-mono text-[12px] text-accent">
+                    {dict.experiments.saferTitle}
+                  </p>
+                  <p className="mt-2 text-[14px] leading-relaxed text-muted md:text-[15px]">
+                    {phase === "caught"
+                      ? dict.experiments.saferCaught
+                      : dict.experiments.saferMissed}
+                  </p>
+                </div>
+
+                <div>
+                  <p className="label-mono text-[12px] text-accent">
+                    {dict.experiments.researchTitle}
+                  </p>
+                  <Link
+                    href="#research"
+                    className="label-mono mt-3 inline-flex min-h-11 items-center text-[12px] text-ink underline decoration-white/25 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+                  >
+                    {dict.experiments.researchLink}
+                  </Link>
+                  <p className="mt-4 text-[12px] leading-relaxed text-muted">
+                    {dict.experiments.disclaimer}
+                  </p>
+                </div>
+              </div>
             ) : null}
 
             <div className="mt-8 flex flex-wrap gap-3">
-              {phase === "idle" || phase === "caught" || phase === "missed" ? (
+              {phase === "idle" || done ? (
                 <button
                   type="button"
                   onClick={start}
-                  className="label-mono border border-white/20 px-5 py-3 text-[11px] text-ink transition-colors duration-300 hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                  className="label-mono min-h-11 border border-white/20 px-5 py-3 text-[12px] text-ink transition-colors duration-300 hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
                 >
                   {cta}
                 </button>
@@ -205,14 +260,14 @@ export function ExperimentsSection({ dict }: { dict: Dictionary }) {
                   <button
                     type="button"
                     onClick={confirm}
-                    className="label-mono border border-accent/60 bg-accent/15 px-5 py-3 text-[11px] text-ink transition-colors duration-300 hover:bg-accent/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                    className="label-mono min-h-11 border border-accent/60 bg-accent/15 px-5 py-3 text-[12px] text-ink transition-colors duration-300 hover:bg-accent/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
                   >
                     {dict.experiments.probeAction}
                   </button>
                   <button
                     type="button"
                     onClick={refuse}
-                    className="label-mono border border-white/15 px-5 py-3 text-[11px] text-muted transition-colors duration-300 hover:border-white/35 hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                    className="label-mono min-h-11 border border-white/15 px-5 py-3 text-[12px] text-muted transition-colors duration-300 hover:border-white/35 hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
                   >
                     {dict.experiments.probeRefuse}
                   </button>

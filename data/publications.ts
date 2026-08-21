@@ -15,10 +15,14 @@ export type Publication = {
   researchAreaId?: string;
   title: Localized;
   authors: string;
+  /** Official venue / journal title — keep language-consistent with source */
   venue: Localized;
   href?: string;
+  doi?: string;
   note?: Localized;
   hasPreview?: boolean;
+  /** Homepage feature flag — keep short list */
+  featured?: boolean;
 };
 
 /**
@@ -40,6 +44,7 @@ export const publications: Publication[] = [
       en: "Review of Pedagogical Research, 8(3)",
       ru: "Обзор педагогических исследований, Т. 8, № 3",
     },
+    featured: true,
   },
   {
     id: "pub-tosunyan-medyanik-2026",
@@ -59,6 +64,7 @@ export const publications: Publication[] = [
       en: "IN PRESS — listed as in publication process in the supplied bibliography.",
       ru: "В ПЕЧАТИ — в предоставленном списке трудов указано как «в процессе публикации».",
     },
+    featured: true,
   },
   {
     id: "pub-golden-detector-2025",
@@ -74,6 +80,7 @@ export const publications: Publication[] = [
       en: "Software registration certificate 2025696334",
       ru: "Свидетельство о регистрации программы для ЭВМ 2025696334",
     },
+    featured: true,
   },
   {
     id: "pub-financial-suggestion-2025",
@@ -90,6 +97,7 @@ export const publications: Publication[] = [
       ru: "Российский психологический журнал, Т. 22, № 2, с. 227–248",
     },
     href: "https://www.researchgate.net/publication/395064038_Psihofiziologiceskie_aspekty_sklonnosti_k_finansovoj_suggestii_i_vozmoznye_algoritmy_protivodejstvia",
+    featured: true,
   },
   {
     id: "pub-comparative-manipulation-2025",
@@ -245,3 +253,8 @@ export const publications: Publication[] = [
     href: "https://www.litres.ru/book/olga-viktorovna-medy/obschenie-s-zhertvami-finansovogo-vnusheniya-uchebno-71556292/",
   },
 ];
+
+/** Homepage short list — max 4 featured items */
+export const featuredPublications = publications
+  .filter((p) => p.featured)
+  .slice(0, 4);

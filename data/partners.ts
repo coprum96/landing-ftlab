@@ -5,6 +5,7 @@ export type PartnerCategory =
   | "association"
   | "financial"
   | "industry"
+  | "security"
   | "academic";
 
 export type PartnerRelation =
@@ -25,9 +26,8 @@ export type Partner = {
 };
 
 /**
- * Only organizations with clear source support.
- * Logos included only when assets exist.
- * Relationship labels stay conservative (see content-review.md).
+ * Organizations named in laboratory materials / ecosystem.
+ * Logos optimized for dark UI (transparent PNG).
  */
 export const partners: Partner[] = [
   {
@@ -62,6 +62,36 @@ export const partners: Partner[] = [
       ru: "Сотрудничество с банковской ассоциацией",
     },
     logo: "/media/partners/association-of-banks-of-russia.png",
+    featured: true,
+  },
+  {
+    id: "kaspersky",
+    name: {
+      en: "Kaspersky",
+      ru: "Лаборатория Касперского",
+    },
+    category: "security",
+    relation: "ecosystem",
+    relationLabel: {
+      en: "Cybersecurity ecosystem",
+      ru: "Кибербезопасная экосистема",
+    },
+    logo: "/media/partners/kaspersky.png",
+    featured: true,
+  },
+  {
+    id: "positive-technologies",
+    name: {
+      en: "Positive Technologies",
+      ru: "Positive Technologies",
+    },
+    category: "security",
+    relation: "ecosystem",
+    relationLabel: {
+      en: "Cybersecurity ecosystem",
+      ru: "Кибербезопасная экосистема",
+    },
+    logo: "/media/partners/positive-technologies.png",
     featured: true,
   },
   {
@@ -116,7 +146,7 @@ export const partners: Partner[] = [
   {
     id: "spbmtsb",
     name: {
-      en: "Saint Petersburg International Mercantile Exchange (SpbMTSB)",
+      en: "SPIMEX (SpbMTSB)",
       ru: "СПбМТСБ",
     },
     category: "industry",
@@ -125,6 +155,8 @@ export const partners: Partner[] = [
       en: "Named ecosystem partner",
       ru: "Указан в экосистеме партнёров",
     },
+    logo: "/media/partners/spbmtsb.png",
+    featured: true,
   },
   {
     id: "reso-garantiya",
@@ -138,6 +170,8 @@ export const partners: Partner[] = [
       en: "Program collaboration",
       ru: "Программное сотрудничество",
     },
+    logo: "/media/partners/reso-green.png",
+    featured: true,
   },
   {
     id: "rosfinmonitoring",
@@ -151,6 +185,8 @@ export const partners: Partner[] = [
       en: "Regulatory collaboration",
       ru: "Регуляторное сотрудничество",
     },
+    logo: "/media/partners/rosfinmonitoring.png",
+    featured: true,
   },
 ];
 
@@ -159,5 +195,6 @@ export const partnerCategoryLabels: Record<PartnerCategory, Localized> = {
   association: { en: "Associations", ru: "Ассоциации" },
   financial: { en: "Financial institutions", ru: "Финансовые организации" },
   industry: { en: "Industry", ru: "Индустрия" },
+  security: { en: "Cybersecurity", ru: "Кибербезопасность" },
   academic: { en: "Academic", ru: "Академия" },
 };

@@ -12,6 +12,9 @@ const staticPaths = [
   "publications",
   "people",
   "about",
+  "privacy",
+  "personal-data",
+  "terms",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

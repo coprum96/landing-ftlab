@@ -6,6 +6,7 @@ import { ResearchAreas } from "@/components/sections/ResearchAreas";
 import { MethodsSection } from "@/components/sections/MethodsSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { ImpactSection } from "@/components/sections/ImpactSection";
+import { EvidenceSection } from "@/components/sections/EvidenceSection";
 import { ExperimentsSection } from "@/components/sections/ExperimentsSection";
 import { EducationSection } from "@/components/sections/EducationSection";
 import { PublicationsSection } from "@/components/sections/PublicationsSection";
@@ -14,13 +15,13 @@ import { PartnersSection } from "@/components/sections/PartnersSection";
 import { ManifestoSection } from "@/components/sections/ManifestoSection";
 import { FieldNotesSection } from "@/components/sections/FieldNotesSection";
 import { DecisionNetworkSection } from "@/components/sections/DecisionNetworkSection";
+import { CollaborationSection } from "@/components/sections/CollaborationSection";
 import { getDictionary, isLocale, type Locale } from "@/lib/i18n";
 import { buildPageMetadata } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
-
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: raw } = await params;
@@ -47,14 +48,16 @@ export default async function HomePage({ params }: Props) {
       <MethodsSection locale={locale} dict={dict} />
       <FieldVideoSection dict={dict} />
       <ProjectsSection locale={locale} dict={dict} />
+      <EvidenceSection locale={locale} dict={dict} />
       <ImpactSection locale={locale} dict={dict} />
       <ExperimentsSection dict={dict} />
       <EducationSection locale={locale} dict={dict} />
       <ManifestoSection dict={dict} />
-      <PublicationsSection locale={locale} dict={dict} />
+      <PublicationsSection locale={locale} dict={dict} featuredOnly />
       <PeopleSection locale={locale} dict={dict} />
       <FieldNotesSection locale={locale} dict={dict} />
       <PartnersSection locale={locale} dict={dict} />
+      <CollaborationSection dict={dict} />
     </>
   );
 }

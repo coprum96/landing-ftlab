@@ -4,7 +4,7 @@ import { mediaPaths } from "@/lib/media";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-  "https://fintechlab.spbu.ru";
+  "https://www.ftlab.space";
 
 export function getSiteUrl() {
   return SITE_URL;
@@ -53,7 +53,7 @@ export function buildPageMetadata({
       url: canonical,
       title,
       description,
-      siteName: "FinTechLab / SPbU",
+      siteName: "FinTechLab",
       images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
     },
     twitter: {

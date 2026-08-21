@@ -110,12 +110,20 @@ export function DecisionNetworkSection({ dict }: { dict: Dictionary }) {
               });
             }
 
-            if (signalRef.current && path && pathLength) {
+            if (signalRef.current && path && pathLength > 0) {
               const pt = path.getPointAtLength(pathLength * p);
-              gsap.set(signalRef.current, {
-                attr: { cx: pt.x, cy: pt.y },
-                opacity: p > 0.02 && p < 0.98 ? 1 : 0,
-              });
+              if (
+                pt &&
+                Number.isFinite(pt.x) &&
+                Number.isFinite(pt.y)
+              ) {
+                signalRef.current.setAttribute("cx", pt.x.toFixed(2));
+                signalRef.current.setAttribute("cy", pt.y.toFixed(2));
+                signalRef.current.setAttribute(
+                  "opacity",
+                  p > 0.02 && p < 0.98 ? "1" : "0",
+                );
+              }
             }
           },
         },
@@ -157,7 +165,7 @@ export function DecisionNetworkSection({ dict }: { dict: Dictionary }) {
         <div className="col-span-12 md:col-span-5">
           <FadeIn>
             <div data-reveal-number>
-              <p className="label-mono text-[11px] text-accent">
+              <p className="label-mono text-[12px] text-accent">
                 {dict.decisionNetwork.title}
               </p>
             </div>
@@ -208,7 +216,14 @@ export function DecisionNetworkSection({ dict }: { dict: Dictionary }) {
                 stroke="rgba(158,27,50,0.35)"
                 strokeWidth="1"
               />
-              <circle ref={signalRef} r="3.5" fill="#9e1b32" opacity="0" />
+              <circle
+                ref={signalRef}
+                cx="8"
+                cy="16"
+                r="3.5"
+                fill="#9e1b32"
+                opacity="0"
+              />
             </svg>
 
             <div className="flex flex-wrap gap-x-5 gap-y-4 md:justify-end">
@@ -216,7 +231,7 @@ export function DecisionNetworkSection({ dict }: { dict: Dictionary }) {
                 <button
                   key={stage}
                   type="button"
-                  className="flex items-center gap-3 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                  className="flex min-h-11 items-center gap-3 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
                   onClick={() => {
                     activeRef.current = index;
                     setActive(index);
@@ -235,7 +250,7 @@ export function DecisionNetworkSection({ dict }: { dict: Dictionary }) {
                     />
                     <span
                       data-stage
-                      className="label-mono text-[11px] text-ink will-change-transform"
+                      className="label-mono text-[12px] text-ink will-change-transform"
                     >
                       {stage}
                     </span>

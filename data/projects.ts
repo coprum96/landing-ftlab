@@ -13,9 +13,7 @@ export type ProjectStatus =
   | "planned"
   | "pilot"
   | "implemented"
-  | "educational"
-  | "data-infrastructure"
-  | "registered-ip";
+  | "completed";
 
 export type Project = {
   id: string;
@@ -23,6 +21,8 @@ export type Project = {
   slug: string;
   kind: ProjectKind;
   status?: ProjectStatus;
+  /** Optional human-readable update stamp — only when source-backed */
+  updated?: Localized;
   researchAreaId?: string;
   title: Localized;
   question?: Localized;
@@ -48,13 +48,53 @@ export const statusLabels: Record<ProjectStatus, Localized> = {
   planned: { en: "PLANNED", ru: "ПЛАНИРУЕТСЯ" },
   pilot: { en: "PILOT", ru: "ПИЛОТ" },
   implemented: { en: "IMPLEMENTED", ru: "ВНЕДРЕНО" },
-  educational: { en: "EDUCATIONAL", ru: "ОБРАЗОВАНИЕ" },
-  "data-infrastructure": {
-    en: "DATA INFRASTRUCTURE",
-    ru: "ДАННЫЕ / ИНФРАСТРУКТУРА",
-  },
-  "registered-ip": { en: "REGISTERED IP", ru: "ЗАРЕГИСТРИРОВАНО" },
+  completed: { en: "COMPLETED", ru: "ЗАВЕРШЕНО" },
 };
+
+export const statusLegend: { status: ProjectStatus; meaning: Localized }[] = [
+  {
+    status: "active-research",
+    meaning: {
+      en: "Ongoing research work — not a finished product.",
+      ru: "Текущая исследовательская работа — не готовый продукт.",
+    },
+  },
+  {
+    status: "in-development",
+    meaning: {
+      en: "Being built or instrumented; not publicly deployed.",
+      ru: "В разработке или инструментировании; публично не развёрнуто.",
+    },
+  },
+  {
+    status: "pilot",
+    meaning: {
+      en: "Limited trial with partners or cohorts.",
+      ru: "Ограниченный пилот с партнёрами или когортами.",
+    },
+  },
+  {
+    status: "implemented",
+    meaning: {
+      en: "Registered, deployed, or in operational use where stated.",
+      ru: "Зарегистрировано, развёрнуто или в операционном использовании — где указано.",
+    },
+  },
+  {
+    status: "planned",
+    meaning: {
+      en: "Roadmapped initiative — not active delivery.",
+      ru: "Инициатива в дорожной карте — не активная поставка.",
+    },
+  },
+  {
+    status: "completed",
+    meaning: {
+      en: "Finished research or delivery cycle.",
+      ru: "Завершённый исследовательский или поставочный цикл.",
+    },
+  },
+];
 
 export const kindLabels: Record<ProjectKind, Localized> = {
   "research-program": { en: "Research program", ru: "Исследовательская программа" },
@@ -76,7 +116,7 @@ export const projects: Project[] = [
     number: "T/001",
     slug: "golden-detector",
     kind: "tool",
-    status: "registered-ip",
+    status: "implemented",
     researchAreaId: "protective-behavioral-technologies",
     title: {
       en: "Golden Detector Simulator",
@@ -378,7 +418,7 @@ export const projects: Project[] = [
     number: "T/002",
     slug: "fintech-user-behavior",
     kind: "tool",
-    status: "registered-ip",
+    status: "implemented",
     researchAreaId: "cognitive-behavioral-security",
     title: {
       en: "Fintech User Behavior",
@@ -404,7 +444,7 @@ export const projects: Project[] = [
     number: "T/003",
     slug: "financial-anxiety-assessment",
     kind: "tool",
-    status: "registered-ip",
+    status: "implemented",
     researchAreaId: "cognitive-behavioral-security",
     title: {
       en: "Financial Anxiety Assessment Database",
@@ -430,7 +470,7 @@ export const projects: Project[] = [
     number: "T/004",
     slug: "insurance-behavior-assessment",
     kind: "tool",
-    status: "registered-ip",
+    status: "implemented",
     researchAreaId: "cognitive-behavioral-security",
     title: {
       en: "Insurance Behavior Assessment Database",

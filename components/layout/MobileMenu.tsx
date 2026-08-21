@@ -12,6 +12,9 @@ type NavLink = {
   path: string;
 };
 
+const FOCUSABLE =
+  'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+
 export function MobileMenu({
   open,
   onClose,
@@ -27,6 +30,7 @@ export function MobileMenu({
 }) {
   const titleId = useId();
   const closeRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
   const previouslyFocused = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -39,10 +43,33 @@ export function MobileMenu({
     document.body.style.overflow = "hidden";
     document.documentElement.classList.add("menu-open");
 
+    const main = document.getElementById("main");
+    const footer = document.querySelector("footer");
+    main?.setAttribute("inert", "");
+    main?.setAttribute("aria-hidden", "true");
+    footer?.setAttribute("inert", "");
+    footer?.setAttribute("aria-hidden", "true");
+
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         event.preventDefault();
         onClose();
+        return;
+      }
+      if (event.key !== "Tab" || !panelRef.current) return;
+      const focusables = Array.from(
+        panelRef.current.querySelectorAll<HTMLElement>(FOCUSABLE),
+      ).filter((el) => !el.hasAttribute("disabled") && el.tabIndex !== -1);
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+      if (event.shiftKey && active === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
       }
     };
     window.addEventListener("keydown", onKey);
@@ -56,6 +83,10 @@ export function MobileMenu({
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = prevOverflow;
       document.documentElement.classList.remove("menu-open");
+      main?.removeAttribute("inert");
+      main?.removeAttribute("aria-hidden");
+      footer?.removeAttribute("inert");
+      footer?.removeAttribute("aria-hidden");
       lenis?.start();
       previouslyFocused.current?.focus?.();
     };
@@ -65,6 +96,7 @@ export function MobileMenu({
     <AnimatePresence>
       {open ? (
         <motion.div
+          ref={panelRef}
           id="mobile-menu"
           role="dialog"
           aria-modal="true"
@@ -79,20 +111,20 @@ export function MobileMenu({
           }}
         >
           <div className="flex items-center justify-between">
-            <span id={titleId} className="label-mono text-[11px]">
+            <span id={titleId} className="label-mono text-[12px]">
               {dict.nav.brand}
             </span>
             <button
               ref={closeRef}
               type="button"
-              className="label-mono min-h-11 min-w-11 px-3 text-[11px] text-ink underline decoration-white/30 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+              className="label-mono min-h-11 min-w-11 px-3 text-[12px] text-ink underline decoration-white/30 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
               onClick={onClose}
             >
               {dict.nav.close}
             </button>
           </div>
 
-          <nav className="mt-16 flex flex-col gap-6" aria-label={dict.nav.menu}>
+          <nav className="mt-16 flex flex-col gap-2" aria-label={dict.nav.menu}>
             {links.map((item, index) => (
               <motion.div
                 key={item.path}
@@ -103,7 +135,7 @@ export function MobileMenu({
                 <Link
                   href={getLocalizedPath(locale, item.path)}
                   onClick={onClose}
-                  className="headline-display block break-words focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                  className="headline-display block min-h-11 break-words py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
                 >
                   {dict.nav[item.key]}
                 </Link>

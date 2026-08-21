@@ -11,6 +11,7 @@ import {
   kindLabels,
   projects,
   statusLabels,
+  statusLegend,
   type Project,
 } from "@/data/projects";
 import { mediaPaths } from "@/lib/media";
@@ -44,12 +45,29 @@ export function ProjectsSection({
           {!all ? (
             <Link
               href={getLocalizedPath(locale, "projects")}
-              className="label-mono text-[11px] text-muted transition-colors hover:text-accent"
+              className="label-mono inline-flex min-h-11 items-center text-[12px] text-muted transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
             >
               {dict.projects.viewAll} →
             </Link>
           ) : null}
         </div>
+
+        <details className="col-span-12 mt-8 max-w-xl">
+          <summary className="label-mono cursor-pointer list-none text-[12px] text-muted underline decoration-white/20 underline-offset-4 marker:content-none [&::-webkit-details-marker]:hidden">
+            {dict.projects.statusLegend}
+          </summary>
+          <ul className="mt-4 space-y-2 border-t border-white/10 pt-4 text-[13px] text-muted">
+            {statusLegend.map((entry) => (
+              <li key={entry.status}>
+                <span className="text-ink/90">
+                  {statusLabels[entry.status][locale]}
+                </span>
+                <span className="text-muted"> — </span>
+                <span>{entry.meaning[locale]}</span>
+              </li>
+            ))}
+          </ul>
+        </details>
 
         <div className="col-span-12 mt-16 grid grid-cols-1 gap-8 md:mt-24 md:grid-cols-12 md:gap-6">
           {items.map((project, index) => (
@@ -172,17 +190,28 @@ function ProjectCard({
         <div
           data-card-meta
           className={cx(
-            "mt-5 flex flex-wrap items-center gap-3 label-mono text-[10px] text-muted transition-transform duration-500 ease-out",
+            "mt-5 flex flex-wrap items-center gap-3 label-mono text-[12px] text-muted transition-transform duration-500 ease-out",
             !touch && !reduced && "group-hover:-translate-y-[3px]",
           )}
         >
           <span>{project.number}</span>
-          <span className="text-accent">/</span>
-          <span>{kindLabels[project.kind][locale]}</span>
-          {project.year || status ? (
-            <span className="md:ml-auto">
-              {[project.year, status].filter(Boolean).join(" — ")}
-            </span>
+          {status ? (
+            <>
+              <span className="text-accent">/</span>
+              <span
+                className={cx(
+                  project.status === "planned" ||
+                    project.status === "in-development"
+                    ? "text-muted"
+                    : "text-ink/85",
+                )}
+              >
+                {status}
+              </span>
+            </>
+          ) : null}
+          {project.year ? (
+            <span className="md:ml-auto">{project.year}</span>
           ) : null}
         </div>
         <h3
@@ -199,7 +228,7 @@ function ProjectCard({
         <p
           data-card-arrow
           className={cx(
-            "label-mono mt-5 inline-flex items-center gap-2 text-[10px] text-ink/80 transition-transform duration-300 ease-out",
+            "label-mono mt-5 inline-flex min-h-11 items-center gap-2 text-[12px] text-ink/85 transition-transform duration-300 ease-out",
             !touch && !reduced && "group-hover:translate-x-[7px]",
           )}
         >
