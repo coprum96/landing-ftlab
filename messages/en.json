@@ -1,0 +1,207 @@
+{
+  "meta": {
+    "title": "FinTechLab / SPbU — Behavior × Finance × Technology × Security",
+    "description": "Research laboratory at Saint Petersburg State University studying behavioral vulnerabilities, digital victimology, protective technologies, and regulatory analytics in finance."
+  },
+  "nav": {
+    "brand": "FINTECHLAB",
+    "research": "Research",
+    "projects": "Projects",
+    "publications": "Publications",
+    "people": "People",
+    "education": "Education",
+    "about": "About",
+    "contact": "Contact",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "cursor": {
+    "view": "VIEW",
+    "play": "PLAY",
+    "open": "OPEN",
+    "read": "READ"
+  },
+  "hero": {
+    "label": "FINTECHLAB — EST. 2025",
+    "line1": "BEHAVIOR.",
+    "line2": "FINANCE.",
+    "line3": "PROTECTION.",
+    "supporting": "We study behavioral vulnerabilities in digital finance — and turn experimental evidence into protective technologies, education, and regulatory insight.",
+    "cta": "EXPLORE RESEARCH"
+  },
+  "fieldVideo": {
+    "label": "/ FIELD SIGNAL",
+    "line1": "Protective knowledge",
+    "line2": "fails under pressure.",
+    "line3": "We measure why."
+  },
+  "research": {
+    "label": "/01 — RESEARCH",
+    "heading": "Four research pillars.",
+    "questionLabel": "Question",
+    "methodLabel": "Method",
+    "outputLabel": "Output",
+    "applicationLabel": "Application"
+  },
+  "methods": {
+    "label": "/02 — HOW WE STUDY BEHAVIOR",
+    "heading": "Research instruments.",
+    "supporting": "Experimental simulation, measurement, modeling, and intervention design — scored by changes in action, not only awareness."
+  },
+  "projects": {
+    "label": "/03 — CURRENT RESEARCH & TECHNOLOGY",
+    "heading": "From programs to tools.",
+    "explore": "Explore",
+    "viewAll": "All projects"
+  },
+  "impact": {
+    "label": "/04 — FROM RESEARCH TO IMPACT",
+    "heading": "Science that becomes protection.",
+    "supporting": "A working loop from observation to implementation in financial environments."
+  },
+  "experiments": {
+    "label": "/ EXPERIMENT",
+    "heading": "Would you recognize manipulation under pressure?",
+    "supporting": "A short live probe from the Cognitive-Behavioral Security line — feel how urgency, authority, and loss cues stack before a financial action.",
+    "cta": "START PRESSURE PROBE",
+    "ctaRunning": "PROBE RUNNING",
+    "ctaDone": "RUN AGAIN",
+    "modalTitle": "Interactive behavioral experiment",
+    "modalBody": "Interactive behavioral experiment coming soon.",
+    "modalClose": "Close",
+    "probePrompt": "Secure Banking Alert",
+    "probeBody": "Unusual transfer detected. Confirm identity within 45 seconds to prevent account freeze.",
+    "probeAction": "CONFIRM NOW",
+    "probeRefuse": "IGNORE",
+    "probeTimer": "TIME LEFT",
+    "probeLevers": "Active levers",
+    "probeResultCaught": "You refused under pressure — protective pause held.",
+    "probeResultMissed": "You confirmed under stacked cues — a common vulnerability pattern.",
+    "probeHint": "This is a safe laboratory simulation. No data is sent."
+  },
+  "education": {
+    "label": "/05 — FROM RESEARCH TO EDUCATION",
+    "heading": "Education as infrastructure.",
+    "supporting": "Master’s programs, professional courses, and training formats that move laboratory methods into classrooms and financial organizations.",
+    "viewAll": "All programs"
+  },
+  "publications": {
+    "label": "/06 — RESEARCH OUTPUT",
+    "heading": "Selected research output.",
+    "filters": {
+      "all": "ALL",
+      "papers": "PAPERS",
+      "conferences": "CONFERENCES",
+      "datasets": "REGISTERED IP",
+      "working": "BOOKS"
+    },
+    "types": {
+      "journal": "JOURNAL ARTICLE",
+      "conference": "CONFERENCE",
+      "dataset": "DATASET",
+      "working": "WORKING PAPER",
+      "patent": "REGISTERED IP",
+      "book": "BOOK / MANUAL"
+    }
+  },
+  "people": {
+    "label": "/07 — LABORATORY",
+    "heading": "People behind the research.",
+    "supporting": "Academia, regulation, and banking practice in one research unit.",
+    "viewProfile": "Profile"
+  },
+  "partners": {
+    "label": "/08 — ECOSYSTEM",
+    "heading": "Science connected to practice.",
+    "supporting": "Collaborations named in laboratory materials. Relationship labels stay conservative."
+  },
+  "manifesto": {
+    "line1": "Financial systems are technological.",
+    "line2": "Financial decisions are human.",
+    "line3": "We study the space where manipulation meets protection."
+  },
+  "fieldNotes": {
+    "label": "/ FIELD NOTES",
+    "heading": "Field Notes",
+    "read": "Read note"
+  },
+  "footer": {
+    "institution": "Saint Petersburg State University",
+    "tagline1": "FROM UNDERSTANDING BEHAVIOR",
+    "tagline2": "TO FINANCIAL PROTECTION.",
+    "copyright": "© 2026 FinTechLab / SPbU. All rights reserved.",
+    "attribution": "Laboratory of Modern Financial Technologies at Saint Petersburg State University."
+  },
+  "pages": {
+    "research": {
+      "title": "Research",
+      "subtitle": "Cognitive-behavioral security, digital victimology, protective technologies, and regulatory analytics."
+    },
+    "projects": {
+      "title": "Projects",
+      "subtitle": "Research programs, infrastructure, tools, and implementations — with factual status where known."
+    },
+    "publications": {
+      "title": "Publications",
+      "subtitle": "Selected articles, conference materials, books, and registered research software/databases."
+    },
+    "people": {
+      "title": "People",
+      "subtitle": "Researchers and practitioners shaping the laboratory agenda."
+    },
+    "education": {
+      "title": "Education",
+      "subtitle": "From research methods to master’s programs, professional courses, and public campaigns."
+    },
+    "about": {
+      "title": "About",
+      "subtitle": "FinTechLab SPbU studies the relationship between human behavior, financial environments, digital systems, and protection.",
+      "body": "Founded in 2025 at Saint Petersburg State University, the Laboratory of Modern Financial Technologies builds a scientific and applied base against behavioral vulnerabilities in modern financial threats. Work integrates behavioral economics, neuroscience, digital victimology, and financial-security practice — moving from experiment to technology, education, and regulatory insight."
+    }
+  },
+  "decisionNetwork": {
+    "title": "THE DECISION NETWORK",
+    "heading": "From stimulus to financial action.",
+    "supporting": "A live map of how a financial choice forms — from the first cue to the irreversible click.",
+    "stages": [
+      "STIMULUS",
+      "PERCEPTION",
+      "BIAS",
+      "PRESSURE",
+      "DECISION",
+      "ACTION"
+    ],
+    "stageCopy": [
+      "An external cue enters the field — message, alert, offer, authority signal.",
+      "Attention locks; meaning is assigned faster than verification can catch up.",
+      "Cognitive shortcuts tilt the frame — trust, loss, urgency, social proof.",
+      "Time and consequence compress the option space until pause feels costly.",
+      "A choice crystallizes under incomplete information and affective load.",
+      "Behavior becomes irreversible: transfer, disclosure, compliance, silence."
+    ],
+    "labels": [
+      "TRUST",
+      "RISK",
+      "LOSS",
+      "URGENCY",
+      "AUTHORITY",
+      "DECISION",
+      "TIME PRESSURE",
+      "LOSS AVERSION",
+      "UNCERTAINTY",
+      "TRANSACTION"
+    ]
+  },
+  "projectDetail": {
+    "overview": "Overview",
+    "question": "Research question",
+    "why": "Why it matters",
+    "method": "Method",
+    "output": "Output",
+    "application": "Application",
+    "media": "Media",
+    "demo": "Research demo",
+    "statusNote": "Status",
+    "back": "All projects"
+  }
+}
