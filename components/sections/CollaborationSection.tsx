@@ -1,4 +1,5 @@
-import { SectionLabel } from "@/components/ui/SectionLabel";
+"use client";
+
 import { FadeIn } from "@/components/motion/RevealText";
 import { lab } from "@/data/lab";
 import type { Dictionary } from "@/lib/i18n";
@@ -15,46 +16,23 @@ export function CollaborationSection({ dict }: { dict: Dictionary }) {
       aria-labelledby="collaborate-title"
     >
       <div className="editorial-grid">
-        <div className="col-span-12 md:col-span-8">
+        <div className="col-span-12 md:col-span-10 lg:col-span-9">
           <FadeIn>
-            <div data-reveal-number>
-              <SectionLabel>{dict.collaborate.label}</SectionLabel>
-            </div>
+            <p className="label-mono text-[12px] text-accent">
+              {dict.collaborate.label}
+            </p>
             <h2
               id="collaborate-title"
-              data-reveal-title
-              className="headline-section mt-6 max-w-3xl"
+              className="mt-6 max-w-4xl text-[clamp(2rem,6.5vw,4.75rem)] font-medium leading-[1.02] tracking-[-0.035em] text-ink"
             >
               {dict.collaborate.heading}
             </h2>
-            <p
-              data-reveal-block
-              className="mt-6 max-w-xl text-base leading-relaxed text-muted"
-            >
-              {dict.collaborate.body}
-            </p>
-            <ul className="mt-6 space-y-2 text-sm leading-relaxed text-muted md:text-[15px]">
-              {dict.collaborate.audiences.map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span className="text-accent" aria-hidden>
-                    —
-                  </span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-12 sm:mt-14">
               <a
                 href={mailto}
-                className="label-mono inline-flex min-h-11 items-center border border-white/25 px-5 py-3 text-[12px] text-ink transition-colors duration-300 hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                className="cta-pulse label-mono inline-flex min-h-12 items-center border border-accent/70 bg-accent/10 px-7 py-4 text-[12px] tracking-[0.14em] text-ink transition-colors duration-300 hover:border-accent hover:bg-accent/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
               >
-                {dict.collaborate.primaryCta}
-              </a>
-              <a
-                href={mailto}
-                className="label-mono inline-flex min-h-11 items-center border border-white/12 px-5 py-3 text-[12px] text-muted transition-colors duration-300 hover:border-white/30 hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-              >
-                {dict.collaborate.secondaryCta}
+                {dict.collaborate.cta}
               </a>
             </div>
             <p className="label-mono mt-6 text-[12px] text-muted">

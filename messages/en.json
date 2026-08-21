@@ -356,18 +356,9 @@
   },
   "collaborate": {
     "label": "WORK WITH FTLAB",
-    "heading": "Research questions become stronger when they meet real-world problems.",
-    "body": "FinTechLab is open to research collaborations with financial institutions, regulators, technology partners, and academic groups who need evidence-based approaches to behavioral risk in finance.",
-    "audiences": [
-      "Research collaborations",
-      "Financial institutions",
-      "Regulators",
-      "Technology partners",
-      "Academic collaborators"
-    ],
-    "primaryCta": "PROPOSE A RESEARCH COLLABORATION",
-    "secondaryCta": "CONTACT THE LAB",
-    "mailSubject": "Research collaboration — FinTechLab SPbU"
+    "heading": "Still losing people to pressure and manipulation — or ready to build real behavioral defense?",
+    "cta": "CONTACT US",
+    "mailSubject": "Contact — FinTechLab SPbU"
   },
   "evidence": {
     "label": "/ EVIDENCE",

@@ -59,20 +59,20 @@ export default async function PersonDetailPage({ params }: Props) {
             >
               ← {dict.nav.people}
             </Link>
-            <div className="media-mask relative mt-8 aspect-[3/4] overflow-hidden">
+            <div className="media-mask portrait-frame relative mt-8 aspect-[3/4] overflow-hidden">
               {person.hasPhoto ? (
                 <Image
                   src={mediaPaths.personPortrait(person.id)}
                   alt={person.name[locale]}
                   fill
-                  className="portrait-bw object-cover"
+                  className="portrait-color object-cover"
                   sizes="(max-width: 768px) 100vw, 40vw"
                   priority
                 />
               ) : (
                 <AbstractMedia
                   motif={person.motif}
-                  className="portrait-bw absolute inset-0 h-full w-full"
+                  className="portrait-color absolute inset-0 h-full w-full"
                   label={person.name[locale]}
                 >
                   <div className="absolute inset-0 flex items-center justify-center">

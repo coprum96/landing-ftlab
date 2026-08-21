@@ -16,6 +16,10 @@ type Props = {
   poster?: React.ReactNode;
 };
 
+/**
+ * Media card with optional muted video.
+ * Plays on hover (desktop) and automatically when scrolled into view (mobile + desktop).
+ */
 export function InteractiveMedia({
   children,
   caption,
@@ -33,7 +37,26 @@ export function InteractiveMedia({
   const reduced = useReducedMotionPreferred();
   const parallax = useRef({ x: 0, y: 0, tx: 0, ty: 0, scale: 1 });
   const hovering = useRef(false);
+  const inView = useRef(false);
   const rafRef = useRef(0);
+
+  const startVideo = async () => {
+    const video = videoRef.current;
+    if (!video || !videoSrc || reduced) return;
+    try {
+      await video.play();
+      setPlaying(true);
+    } catch {
+      setPlaying(false);
+    }
+  };
+
+  const stopVideo = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.pause();
+    setPlaying(false);
+  };
 
   useEffect(() => {
     const video = videoRef.current;
@@ -41,6 +64,29 @@ export function InteractiveMedia({
       video?.pause();
     };
   }, []);
+
+  // Scroll / viewport playback — critical on touch where hover never fires
+  useEffect(() => {
+    if (!videoSrc || !wrapRef.current || reduced) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          inView.current = entry.isIntersecting;
+          if (entry.isIntersecting) {
+            void startVideo();
+          } else if (!hovering.current) {
+            stopVideo();
+          }
+        }
+      },
+      { threshold: 0.35, rootMargin: "0px 0px -8% 0px" },
+    );
+
+    observer.observe(wrapRef.current);
+    return () => observer.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- start/stop read refs
+  }, [videoSrc, reduced]);
 
   useEffect(() => {
     if (touch || reduced) return;
@@ -67,18 +113,10 @@ export function InteractiveMedia({
     parallax.current.ty = py * motion.card.parallaxMax * 2;
   };
 
-  const onEnter = async () => {
+  const onEnter = () => {
     hovering.current = true;
     parallax.current.scale = motion.card.imageScale;
-
-    if (!videoSrc || !videoRef.current) return;
-    try {
-      videoRef.current.currentTime = 0;
-      await videoRef.current.play();
-      setPlaying(true);
-    } catch {
-      setPlaying(false);
-    }
+    void startVideo();
   };
 
   const onLeave = () => {
@@ -97,10 +135,8 @@ export function InteractiveMedia({
         overwrite: "auto",
       });
     }
-    if (videoRef.current) {
-      videoRef.current.pause();
-      setPlaying(false);
-    }
+    // Keep playing if still in viewport (scroll-driven); stop only when off-screen
+    if (!inView.current) stopVideo();
   };
 
   return (
@@ -136,13 +172,15 @@ export function InteractiveMedia({
               src={videoSrc}
               poster={
                 videoSrc.includes("/videos/")
-                  ? videoSrc.replace("/videos/", "/posters/").replace(/\.mp4$/, ".jpg")
+                  ? videoSrc
+                      .replace("/videos/", "/posters/")
+                      .replace(/\.mp4$/, ".jpg")
                   : undefined
               }
               muted
               loop
               playsInline
-              preload="none"
+              preload="metadata"
               aria-hidden
             />
           ) : null}

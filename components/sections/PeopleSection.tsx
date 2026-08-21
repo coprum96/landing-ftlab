@@ -48,7 +48,7 @@ export function PeopleSection({
                 className="block"
               >
                 <div
-                  className="media-mask relative aspect-[3/4] overflow-hidden"
+                  className="media-mask portrait-frame relative aspect-[3/4] overflow-hidden"
                   data-cursor="view"
                 >
                   {person.hasPhoto ? (
@@ -56,13 +56,13 @@ export function PeopleSection({
                       src={mediaPaths.personPortrait(person.id)}
                       alt={person.name[locale]}
                       fill
-                      className="portrait-bw object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                      className="portrait-color object-cover"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
                   ) : (
                     <AbstractMedia
                       motif={person.motif}
-                      className="portrait-bw absolute inset-0 h-full w-full"
+                      className="portrait-color absolute inset-0 h-full w-full"
                       label={person.name[locale]}
                     >
                       <div className="absolute inset-0 flex items-center justify-center">
