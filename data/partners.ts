@@ -188,6 +188,36 @@ export const partners: Partner[] = [
     logo: "/media/partners/rosfinmonitoring.png",
     featured: true,
   },
+  {
+    id: "yandex",
+    name: {
+      en: "Yandex",
+      ru: "Яндекс",
+    },
+    category: "industry",
+    relation: "ecosystem",
+    relationLabel: {
+      en: "Named ecosystem partner",
+      ru: "Указан в экосистеме партнёров",
+    },
+    logo: "/media/partners/yandex.png",
+    featured: true,
+  },
+  {
+    id: "ozon",
+    name: {
+      en: "Ozon",
+      ru: "Ozon",
+    },
+    category: "industry",
+    relation: "ecosystem",
+    relationLabel: {
+      en: "Named ecosystem partner",
+      ru: "Указан в экосистеме партнёров",
+    },
+    logo: "/media/partners/ozon.png",
+    featured: true,
+  },
 ];
 
 export const partnerCategoryLabels: Record<PartnerCategory, Localized> = {

@@ -70,33 +70,154 @@
   },
   "experiments": {
     "label": "/ EXPERIMENT",
-    "heading": "Would you recognize manipulation under pressure?",
-    "supporting": "A short live probe from the Cognitive-Behavioral Security line — feel how urgency, authority, and loss cues stack before a financial action.",
-    "cta": "START PRESSURE PROBE",
-    "ctaRunning": "PROBE RUNNING",
-    "ctaDone": "RUN AGAIN",
-    "modalTitle": "Interactive behavioral experiment",
-    "modalBody": "Interactive behavioral experiment coming soon.",
-    "modalClose": "Close",
-    "probePrompt": "Secure Banking Alert",
-    "probeBody": "Unusual transfer detected. Confirm identity within 45 seconds to prevent account freeze.",
-    "probeAction": "CONFIRM NOW",
-    "probeRefuse": "IGNORE",
-    "probeTimer": "TIME LEFT",
-    "probeLevers": "Active levers",
-    "probeResultCaught": "You refused under pressure — protective pause held.",
-    "probeResultMissed": "You confirmed under stacked cues — a common vulnerability pattern.",
-    "probeHint": "This is a safe laboratory simulation. No data is sent.",
-    "resultTitle": "YOUR DECISION",
-    "influencedTitle": "WHAT INFLUENCED THE CHOICE",
-    "saferTitle": "SAFER RESPONSE",
-    "researchTitle": "RESEARCH CONTEXT",
-    "researchLink": "HOW WE STUDY DECISIONS UNDER PRESSURE →",
-    "disclaimer": "Educational research demonstration — not a diagnostic tool.",
-    "saferCaught": "Keep the pause: verify the channel independently, contact the institution through a known number, and treat countdown pressure as a signal to slow down.",
-    "saferMissed": "Under stacked urgency and authority cues, delay irreversible actions. Re-open the request through an official app or hotline you already trust.",
-    "whyCaught": "Refusing interrupted the pressure sequence before disclosure or confirmation.",
-    "whyMissed": "Confirming under a countdown is a high-risk pattern in social-engineering scenarios — even when the message looks institutional."
+    "heading": "Would you recognize\nmanipulation\nunder pressure?",
+    "supporting": "A short interactive simulation. Experience a financial social-engineering attack in two steps — and see how FTLAB breaks down the manipulation behind it.",
+    "ctaEnter": "ENTER THE SIMULATION",
+    "step1": "STEP 1 OF 2",
+    "step2": "STEP 2 OF 2",
+    "safeLabel": "SAFE SIMULATION",
+    "safeHint": "No personal data is requested, stored or transmitted.",
+    "analysisTitle": "FTLAB / SIGNAL ANALYSIS",
+    "statusAnalyzing": "ANALYZING MESSAGE STRUCTURE...",
+    "statusEscalation": "ESCALATION DETECTED",
+    "statusPattern": "MANIPULATION PATTERN IDENTIFIED",
+    "statusBroken": "ATTACK FLOW BROKEN",
+    "statusCompleted": "ATTACK COMPLETED",
+    "statusAnatomy": "SIMULATION ANALYSIS COMPLETE",
+    "stage1Title": "SECURE BANKING ALERT",
+    "stage1Headline": "UNUSUAL TRANSFER DETECTED",
+    "stage1Amount": "€1,840",
+    "stage1Body": "A transfer is pending. Confirm cancellation to prevent temporary account restrictions.",
+    "stage1TimerLabel": "TIME LEFT",
+    "stage1Primary": "STOP TRANSFER",
+    "stage1Secondary": "VERIFY INDEPENDENTLY",
+    "stage2Title": "SECURITY VERIFICATION",
+    "stage2Body": "Cancellation received. Approve the security request to stop the payment.",
+    "stage2TimerLabel": "TIME LEFT",
+    "stage2Primary": "APPROVE REQUEST",
+    "stage2Secondary": "LEAVE AND VERIFY OFFICIALLY",
+    "signals": {
+      "urgency": {
+        "id": "01",
+        "label": "URGENCY",
+        "blurb": "Countdown creates artificial decision pressure.",
+        "detail": "Artificial time pressure reduces the opportunity for deliberate verification."
+      },
+      "loss": {
+        "id": "02",
+        "label": "LOSS FRAMING",
+        "blurb": "The message focuses attention on immediate financial loss.",
+        "detail": "Threatening immediate loss shifts attention toward avoiding the loss."
+      },
+      "authority": {
+        "id": "03",
+        "label": "AUTHORITY CUE",
+        "blurb": "The interface presents itself as an official security notice.",
+        "detail": "Messages presented as trusted institutions can increase compliance."
+      },
+      "forcedFlow": {
+        "id": "04",
+        "label": "FORCED FLOW",
+        "blurb": "The message keeps the user inside a sequence controlled by the attacker.",
+        "detail": "The attacker attempts to keep every next decision inside an environment they control."
+      },
+      "cognitiveLoad": {
+        "id": "05",
+        "label": "COGNITIVE LOAD",
+        "blurb": "Multiple warnings and time pressure reduce space for deliberate evaluation.",
+        "detail": "Stacked cues shrink the window for slow, reflective judgment."
+      },
+      "commitment": {
+        "id": "06",
+        "label": "ESCALATING COMMITMENT",
+        "blurb": "After the first interaction, the next request becomes easier to accept.",
+        "detail": "Prior engagement lowers resistance to the next compliance request."
+      },
+      "timePressure": {
+        "id": "07",
+        "label": "TIME PRESSURE",
+        "blurb": "A shrinking countdown intensifies the urge to act inside the message.",
+        "detail": "Intensifying timers push attention toward immediate response."
+      }
+    },
+    "patternTitle": "MANIPULATION PATTERN IDENTIFIED",
+    "patternName": "SOCIAL ENGINEERING / FINANCIAL IMPERSONATION",
+    "patternMechanismsLabel": "BEHAVIORAL MECHANISMS",
+    "patternMechanisms": ["URGENCY", "AUTHORITY", "LOSS AVERSION", "FORCED FLOW"],
+    "patternObjectiveLabel": "ATTACK OBJECTIVE",
+    "patternObjective": "KEEP THE USER INSIDE THE ATTACKER-CONTROLLED DECISION PATH",
+    "pathsTitle": "DECISION PATHS",
+    "attackerPathLabel": "ATTACKER PATH",
+    "attackerPath": ["MESSAGE", "PRESSURE", "RESPONSE", "NEXT REQUEST", "COMPLIANCE"],
+    "safePathLabel": "SAFE PATH",
+    "safePath": ["MESSAGE", "PAUSE", "EXIT FLOW", "INDEPENDENT VERIFICATION"],
+    "brokenHeadline": "ATTACK FLOW BROKEN",
+    "brokenSub": "You left the attacker-controlled sequence. That is the critical defensive action.",
+    "whyWorkedTitle": "WHY THIS WORKED",
+    "whyWorked": [
+      "You stopped reacting inside the message.",
+      "You created time for deliberate evaluation.",
+      "You moved verification to an independent channel.",
+      "The attacker lost control of the interaction."
+    ],
+    "safeDecisionTitle": "SAFE DECISION PATH",
+    "safeDecisionPath": ["PAUSE", "EXIT", "VERIFY", "DECIDE"],
+    "completedHeadline": "ATTACK COMPLETED",
+    "completedSafeNote": "THIS WAS A SAFE SIMULATION.",
+    "completedSafeBody": "No payment occurred. No information was requested. Nothing was stored.",
+    "whereWonTitle": "WHERE THE ATTACK WON",
+    "whereWonBody": "The attacker maintained control of the decision path from message to action.",
+    "whereWonStack": ["URGENCY", "AUTHORITY", "LOSS", "FORCED FLOW"],
+    "whereWonMid": "REDUCED REFLECTION",
+    "whereWonEnd": "COMPLIANCE",
+    "defensiveTitle": "THE DEFENSIVE MOVE",
+    "defensiveBody": "BREAK THE FLOW. Leave the message. Open the official service independently. Verify before acting.",
+    "anatomyTitle": "ANATOMY OF THE ATTACK",
+    "anatomyAttackLabel": "ATTACK ARCHITECTURE",
+    "anatomyAttack": [
+      "INITIAL SIGNAL",
+      "AUTHORITY",
+      "URGENCY",
+      "FEAR OF LOSS",
+      "TIME PRESSURE",
+      "ATTENTION NARROWS",
+      "FORCED DECISION PATH",
+      "COMPLIANCE REQUEST"
+    ],
+    "anatomyDefenseLabel": "DEFENSE PATH",
+    "anatomyDefense": ["PAUSE", "BREAK CONTACT", "INDEPENDENT VERIFICATION", "SAFE DECISION"],
+    "readsTitle": "HOW FTLAB READS THE SCENARIO",
+    "readsNote": "This refers to this simulation — not an actual visitor risk model.",
+    "reads": [
+      {
+        "id": "01",
+        "label": "LANGUAGE",
+        "items": ["Urgency", "Threat framing", "Authority language"]
+      },
+      {
+        "id": "02",
+        "label": "INTERACTION",
+        "items": ["Forced sequence", "Reduced exit opportunities", "Escalation"]
+      },
+      {
+        "id": "03",
+        "label": "DECISION ARCHITECTURE",
+        "items": ["Time pressure", "Loss framing", "Controlled choice environment"]
+      },
+      {
+        "id": "04",
+        "label": "BEHAVIORAL MECHANISMS",
+        "items": ["Authority bias", "Loss aversion", "Cognitive load", "Commitment escalation"]
+      }
+    ],
+    "classificationLabel": "SIMULATION CLASSIFICATION",
+    "classification": "SOCIAL-ENGINEERING PRESSURE PATTERN",
+    "ctaAgain": "TRY THE ATTACK AGAIN",
+    "ctaResearch": "EXPLORE COGNITIVE-BEHAVIORAL SECURITY →",
+    "ctaExplore": "VIEW FTLAB RESEARCH →",
+    "ctaLinkedIn": "FOLLOW FTLAB ON LINKEDIN ↗",
+    "continueAnatomy": "OPEN ATTACK ANATOMY",
+    "disclaimer": "Educational simulation — not a diagnostic tool, not an individual fraud-risk assessment, and not a formal scientific study."
   },
   "education": {
     "label": "/05 — FROM RESEARCH TO EDUCATION",
@@ -156,9 +277,10 @@
     "attribution": "Laboratory of Modern Financial Technologies at Saint Petersburg State University.",
     "privacy": "Privacy",
     "personalData": "Personal data",
-    "terms": "Terms of use",
-    "contact": "Contact the lab",
-    "legalNote": "Draft legal pages — pending institutional review."
+    "terms": "Terms",
+    "researchDisclaimer": "Research Disclaimer",
+    "linkedin": "FinTechLab on LinkedIn",
+    "contact": "Contact the lab"
   },
   "pages": {
     "research": {
@@ -254,91 +376,186 @@
   },
   "legal": {
     "privacy": {
-      "title": "Privacy",
-      "updated": "Draft — pending legal review",
-      "intro": "This page describes how the FinTechLab SPbU website handles information. It is a working draft and does not replace an institutionally approved privacy policy.",
+      "title": "Privacy Policy",
+      "updated": "Effective date: 21 August 2026",
+      "intro": "This Privacy Policy explains how the FinTechLab SPbU website (the “Website”) handles information when you visit or use it. The Website is operated by the Laboratory of Modern Financial Technologies at Saint Petersburg State University (“FinTechLab”, “we”, “us”). By using the Website, you acknowledge this Policy.",
       "sections": [
         {
-          "h": "What this site may collect",
-          "p": "Browsing the public pages does not require an account. If you email the laboratory, we receive the content of your message and your email address."
+          "h": "1. Controller and contact",
+          "p": "For privacy matters relating to this Website, contact FinTechLab at legal@ftlab.space. FinTechLab is a research laboratory of Saint Petersburg State University. Where institutional rules of the University apply, those rules prevail to the extent of any conflict with this Policy."
         },
         {
-          "h": "Analytics",
-          "p": "No third-party analytics package is enabled on this site at the time of this draft."
+          "h": "2. Scope",
+          "p": "This Policy applies to the public Website and the interactive educational simulation hosted on it. It does not govern offline research projects, separate University systems, partner platforms, or third-party sites linked from the Website."
         },
         {
-          "h": "Cookies",
-          "p": "The site does not set advertising cookies. Essential technical storage used by the browser for basic site operation may still apply."
+          "h": "3. Information we process",
+          "p": "Browsing public pages does not require registration. If you email us, we process the content of your message, your email address, and any personal data you voluntarily include, solely to respond and manage correspondence. We do not operate a contact form that writes personal data into a Website database."
         },
         {
-          "h": "Interactive experiment",
-          "p": "The pressure-probe demonstration runs locally in your browser. The site states that experiment interaction data is not sent to a server."
+          "h": "4. Interactive simulation — no experiment data collection",
+          "p": "The anti-fraud simulation does not request personal data, banking details, credentials, one-time codes, PINs, or payment information. Choices, timing, click behaviour, results, and experiment state are not stored, logged, or transmitted to our servers. Experiment state exists only temporarily in browser memory for the active session and is discarded when you refresh or leave the page."
         },
         {
-          "h": "Contact",
-          "p": "For privacy questions related to this website, contact the laboratory using the address published in the footer."
+          "h": "5. Cookies and similar technologies",
+          "p": "The Website does not use advertising cookies or third-party marketing trackers. The browser may still apply essential technical mechanisms required for ordinary operation of a website (for example, session continuity or security features provided by the hosting environment)."
         },
         {
-          "h": "Your rights",
-          "p": "Depending on applicable law, you may have rights to request access, correction, or deletion of personal data you have sent to the laboratory. Use the published contact channel to make such a request."
+          "h": "6. Analytics",
+          "p": "No third-party analytics package is enabled on the Website as of the effective date of this Policy. If analytics are introduced later, this Policy will be updated before such processing begins."
+        },
+        {
+          "h": "7. Purposes and legal basis",
+          "p": "We process email correspondence to communicate with you and to administer legitimate laboratory and University interests in research outreach and institutional communication. Where applicable law requires consent for a specific processing activity, we will obtain it before that activity begins."
+        },
+        {
+          "h": "8. Retention",
+          "p": "Email correspondence is retained only as long as reasonably necessary to respond, complete related follow-up, and meet applicable record-keeping or legal obligations. Simulation state is not retained by us."
+        },
+        {
+          "h": "9. Disclosure",
+          "p": "We do not sell personal data. We may disclose information if required by law, court order, or competent authority, or to protect the rights, safety, or integrity of the University, FinTechLab, users, or the public. Service providers that host or operate technical infrastructure may process technical data strictly as needed to provide those services."
+        },
+        {
+          "h": "10. International transfers",
+          "p": "Depending on hosting and email infrastructure, information you send by email may be processed on servers located in jurisdictions other than your own. Where such transfers occur, we take reasonable measures consistent with applicable law and University practice."
+        },
+        {
+          "h": "11. Your rights",
+          "p": "Subject to applicable law (including, where relevant, the laws of the Russian Federation on personal data), you may request access to, correction of, or deletion of personal data you have provided to us by email, and you may object to or restrict certain processing. To exercise these rights, contact legal@ftlab.space. We may need to verify your request before acting on it."
+        },
+        {
+          "h": "12. Security",
+          "p": "We apply reasonable technical and organisational measures appropriate to the nature of a public research Website. No method of transmission or storage is completely secure; please avoid sending sensitive credentials or banking secrets by email."
+        },
+        {
+          "h": "13. Children",
+          "p": "The Website is intended for a general research and professional audience. It is not directed at children, and we do not knowingly collect personal data from children through the Website."
+        },
+        {
+          "h": "14. Changes",
+          "p": "We may update this Policy from time to time. The “Effective date” above will be revised when changes take effect. Continued use of the Website after an update constitutes acknowledgement of the revised Policy."
         }
       ]
     },
     "personalData": {
-      "title": "Personal data",
-      "updated": "Draft — pending legal review",
-      "intro": "This draft explains personal-data handling for the FinTechLab SPbU website. It is not a substitute for an approved institutional notice.",
+      "title": "Personal Data Notice",
+      "updated": "Effective date: 21 August 2026",
+      "intro": "This Notice supplements the Privacy Policy and describes personal-data handling for the FinTechLab SPbU Website in clear terms for visitors.",
       "sections": [
         {
-          "h": "Forms on this website",
-          "p": "The public site currently does not operate a contact form that collects personal data into a database."
+          "h": "1. No account and no website form database",
+          "p": "The public Website does not require an account. It does not operate a contact form that collects personal data into a Website database."
         },
         {
-          "h": "Email contact",
-          "p": "If you write to the laboratory by email, the laboratory processes the personal data you choose to include in order to respond."
+          "h": "2. Email",
+          "p": "If you write to legal@ftlab.space (or another published laboratory address), FinTechLab processes the personal data contained in your message in order to respond and manage correspondence."
         },
         {
-          "h": "Local experiment data",
-          "p": "The interactive demonstration is designed to keep interaction local to your device for the session and is presented as an educational research demonstration, not a diagnostic tool."
+          "h": "3. Interactive simulation",
+          "p": "The simulation does not request personal or banking information. Choices and results are not stored or transmitted. Any experiment state exists only temporarily in browser memory and is cleared on refresh or when the page is closed."
         },
         {
-          "h": "No sale of data",
-          "p": "This website is not used to sell personal data."
+          "h": "4. No sale of data",
+          "p": "This Website is not used to sell personal data."
         },
         {
-          "h": "Contact",
-          "p": "Questions about personal data relating to this website can be sent via the laboratory contact address in the footer."
+          "h": "5. Requests",
+          "p": "Questions or rights requests relating to personal data connected with this Website may be sent to legal@ftlab.space."
         }
       ]
     },
     "terms": {
-      "title": "Terms of use",
-      "updated": "Draft — pending legal review",
-      "intro": "By using this website you agree to these basic terms. This is a draft for publication readiness and awaits legal review.",
+      "title": "Terms of Use",
+      "updated": "Effective date: 21 August 2026",
+      "intro": "These Terms of Use (“Terms”) govern access to and use of the FinTechLab SPbU website (the “Website”). By accessing or using the Website, you agree to these Terms. If you do not agree, do not use the Website.",
       "sections": [
         {
-          "h": "Nature of the content",
-          "p": "Materials on this site are research and educational. They describe laboratory work, methods, and outputs."
+          "h": "1. Operator",
+          "p": "The Website presents information about the Laboratory of Modern Financial Technologies at Saint Petersburg State University (“FinTechLab”). Contact: legal@ftlab.space."
         },
         {
-          "h": "No financial advice",
-          "p": "Nothing on this website is investment, banking, legal, or medical advice. Do not treat research demonstrations as personalized guidance."
+          "h": "2. Nature of the content",
+          "p": "Materials on the Website are provided for research, educational, and informational purposes. They describe laboratory work, methods, projects, publications, and related activities. Content may be updated, corrected, or withdrawn at any time without notice."
         },
         {
-          "h": "Intellectual property",
-          "p": "Text, design, registered software references, and media remain the property of their respective rights holders, including Saint Petersburg State University and attributed authors, unless otherwise stated."
+          "h": "3. No professional advice",
+          "p": "Nothing on the Website constitutes financial advice, investment advice, banking advice, legal advice, medical advice, or individualized security advice. You must not treat research demonstrations, simulations, or publications as personalized guidance for your accounts, risk profile, compliance obligations, or legal position."
         },
         {
-          "h": "External links",
-          "p": "Links to journals, repositories, or partner sites are provided for reference. FinTechLab is not responsible for external content."
+          "h": "4. Interactive simulation",
+          "p": "The anti-fraud simulation is a fictional educational scenario. It does not represent a real bank, payment provider, regulator, or other financial institution. No real payment, transfer, or banking action occurs. No credentials, OTP, PIN, or banking information are requested. Participation is voluntary and for learning purposes only."
         },
         {
-          "h": "Acceptable use",
-          "p": "Do not misuse the site, attempt unauthorized access, or interfere with its operation."
+          "h": "5. Intellectual property",
+          "p": "Text, design, graphics, software references, audiovisual materials, and other content on the Website remain the property of their respective rights holders, including Saint Petersburg State University, FinTechLab, and attributed authors, unless expressly stated otherwise. You may view content for personal, non-commercial informational use. You may not copy, scrape, redistribute, or commercially exploit Website content without prior written permission, except as permitted by mandatory law."
         },
         {
-          "h": "Contact",
-          "p": "Questions about these terms can be sent via the laboratory contact address published on the site."
+          "h": "6. Acceptable use",
+          "p": "You agree not to misuse the Website, attempt unauthorized access to systems or data, interfere with Website operation or security, introduce malware, or use the Website in any manner that is unlawful or harmful to FinTechLab, the University, or others."
+        },
+        {
+          "h": "7. External links",
+          "p": "The Website may link to journals, repositories, partners, social networks, or other third-party resources. FinTechLab does not control and is not responsible for external content, policies, or practices. Links do not imply endorsement."
+        },
+        {
+          "h": "8. Disclaimer of warranties",
+          "p": "The Website and its content are provided “as is” and “as available”. To the fullest extent permitted by law, FinTechLab and Saint Petersburg State University disclaim warranties of accuracy, completeness, merchantability, fitness for a particular purpose, and non-infringement."
+        },
+        {
+          "h": "9. Limitation of liability",
+          "p": "To the fullest extent permitted by applicable law, FinTechLab and Saint Petersburg State University shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or for any loss of data, profits, or opportunity arising from your use of, or inability to use, the Website or reliance on its content. Nothing in these Terms excludes liability that cannot be excluded under mandatory law."
+        },
+        {
+          "h": "10. Privacy",
+          "p": "Personal-data handling is described in the Privacy Policy and Personal Data Notice. Those documents form part of the framework governing use of the Website."
+        },
+        {
+          "h": "11. Changes",
+          "p": "We may revise these Terms from time to time. The effective date will be updated accordingly. Continued use of the Website after changes take effect constitutes acceptance of the revised Terms."
+        },
+        {
+          "h": "12. Governing law",
+          "p": "These Terms are governed by the laws of the Russian Federation, without regard to conflict-of-law rules, except where mandatory consumer or other protections of your place of residence apply and cannot be waived."
+        },
+        {
+          "h": "13. Contact",
+          "p": "Questions about these Terms may be sent to legal@ftlab.space."
+        }
+      ]
+    },
+    "researchDisclaimer": {
+      "title": "Research Disclaimer",
+      "updated": "Effective date: 21 August 2026",
+      "intro": "This Research Disclaimer applies to educational demonstrations, interactive simulations, and research-facing materials published on the FinTechLab SPbU website, including the anti-fraud simulation.",
+      "sections": [
+        {
+          "h": "1. Educational purpose only",
+          "p": "The simulation and related materials are educational. They illustrate how social-engineering pressure and behavioural manipulation can be structured in financial contexts. They are not a formal scientific study, clinical protocol, or regulated assessment procedure."
+        },
+        {
+          "h": "2. Not diagnostic and not individualized assessment",
+          "p": "Participation does not diagnose any condition, trait, or vulnerability. The experience is not an individual fraud-risk assessment and does not measure a visitor’s susceptibility to fraud, compliance, or social engineering."
+        },
+        {
+          "h": "3. No real transaction and no data capture of choices",
+          "p": "No real payment, transfer, account action, or banking operation occurs. The simulation does not request credentials, OTP, PIN, card numbers, or other banking secrets. Choices and results are not stored or transmitted by the Website; experiment state exists only temporarily in browser memory."
+        },
+        {
+          "h": "4. Simulated analysis — not a production risk model",
+          "p": "On-screen “signal analysis” explains the constructed attack scenario for educational purposes. It is not a live production machine-learning system scoring visitors, not a biometric or psychophysiological measurement, and not a claim of personal psychological profiling."
+        },
+        {
+          "h": "5. No warranties as to protective outcomes",
+          "p": "Completing the simulation does not guarantee that you will detect or avoid real-world fraud. Real attacks vary. Always verify critical requests through official channels you already trust, independently of any message that creates urgency."
+        },
+        {
+          "h": "6. Relationship to research publications",
+          "p": "References to research areas, projects, or publications on the Website do not incorporate those works into the simulation as a formal study protocol, and do not create participant status in any research project solely by using the Website."
+        },
+        {
+          "h": "7. Contact",
+          "p": "Questions about this Disclaimer may be sent to legal@ftlab.space."
         }
       ]
     }

@@ -165,7 +165,7 @@ export const projects: Project[] = [
     year: 2025,
     mediaType: "video",
     hasVideo: true,
-    videoSlug: "incoming-call",
+    videoSlug: "golden-detector",
     motif: "pulse",
     layout: "wide",
     featured: true,

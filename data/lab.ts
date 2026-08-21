@@ -19,6 +19,7 @@ export const lab = {
    * Create/configure this address in Namecheap email (or your DNS mail provider).
    */
   contactEmail: "legal@ftlab.space",
+  linkedInUrl: "https://www.linkedin.com/company/ftlab-space/",
   mission: {
     en: "Build a scientific and applied base for countering behavioral vulnerabilities in modern financial threats — integrating behavioral economics, neuroscience, digital victimology, and financial-security practice.",
     ru: "Формирование научной и прикладной базы для системного противодействия поведенческим уязвимостям человека в условиях современных финансовых угроз — через интеграцию поведенческой экономики, нейронауки, цифровой виктимологии и практики финансовой безопасности.",

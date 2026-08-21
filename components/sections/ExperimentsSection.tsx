@@ -1,46 +1,111 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import Link from "next/link";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { FadeIn } from "@/components/motion/RevealText";
 import { DecisionNetwork } from "@/components/visual/DecisionNetwork";
+import { AnalysisPanel } from "@/components/experiments/AnalysisPanel";
+import { AnatomyView } from "@/components/experiments/AnatomyView";
+import { AttackPanel } from "@/components/experiments/AttackPanel";
+import {
+  EMPTY_SIGNALS,
+  STAGE_DURATION,
+  type ExperimentPhase,
+  type SignalKey,
+  type SignalState,
+} from "@/components/experiments/types";
 import { useReducedMotionPreferred } from "@/lib/hooks";
-import type { Dictionary } from "@/lib/i18n";
+import type { Dictionary, Locale } from "@/lib/i18n";
 import { cx } from "@/lib/utils";
 
-type Phase = "idle" | "running" | "caught" | "missed";
-
-const DURATION = 45;
-
 /**
- * Live pressure probe — a safe micro-simulation of stacked social-engineering cues.
+ * Ephemeral anti-fraud simulation — two short stages, mobile-first.
+ * Component state only; nothing is stored or sent.
  */
-export function ExperimentsSection({ dict }: { dict: Dictionary }) {
+export function ExperimentsSection({
+  dict,
+  locale,
+}: {
+  dict: Dictionary;
+  locale: Locale;
+}) {
   const reduced = useReducedMotionPreferred();
-  const [phase, setPhase] = useState<Phase>("idle");
-  const [left, setLeft] = useState(DURATION);
+  const copy = dict.experiments;
 
-  const levers = useMemo(
-    () =>
-      phase === "idle"
-        ? []
-        : [
-            dict.decisionNetwork.labels[3], // URGENCY
-            dict.decisionNetwork.labels[4], // AUTHORITY
-            dict.decisionNetwork.labels[2], // LOSS
-          ],
-    [dict.decisionNetwork.labels, phase],
+  const [phase, setPhase] = useState<ExperimentPhase>("intro");
+  const [left, setLeft] = useState<number>(STAGE_DURATION.stage1);
+  const [signals, setSignals] = useState<SignalState>(EMPTY_SIGNALS);
+  const [lastOutcome, setLastOutcome] = useState<"broken" | "completed">(
+    "broken",
   );
 
+  const duration =
+    phase === "stage2" ? STAGE_DURATION.stage2 : STAGE_DURATION.stage1;
+
+  const reset = () => {
+    setPhase("intro");
+    setLeft(STAGE_DURATION.stage1);
+    setSignals(EMPTY_SIGNALS);
+  };
+
+  const enter = () => {
+    setSignals(EMPTY_SIGNALS);
+    setLeft(STAGE_DURATION.stage1);
+    setPhase("stage1");
+  };
+
+  const breakFlow = () => {
+    setLastOutcome("broken");
+    setSignals((prev) => ({
+      ...prev,
+      urgency: true,
+      loss: true,
+      authority: true,
+      forcedFlow: true,
+      cognitiveLoad: true,
+    }));
+    setPhase("broken");
+  };
+
+  const advanceAttack = () => {
+    if (phase === "stage1") {
+      setLeft(STAGE_DURATION.stage2);
+      setPhase("stage2");
+      return;
+    }
+    if (phase === "stage2") {
+      setLastOutcome("completed");
+      setPhase("completed");
+    }
+  };
+
+  const expireStage = () => {
+    // Timeout = attacker path wins — end cleanly (no extra stage)
+    setLastOutcome("completed");
+    setSignals((prev) => ({
+      ...prev,
+      urgency: true,
+      loss: true,
+      authority: true,
+      forcedFlow: true,
+      cognitiveLoad: true,
+      commitment: true,
+      timePressure: true,
+    }));
+    setPhase("completed");
+  };
+
   useEffect(() => {
-    if (phase !== "running") return;
+    if (phase !== "stage1" && phase !== "stage2") return;
+
+    const total =
+      phase === "stage1" ? STAGE_DURATION.stage1 : STAGE_DURATION.stage2;
 
     if (reduced) {
       const id = window.setInterval(() => {
         setLeft((prev) => {
           const next = Math.max(0, prev - 1);
-          if (next <= 0) setPhase("missed");
+          if (next <= 0) expireStage();
           return next;
         });
       }, 1000);
@@ -51,10 +116,10 @@ export function ExperimentsSection({ dict }: { dict: Dictionary }) {
     let raf = 0;
     const tick = (now: number) => {
       const elapsed = Math.max(0, (now - started) / 1000);
-      const remain = Math.max(0, DURATION - elapsed);
+      const remain = Math.max(0, total - elapsed);
       setLeft(remain);
       if (remain <= 0) {
-        setPhase("missed");
+        expireStage();
         return;
       }
       raf = requestAnimationFrame(tick);
@@ -63,219 +128,213 @@ export function ExperimentsSection({ dict }: { dict: Dictionary }) {
     return () => cancelAnimationFrame(raf);
   }, [phase, reduced]);
 
-  const start = () => {
-    setLeft(DURATION);
-    setPhase("running");
+  useEffect(() => {
+    if (phase === "intro" || phase === "anatomy" || phase === "broken") return;
+
+    const timers: number[] = [];
+    const activate = (key: SignalKey, delay: number) => {
+      timers.push(
+        window.setTimeout(() => {
+          setSignals((prev) => ({ ...prev, [key]: true }));
+        }, reduced ? 0 : delay),
+      );
+    };
+
+    if (phase === "stage1") {
+      activate("urgency", 300);
+      activate("loss", 700);
+      activate("authority", 1100);
+    }
+
+    if (phase === "stage2" || phase === "completed") {
+      activate("forcedFlow", 200);
+      activate("cognitiveLoad", 500);
+      activate("commitment", 800);
+      activate("timePressure", 100);
+    }
+
+    return () => timers.forEach((id) => window.clearTimeout(id));
+  }, [phase, reduced]);
+
+  useEffect(() => {
+    if (phase !== "broken" && phase !== "completed") return;
+    const id = window.setTimeout(
+      () => setPhase("anatomy"),
+      reduced ? 800 : 2200,
+    );
+    return () => window.clearTimeout(id);
+  }, [phase, reduced]);
+
+  const inAttackStage = phase === "stage1" || phase === "stage2";
+
+  const activeSignals: SignalState = {
+    ...signals,
+    timePressure:
+      signals.timePressure ||
+      (inAttackStage && duration > 0 && left / duration <= 0.4),
   };
 
-  const confirm = () => {
-    if (phase !== "running") return;
-    setPhase("missed");
-  };
+  const status = useMemo(() => {
+    if (phase === "broken") return copy.statusBroken;
+    if (phase === "completed") return copy.statusCompleted;
+    if (phase === "anatomy") return copy.statusAnatomy;
+    if (phase === "stage2" && activeSignals.commitment) {
+      return copy.statusPattern;
+    }
+    if (phase === "stage2") return copy.statusEscalation;
+    return copy.statusAnalyzing;
+  }, [phase, activeSignals.commitment, copy]);
 
-  const refuse = () => {
-    if (phase !== "running") return;
-    setPhase("caught");
-  };
+  const showPattern =
+    (phase === "stage2" && activeSignals.forcedFlow) ||
+    phase === "broken" ||
+    phase === "completed";
 
-  const done = phase === "caught" || phase === "missed";
-  const cta =
-    phase === "idle"
-      ? dict.experiments.cta
-      : phase === "running"
-        ? dict.experiments.ctaRunning
-        : dict.experiments.ctaDone;
+  const revealKeys: SignalKey[] =
+    phase === "stage1"
+      ? ["urgency", "loss", "authority"]
+      : [
+          "urgency",
+          "loss",
+          "authority",
+          "forcedFlow",
+          "cognitiveLoad",
+          "commitment",
+        ];
+
+  const inSimulation = phase !== "intro" && phase !== "anatomy";
+  const stepLabel =
+    phase === "stage1"
+      ? copy.step1
+      : phase === "stage2"
+        ? copy.step2
+        : "";
 
   return (
     <section id="experiments" className="section-pad relative overflow-hidden">
-      <div className="absolute inset-0 opacity-35" aria-hidden>
-        <DecisionNetwork density={60} interactive={false} scrollLinked />
+      <div className="absolute inset-0 opacity-25 md:opacity-30" aria-hidden>
+        <DecisionNetwork density={40} interactive={false} scrollLinked />
       </div>
       <div
         className={cx(
           "pointer-events-none absolute inset-0 transition-opacity duration-700",
-          phase === "running" ? "opacity-100" : "opacity-0",
+          inSimulation || phase === "anatomy" ? "opacity-100" : "opacity-0",
         )}
         style={{
           background:
-            "radial-gradient(ellipse at 50% 60%, rgba(158,27,50,0.16), transparent 60%)",
+            phase === "broken" || lastOutcome === "broken"
+              ? "radial-gradient(ellipse at 70% 40%, rgba(242,240,234,0.06), transparent 55%)"
+              : "radial-gradient(ellipse at 70% 40%, rgba(158,27,50,0.12), transparent 55%)",
         }}
         aria-hidden
       />
 
-      <div className="editorial-grid relative z-10">
-        <div className="col-span-12 md:col-span-5">
-          <FadeIn>
-            <div data-reveal-number>
-              <SectionLabel>{dict.experiments.label}</SectionLabel>
-            </div>
-            <h2 data-reveal-title className="headline-section mt-6">
-              {dict.experiments.heading}
-            </h2>
-            <p
-              data-reveal-block
-              className="mt-8 max-w-xl text-base leading-relaxed text-muted"
-            >
-              {dict.experiments.supporting}
-            </p>
-            <p className="label-mono mt-6 text-[12px] text-muted">
-              {dict.experiments.probeHint}
-            </p>
-          </FadeIn>
-        </div>
-
-        <div className="col-span-12 mt-12 md:col-span-6 md:col-start-7 md:mt-0">
-          <div
-            className={cx(
-              "relative border border-white/12 bg-[#0c0c0c]/80 p-6 backdrop-blur-[6px] transition-[border-color,box-shadow] duration-500 md:p-8",
-              phase === "running" && "border-accent/50 shadow-[0_0_0_1px_rgba(158,27,50,0.2)]",
-            )}
-          >
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <p className="label-mono text-[12px] text-accent">
-                  {dict.experiments.probePrompt}
+      <div
+        className={cx(
+          "relative z-10 mx-auto grid grid-cols-12",
+          inSimulation || phase === "anatomy"
+            ? "w-[min(100%-1.25rem,1720px)] gap-x-4 gap-y-0 sm:w-[min(100%-2rem,1720px)]"
+            : "editorial-grid",
+        )}
+      >
+        {phase === "intro" ? (
+          <>
+            <div className="col-span-12 lg:col-span-7">
+              <FadeIn>
+                <div data-reveal-number>
+                  <SectionLabel>{copy.label}</SectionLabel>
+                </div>
+                <h2
+                  data-reveal-title
+                  className="headline-section mt-5 whitespace-pre-line text-[clamp(1.75rem,6vw,3.5rem)]"
+                >
+                  {copy.heading}
+                </h2>
+                <p
+                  data-reveal-block
+                  className="mt-6 max-w-xl text-[15px] leading-relaxed text-muted sm:mt-8 sm:text-base"
+                >
+                  {copy.supporting}
                 </p>
-                <p className="mt-3 max-w-sm text-[15px] leading-relaxed text-ink/90 md:text-base">
-                  {dict.experiments.probeBody}
-                </p>
-              </div>
-              {phase === "running" ? (
-                <div className="shrink-0 text-right" aria-live="polite">
-                  <p className="label-mono text-[11px] text-muted">
-                    {dict.experiments.probeTimer}
-                  </p>
-                  <p className="mt-1 font-mono text-2xl tabular-nums tracking-tight text-accent">
-                    {Math.ceil(left).toString().padStart(2, "0")}
-                  </p>
-                </div>
-              ) : null}
-            </div>
-
-            {phase === "running" ? (
-              <div className="mt-5 h-px w-full overflow-hidden bg-white/10">
-                <div
-                  className="h-full bg-accent transition-[width] duration-100 ease-linear"
-                  style={{ width: `${(left / DURATION) * 100}%` }}
-                />
-              </div>
-            ) : null}
-
-            {levers.length > 0 && phase === "running" ? (
-              <div className="mt-6">
-                <p className="label-mono text-[11px] text-muted">
-                  {dict.experiments.probeLevers}
-                </p>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {levers.map((lever) => (
-                    <span
-                      key={lever}
-                      className="label-mono border border-white/12 px-3 py-2 text-[11px] text-ink/85"
-                    >
-                      {lever}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ) : null}
-
-            {done ? (
-              <div className="mt-6 space-y-6" aria-live="polite">
-                <div>
-                  <p className="label-mono text-[12px] text-accent">
-                    {dict.experiments.resultTitle}
-                  </p>
-                  <p
-                    className={cx(
-                      "mt-2 text-[15px] leading-relaxed md:text-base",
-                      phase === "caught" ? "text-ink" : "text-accent",
-                    )}
-                  >
-                    {phase === "caught"
-                      ? dict.experiments.probeResultCaught
-                      : dict.experiments.probeResultMissed}
-                  </p>
-                  <p className="mt-3 text-[14px] leading-relaxed text-muted">
-                    {phase === "caught"
-                      ? dict.experiments.whyCaught
-                      : dict.experiments.whyMissed}
-                  </p>
-                </div>
-
-                <div>
-                  <p className="label-mono text-[12px] text-accent">
-                    {dict.experiments.influencedTitle}
-                  </p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {levers.map((lever) => (
-                      <span
-                        key={lever}
-                        className="label-mono border border-white/12 px-3 py-2 text-[11px] text-ink/85"
-                      >
-                        {lever}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <p className="label-mono text-[12px] text-accent">
-                    {dict.experiments.saferTitle}
-                  </p>
-                  <p className="mt-2 text-[14px] leading-relaxed text-muted md:text-[15px]">
-                    {phase === "caught"
-                      ? dict.experiments.saferCaught
-                      : dict.experiments.saferMissed}
-                  </p>
-                </div>
-
-                <div>
-                  <p className="label-mono text-[12px] text-accent">
-                    {dict.experiments.researchTitle}
-                  </p>
-                  <Link
-                    href="#research"
-                    className="label-mono mt-3 inline-flex min-h-11 items-center text-[12px] text-ink underline decoration-white/25 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
-                  >
-                    {dict.experiments.researchLink}
-                  </Link>
-                  <p className="mt-4 text-[12px] leading-relaxed text-muted">
-                    {dict.experiments.disclaimer}
-                  </p>
-                </div>
-              </div>
-            ) : null}
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              {phase === "idle" || done ? (
                 <button
                   type="button"
-                  onClick={start}
-                  className="label-mono min-h-11 border border-white/20 px-5 py-3 text-[12px] text-ink transition-colors duration-300 hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                  onClick={enter}
+                  className="label-mono mt-8 min-h-12 w-full border border-white/20 px-5 py-3.5 text-[12px] text-ink transition-colors duration-300 hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:mt-10 sm:w-auto"
                 >
-                  {cta}
+                  {copy.ctaEnter}
                 </button>
-              ) : (
-                <>
-                  <button
-                    type="button"
-                    onClick={confirm}
-                    className="label-mono min-h-11 border border-accent/60 bg-accent/15 px-5 py-3 text-[12px] text-ink transition-colors duration-300 hover:bg-accent/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-                  >
-                    {dict.experiments.probeAction}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={refuse}
-                    className="label-mono min-h-11 border border-white/15 px-5 py-3 text-[12px] text-muted transition-colors duration-300 hover:border-white/35 hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-                  >
-                    {dict.experiments.probeRefuse}
-                  </button>
-                </>
+                <p className="label-mono mt-5 text-[11px] text-muted">
+                  {copy.safeLabel}
+                </p>
+                <p className="mt-2 max-w-md text-[13px] leading-relaxed text-muted">
+                  {copy.safeHint}
+                </p>
+              </FadeIn>
+            </div>
+            <div className="col-span-12 mt-8 hidden sm:block lg:col-span-5 lg:col-start-8 lg:mt-0">
+              <div className="border border-white/12 bg-[#0c0c0c]/75 p-5 md:p-7">
+                <p className="label-mono text-[11px] text-muted">
+                  {copy.stage1Title}
+                </p>
+                <p className="mt-3 text-[15px] leading-relaxed text-ink/90">
+                  {copy.stage1Headline}. {copy.stage1Amount}.
+                </p>
+                <p className="label-mono mt-6 text-[11px] text-accent">
+                  {copy.ctaEnter}
+                </p>
+              </div>
+            </div>
+          </>
+        ) : null}
+
+        {inSimulation ? (
+          <>
+            <div className="col-span-12 xl:col-span-5">
+              <AttackPanel
+                dict={copy}
+                phase={phase}
+                secondsLeft={left}
+                duration={duration}
+                stepLabel={stepLabel}
+                onPrimary={advanceAttack}
+                onSecondary={breakFlow}
+              />
+              {(phase === "broken" || phase === "completed") && (
+                <button
+                  type="button"
+                  onClick={() => setPhase("anatomy")}
+                  className="label-mono mt-4 min-h-12 w-full border border-accent/50 bg-accent/10 px-5 py-3.5 text-[12px] text-ink transition-colors hover:bg-accent/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:w-auto"
+                >
+                  {copy.continueAnatomy}
+                </button>
               )}
             </div>
-          </div>
-        </div>
+            <div className="col-span-12 mt-6 xl:col-span-7 xl:mt-0">
+              <AnalysisPanel
+                dict={copy}
+                phase={phase}
+                active={activeSignals}
+                status={status}
+                showPattern={showPattern}
+                showPaths={showPattern}
+                broken={phase === "broken"}
+                complianceReached={phase === "completed"}
+                reducedMotion={reduced}
+                revealKeys={revealKeys}
+              />
+            </div>
+          </>
+        ) : null}
+
+        {phase === "anatomy" ? (
+          <AnatomyView
+            dict={copy}
+            locale={locale}
+            outcome={lastOutcome}
+            onAgain={reset}
+            reducedMotion={reduced}
+          />
+        ) : null}
       </div>
     </section>
   );

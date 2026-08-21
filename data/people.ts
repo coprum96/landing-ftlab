@@ -103,20 +103,20 @@ export const people: Person[] = [
       ru: "Мария А. Гагарина",
     },
     role: {
-      en: "Research Collaborator",
-      ru: "Исследователь-сотрудник",
+      en: "Leading Researcher",
+      ru: "Ведущий научный сотрудник",
     },
     focus: {
       en: "Economic psychology · developmental psychology",
       ru: "Экономическая психология · психология развития",
     },
     bio: {
-      en: "Doctor of Psychological Sciences; Professor at the Financial University under the Government of the Russian Federation. Listed on the laboratory team in official presentation materials.",
-      ru: "Доктор психологических наук; профессор Финансового университета при Правительстве РФ. Указана в составе команды лаборатории в официальных презентационных материалах.",
+      en: "Doctor of Psychological Sciences; Professor at the Financial University under the Government of the Russian Federation. Leading researcher of the laboratory; listed on the team in official presentation materials.",
+      ru: "Доктор психологических наук; профессор Финансового университета при Правительстве РФ. Ведущий научный сотрудник лаборатории; указана в составе команды в официальных презентационных материалах.",
     },
     detail: {
-      en: "Teaches economic psychology and professional business ethics. Author of 100+ works, including monographs. Exact laboratory title beyond team membership is not specified in available materials.",
-      ru: "Преподаёт экономическую психологию и профессиональную этику бизнеса. Автор 100+ работ, включая монографии. Точная должность в лаборатории сверх включения в команду в доступных материалах не уточнена.",
+      en: "Teaches economic psychology and professional business ethics. Author of 100+ works, including monographs. Serves as a leading researcher (ведущий научный сотрудник) within the FinTechLab team.",
+      ru: "Преподаёт экономическую психологию и профессиональную этику бизнеса. Автор 100+ работ, включая монографии. В составе FinTechLab — ведущий научный сотрудник.",
     },
     institution: {
       en: "Financial University under the Government of the Russian Federation",

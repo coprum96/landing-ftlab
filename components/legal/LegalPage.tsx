@@ -6,7 +6,7 @@ import { lab } from "@/data/lab";
 import { getDictionary, isLocale, type Locale } from "@/lib/i18n";
 import { buildPageMetadata } from "@/lib/seo";
 
-type LegalKey = "privacy" | "personalData" | "terms";
+type LegalKey = "privacy" | "personalData" | "terms" | "researchDisclaimer";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -18,7 +18,9 @@ function pageConfig(key: LegalKey) {
       ? "privacy"
       : key === "personalData"
         ? "personal-data"
-        : "terms";
+        : key === "researchDisclaimer"
+          ? "research-disclaimer"
+          : "terms";
   return { key, path };
 }
 
@@ -47,7 +49,6 @@ export function makeLegalPage(legalKey: LegalKey) {
 
     return (
       <div className="page-top">
-        {/* LEGAL REVIEW REQUIRED: draft copy pending institutional approval. */}
         <section className="section-pad">
           <div className="editorial-grid">
             <div className="col-span-12 md:col-span-8">

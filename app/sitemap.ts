@@ -15,6 +15,7 @@ const staticPaths = [
   "privacy",
   "personal-data",
   "terms",
+  "research-disclaimer",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

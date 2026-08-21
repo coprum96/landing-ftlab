@@ -43,14 +43,14 @@ export default async function HomePage({ params }: Props) {
   return (
     <>
       <Hero dict={dict} />
-      <DecisionNetworkSection dict={dict} />
+      <FieldVideoSection dict={dict} />
       <ResearchAreas locale={locale} dict={dict} />
       <MethodsSection locale={locale} dict={dict} />
-      <FieldVideoSection dict={dict} />
+      <DecisionNetworkSection dict={dict} />
       <ProjectsSection locale={locale} dict={dict} />
       <EvidenceSection locale={locale} dict={dict} />
       <ImpactSection locale={locale} dict={dict} />
-      <ExperimentsSection dict={dict} />
+      <ExperimentsSection locale={locale} dict={dict} />
       <EducationSection locale={locale} dict={dict} />
       <ManifestoSection dict={dict} />
       <PublicationsSection locale={locale} dict={dict} featuredOnly />
