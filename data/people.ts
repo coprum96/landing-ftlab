@@ -30,8 +30,8 @@ export const people: Person[] = [
     id: "tosunyan",
     slug: "gagik-tosunyan",
     name: {
-      en: "G. A. Tosunyan",
-      ru: "Г. А. Тосунян",
+      en: "Gagik A. Tosunyan",
+      ru: "Гагик А. Тосунян",
     },
     role: {
       en: "Scientific Director",
@@ -42,16 +42,16 @@ export const people: Person[] = [
       ru: "Банковское право · финансовое регулирование · диалог с индустрией",
     },
     bio: {
-      en: "Academician; President of the Association of Banks of Russia. As Scientific Director, he links academic work with the banking community and regulators.",
-      ru: "Академик; президент Ассоциации банков России. Как научный руководитель связывает академическую работу с банковским сообществом и регуляторами.",
+      en: "Academician of the Russian Academy of Sciences; President of the Association of Russian Banks (ARB). As Scientific Director, he connects academic research with the banking sector and regulators.",
+      ru: "Академик Российской академии наук; президент Ассоциации российских банков (АРБ). Как научный руководитель лаборатории связывает академические исследования с банковской отраслью и регуляторами.",
     },
     detail: {
-      en: "Leadership is framed in laboratory materials as a strategic bridge between research and industry practice. Public profile kept concise pending expanded biography.",
-      ru: "В материалах лаборатории руководство описано как стратегический мост между исследованиями и отраслевой практикой. Публичный профиль оставлен кратким до появления расширенной биографии.",
+      en: "Recognized authority in banking law and financial regulation. His leadership positions the laboratory as a bridge between behavioral research, industry practice, and regulatory policy.",
+      ru: "Признанный эксперт в области банковского права и финансового регулирования. Его руководство позиционирует лабораторию как связующее звено между поведенческими исследованиями, отраслевой практикой и регуляторной политикой.",
     },
     institution: {
-      en: "Association of Banks of Russia",
-      ru: "Ассоциация банков России",
+      en: "Association of Russian Banks (ARB)",
+      ru: "Ассоциация российских банков (АРБ)",
     },
     links: {},
     initials: "GT",
@@ -136,24 +136,24 @@ export const people: Person[] = [
       ru: "Олег В. Скворцов",
     },
     role: {
-      en: "Industry Lead · Association of Banks of Russia",
-      ru: "Индустриальный контур · Ассоциация банков России",
+      en: "Industry Lead · Association of Russian Banks (ARB)",
+      ru: "Индустриальный контур · Ассоциация российских банков (АРБ)",
     },
     focus: {
       en: "Digital banking · fintech regulation · industry standards",
       ru: "Цифровой банкинг · регулирование финтеха · отраслевые стандарты",
     },
     bio: {
-      en: "Chair of the Board, Association of Banks of Russia. Connects laboratory research with banking-sector practice and regulatory dialogue.",
-      ru: "Председатель Правления Ассоциации банков России. Связывает исследования лаборатории с практикой банковского сектора и регуляторным диалогом.",
+      en: "Chair of the Board, Association of Russian Banks (ARB). Connects laboratory research with banking-sector practice and regulatory dialogue.",
+      ru: "Председатель Правления Ассоциации российских банков (АРБ). Связывает исследования лаборатории с практикой банковского сектора и регуляторным диалогом.",
     },
     detail: {
       en: "28+ years in banking leadership, including long-term chairmanship of ARB IT committees and board roles. Brings industry standards and digital-banking practice into the laboratory’s applied agenda.",
       ru: "28+ лет на руководящих позициях в банковской сфере, включая многолетнее руководство IT-комитетами АРБ и работу в советах директоров. Привносит отраслевые стандарты и практику цифрового банкинга в прикладную повестку лаборатории.",
     },
     institution: {
-      en: "Association of Banks of Russia",
-      ru: "Ассоциация банков России",
+      en: "Association of Russian Banks (ARB)",
+      ru: "Ассоциация российских банков (АРБ)",
     },
     links: {},
     initials: "OS",
@@ -202,20 +202,20 @@ export const people: Person[] = [
       ru: "Стас Медяник",
     },
     role: {
-      en: "Senior Researcher · AI / ML",
-      ru: "Старший исследователь · ИИ / ML",
+      en: "Founder · Senior Researcher · AI / ML",
+      ru: "Основатель FTLAB · старший исследователь · ИИ / ML",
     },
     focus: {
       en: "Fraud detection · behavioral risk scoring · SupTech / RegTech",
       ru: "Детекция мошенничества · поведенческий риск-скоринг · SupTech / RegTech",
     },
     bio: {
-      en: "Solutions & integrations engineer specializing in AI/ML systems. Leads senior research on fraud pipelines and behavioral risk engines for FinTechLab / SupTech–RegTech contexts.",
-      ru: "Инженер решений и интеграций со специализацией в ИИ/ML. Ведёт старшую исследовательскую работу над антифрод-пайплайнами и поведенческими риск-движками в контексте FinTechLab / SupTech–RegTech.",
+      en: "Founder of FinTechLab. Solutions and integrations engineer specializing in AI and machine learning. Leads research on antifraud pipelines and behavioral risk engines within FinTechLab / SupTech-RegTech.",
+      ru: "Основатель FinTechLab. Инженер по решениям и интеграциям со специализацией в области ИИ и машинного обучения. Ведёт исследования антифрод-пайплайнов и поведенческих риск-движков в рамках направления FinTechLab / SupTech-RegTech.",
     },
     detail: {
-      en: "M.Sc. Finance, SPbU; additional graduate study at Free University of Berlin. Focuses on translating behavioral evidence into deployable detection and scoring systems.",
-      ru: "Магистр финансов СПбГУ; дополнительная магистратура в Свободном университете Берлина. Фокус — перевод поведенческих данных в развёртываемые системы детекции и скоринга.",
+      en: "M.Sc. Finance, SPbU; second master's degree in finance from Freie Universität Berlin. Focus: translating behavioral evidence into deployable detection and scoring systems. Builds the technical backbone connecting laboratory experiments to production-grade antifraud and behavioral scoring infrastructure.",
+      ru: "Магистр финансов СПбГУ; вторая магистратура по финансам в Свободном университете Берлина. Фокус работы - превращение поведенческих данных в готовые к внедрению системы детекции и скоринга. Создаёт техническую основу, которая соединяет лабораторные эксперименты с промышленными антифрод- и поведенческими скоринг-системами.",
     },
     institution: {
       en: "Saint Petersburg State University",
@@ -224,6 +224,39 @@ export const people: Person[] = [
     links: {},
     initials: "SM",
     motif: "c",
+    hasPhoto: true,
+    featured: true,
+  },
+  {
+    id: "rozanov",
+    slug: "ivan-rozanov",
+    name: {
+      en: "Ivan A. Rozanov",
+      ru: "Иван А. Розанов",
+    },
+    role: {
+      en: "Senior Researcher",
+      ru: "Старший научный сотрудник",
+    },
+    focus: {
+      en: "Neuroeconomics · stress physiology · decision-making under pressure",
+      ru: "Нейроэкономика · психофизиология стресса · принятие решений под давлением",
+    },
+    bio: {
+      en: "Candidate of Medical Sciences. Researcher at the intersection of stress psychophysiology, neurobiology of decision-making, and behavioral psychology. Senior researcher at the Serbsky National Medical Research Center; associate professor at MGPPU.",
+      ru: "Кандидат медицинских наук. Исследователь на стыке психофизиологии стресса, нейробиологии принятия решений и поведенческой психологии. Старший научный сотрудник НМИЦ психиатрии и наркологии им. В. П. Сербского; доцент МГППУ.",
+    },
+    detail: {
+      en: "Head of R&D at EchoStressAI (AI solutions for psychodiagnostics). Developer of VR systems for suggestive correction. Author of 70+ publications (H-index 9). Research covers value-meaning regulation of activity, cognitive biases, suggestibility, and deviant behavior risk - forming the scientific basis for neuroeconomics teaching and antifraud models that predict irrational choice and social-engineering vulnerability.",
+      ru: "Руководитель R&D-направления EchoStressAI (ИИ-решения для психодиагностики). Разработчик VR-систем суггестивной коррекции. Автор 70+ научных работ (индекс Хирша 9). Исследует ценностно-смысловую регуляцию деятельности, когнитивные искажения, внушаемость и риски девиантного поведения - это формирует научную базу для преподавания нейроэкономики и антифрод-моделей, прогнозирующих иррациональный выбор и уязвимость к социальной инженерии.",
+    },
+    institution: {
+      en: "Serbsky National Medical Research Center · MGPPU",
+      ru: "НМИЦ психиатрии и наркологии им. В. П. Сербского · МГППУ",
+    },
+    links: {},
+    initials: "IR",
+    motif: "d",
     hasPhoto: true,
     featured: true,
   },

@@ -56,7 +56,8 @@ export function PeopleSection({
                       src={mediaPaths.personPortrait(person.id)}
                       alt={person.name[locale]}
                       fill
-                      className="portrait-color object-cover"
+                      unoptimized
+                      className="portrait-color object-cover object-[center_20%]"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
                   ) : (

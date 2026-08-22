@@ -65,7 +65,8 @@ export default async function PersonDetailPage({ params }: Props) {
                   src={mediaPaths.personPortrait(person.id)}
                   alt={person.name[locale]}
                   fill
-                  className="portrait-color object-cover"
+                  unoptimized
+                  className="portrait-color object-cover object-[center_20%]"
                   sizes="(max-width: 768px) 100vw, 40vw"
                   priority
                 />

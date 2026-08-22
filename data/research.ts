@@ -28,8 +28,8 @@ export const researchAreas: ResearchArea[] = [
       ru: "Когнитивно-поведенческая безопасность",
     },
     question: {
-      en: "Which psychological mechanisms become exploitable under social-engineering pressure — and which interventions restore protective action?",
-      ru: "Какие психологические механизмы эксплуатируются под давлением социальной инженерии — и какие интервенции возвращают защитное действие?",
+      en: "Which psychological mechanisms become exploitable under social-engineering pressure - and which interventions restore protective action?",
+      ru: "Какие психологические механизмы использует социальная инженерия под давлением - и какие интервенции помогают восстановить защитное действие?",
     },
     method: [
       {
@@ -65,7 +65,7 @@ export const researchAreas: ResearchArea[] = [
     ],
     application: {
       en: "Financial institutions, regulators, and security training environments.",
-      ru: "Финансовые организации, регуляторы и среды обучения безопасности.",
+      ru: "Финансовые организации, регуляторы, центры обучения безопасности.",
     },
     visualFamily: "human",
     motif: "pulse",
@@ -80,8 +80,8 @@ export const researchAreas: ResearchArea[] = [
       ru: "Цифровая виктимология",
     },
     question: {
-      en: "How do victimization patterns form across social-engineering incidents — and can risk be predicted before harm occurs?",
-      ru: "Как формируются паттерны виктимизации в инцидентах социальной инженерии — и можно ли предсказать риск до причинения вреда?",
+      en: "How do victimization patterns form across social-engineering incidents - and can risk be predicted before harm occurs?",
+      ru: "Как формируются паттерны виктимизации в атаках социальной инженерии - и можно ли предсказать риск до того, как произойдёт вред?",
     },
     method: [
       {
@@ -132,8 +132,8 @@ export const researchAreas: ResearchArea[] = [
       ru: "Защитные технологии поведения",
     },
     question: {
-      en: "Which tools change real protective behavior — not only awareness — at the moment of risk?",
-      ru: "Какие инструменты меняют реальное защитное поведение — а не только осведомлённость — в момент риска?",
+      en: "Which tools change real protective behavior - not only awareness - at the moment of risk?",
+      ru: "Какие инструменты меняют реальное защитное поведение в момент риска - а не только осведомлённость?",
     },
     method: [
       {
@@ -185,7 +185,7 @@ export const researchAreas: ResearchArea[] = [
     },
     question: {
       en: "How can behavioral evidence be translated into policy, guidance, and measurable regulatory impact?",
-      ru: "Как перевести поведенческие данные в политику, рекомендации и измеримое регуляторное воздействие?",
+      ru: "Как перевести поведенческие данные в политику, рекомендации и измеримое регуляторное влияние?",
     },
     method: [
       {
@@ -208,20 +208,20 @@ export const researchAreas: ResearchArea[] = [
     output: [
       {
         en: "Recommendations for financial regulators and agencies",
-        ru: "Рекомендации для финансовых регуляторов и ведомств",
+        ru: "Рекомендации для финансовых регуляторов и профильных ведомств",
       },
       {
         en: "Policy briefs and impact assessments",
-        ru: "Политические записки и оценки воздействия",
+        ru: "Аналитические записки по вопросам регулирования и оценки регулирующего воздействия",
       },
       {
         en: "Evidence packages for fraud-prevention strategy",
-        ru: "Пакеты доказательств для стратегии противодействия мошенничеству",
+        ru: "Пакеты доказательной базы для стратегии противодействия мошенничеству",
       },
     ],
     application: {
-      en: "Bank of Russia, Rosfinmonitoring, MVD, Investigative Committee, and industry associations.",
-      ru: "Банк России, Росфинмониторинг, МВД, Следственный комитет и отраслевые ассоциации.",
+      en: "Bank of Russia, Rosfinmonitoring, MVD of Russia, Investigative Committee of Russia, and industry associations.",
+      ru: "Банк России, Росфинмониторинг, МВД России, Следственный комитет России, отраслевые ассоциации.",
     },
     visualFamily: "system",
     motif: "grid",
@@ -359,8 +359,8 @@ export const impactPipeline: ImpactStage[] = [
     code: "05",
     title: { en: "Test", ru: "Проверять" },
     description: {
-      en: "Behavioral-change metrics — action, not only knowledge.",
-      ru: "Метрики изменения поведения — действие, а не только знание.",
+      en: "Behavioral-change metrics - action, not only knowledge.",
+      ru: "Метрики изменения поведения - действие, а не только знание.",
     },
   },
   {

@@ -52,8 +52,8 @@ export const partners: Partner[] = [
   {
     id: "association-of-banks-of-russia",
     name: {
-      en: "Association of Banks of Russia",
-      ru: "Ассоциация банков России",
+      en: "Association of Russian Banks (ARB)",
+      ru: "Ассоциация российских банков (АРБ)",
     },
     category: "association",
     relation: "collaboration",
@@ -129,10 +129,10 @@ export const partners: Partner[] = [
     featured: true,
   },
   {
-    id: "wildberries-russ",
+    id: "rwb",
     name: {
-      en: "Wildberries & Russ (RVB)",
-      ru: "ООО «РВБ» (Wildberries & Russ)",
+      en: "RWB",
+      ru: "RWB",
     },
     category: "industry",
     relation: "program-collaboration",
@@ -140,8 +140,31 @@ export const partners: Partner[] = [
       en: "Program collaboration",
       ru: "Программное сотрудничество",
     },
-    logo: "/media/partners/wildberries-russ.png",
+    logo: "/media/partners/rwb.png",
     featured: true,
+    note: {
+      en: "International technology company (rwb.ru).",
+      ru: "Международная технологическая компания (rwb.ru).",
+    },
+  },
+  {
+    id: "iarep",
+    name: {
+      en: "IAREP",
+      ru: "IAREP",
+    },
+    category: "academic",
+    relation: "collaboration",
+    relationLabel: {
+      en: "International research association",
+      ru: "Международная исследовательская ассоциация",
+    },
+    logo: "/media/partners/iarep.png",
+    featured: true,
+    note: {
+      en: "International Association for Research in Economic Psychology.",
+      ru: "Международная ассоциация исследований в области экономической психологии.",
+    },
   },
   {
     id: "spbmtsb",
