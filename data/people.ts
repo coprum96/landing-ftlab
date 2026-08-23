@@ -30,8 +30,8 @@ export const people: Person[] = [
     id: "tosunyan",
     slug: "gagik-tosunyan",
     name: {
-      en: "Gagik A. Tosunyan",
-      ru: "Гагик А. Тосунян",
+      en: "Garegin A. Tosunyan",
+      ru: "Гарегин А. Тосунян",
     },
     role: {
       en: "Scientific Director",
@@ -203,7 +203,7 @@ export const people: Person[] = [
     },
     role: {
       en: "Founder · Senior Researcher · AI / ML",
-      ru: "Основатель FTLAB · старший исследователь · ИИ / ML",
+      ru: "Старший исследователь · ИИ / ML",
     },
     focus: {
       en: "Fraud detection · behavioral risk scoring · SupTech / RegTech",
@@ -211,7 +211,7 @@ export const people: Person[] = [
     },
     bio: {
       en: "Founder of FinTechLab. Solutions and integrations engineer specializing in AI and machine learning. Leads research on antifraud pipelines and behavioral risk engines within FinTechLab / SupTech-RegTech.",
-      ru: "Основатель FinTechLab. Инженер по решениям и интеграциям со специализацией в области ИИ и машинного обучения. Ведёт исследования антифрод-пайплайнов и поведенческих риск-движков в рамках направления FinTechLab / SupTech-RegTech.",
+      ru: "Инженер по решениям и интеграциям со специализацией в области ИИ и машинного обучения. Ведёт исследования антифрод-пайплайнов и поведенческих риск-движков в рамках направления FinTechLab / SupTech-RegTech.",
     },
     detail: {
       en: "M.Sc. Finance, SPbU; second master's degree in finance from Freie Universität Berlin. Focus: translating behavioral evidence into deployable detection and scoring systems. Builds the technical backbone connecting laboratory experiments to production-grade antifraud and behavioral scoring infrastructure.",
