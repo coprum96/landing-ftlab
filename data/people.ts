@@ -260,6 +260,39 @@ export const people: Person[] = [
     hasPhoto: true,
     featured: true,
   },
+  {
+    id: "lobanova",
+    slug: "karina-lobanova",
+    name: {
+      en: "Karina Lobanova",
+      ru: "Карина Лобанова",
+    },
+    role: {
+      en: "Partner",
+      ru: "Партнёр",
+    },
+    focus: {
+      en: "Financial consulting · mediation · education through practice",
+      ru: "Финансовый консалтинг · медиация · обучение через практику",
+    },
+    bio: {
+      en: "Partner at the Laboratory of Modern Financial Technologies, Saint Petersburg State University (SPbSU). Master’s in Economics; founder of ARK.",
+      ru: "Партнёр Лаборатории современных финансовых технологий Санкт-Петербургского государственного университета (СПбГУ). Магистр экономики; основатель ARK.",
+    },
+    detail: {
+      en: "Works at the intersection of financial consulting, mediation, and practice-based education — connecting applied expertise with the laboratory’s research and teaching agenda.",
+      ru: "Работает на стыке финансового консалтинга, медиации и практико-ориентированного образования — связывает прикладную экспертизу с исследовательской и образовательной повесткой лаборатории.",
+    },
+    institution: {
+      en: "Saint Petersburg State University",
+      ru: "Санкт-Петербургский государственный университет",
+    },
+    links: {},
+    initials: "KL",
+    motif: "b",
+    hasPhoto: true,
+    featured: true,
+  },
 ];
 
 export const featuredPeople = people.filter((p) => p.featured);
