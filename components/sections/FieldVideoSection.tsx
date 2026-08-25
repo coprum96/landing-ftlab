@@ -84,7 +84,7 @@ export function FieldVideoSection({ dict }: { dict: Dictionary }) {
 
       <div
         ref={frameRef}
-        className="relative mx-auto flex h-[min(70vh,760px)] min-h-[380px] max-h-[760px] flex-col justify-end overflow-hidden bg-[#0c0c0c]"
+        className="relative mx-auto flex h-[min(78vh,840px)] min-h-[460px] max-h-[840px] flex-col justify-end overflow-hidden bg-[#0c0c0c]"
         data-cursor="play"
       >
         <video
@@ -101,9 +101,9 @@ export function FieldVideoSection({ dict }: { dict: Dictionary }) {
         <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/90 via-[#080808]/35 to-[#080808]/45" />
         <div
           ref={textRef}
-          className="relative z-10 w-full px-6 pb-8 pt-16 sm:px-8 sm:pb-10 md:px-14 md:pb-14 md:pt-20"
+          className="relative z-10 w-full px-6 pb-8 pt-20 sm:px-8 sm:pb-10 md:px-14 md:pb-14 md:pt-24"
         >
-          <p className="max-w-3xl pl-[0.04em] text-[clamp(1.5rem,4.2vw,3.25rem)] font-medium leading-[1.12] tracking-[-0.02em]">
+          <p className="headline-display max-w-4xl pl-[0.05em] leading-[1.06]">
             {dict.fieldVideo.line1}
             <br />
             {dict.fieldVideo.line2}
