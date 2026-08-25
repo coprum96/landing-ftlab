@@ -401,8 +401,8 @@ export function ChooseDirectionSection({
           </svg>
         </div>
 
-        {/* Destinations — equal weight, no cards */}
-        <div className="col-span-12 mt-2 grid grid-cols-1 gap-0 md:mt-4 md:grid-cols-2 md:gap-16 lg:gap-24">
+        {/* Destinations — parallel columns (human left, agentic right) */}
+        <div className="col-span-12 mt-2 grid grid-cols-2 gap-x-4 border-t border-white/10 pt-6 md:mt-4 md:gap-16 md:border-t-0 md:pt-0 lg:gap-24">
           <Link
             ref={humanContentRef}
             href={humanHref}
@@ -411,30 +411,30 @@ export function ChooseDirectionSection({
             onFocus={() => setHovered("human")}
             onBlur={() => setHovered(null)}
             className={cx(
-              "max-w-md border-t border-white/10 pt-8 transition-[opacity,transform] duration-500 ease-out md:border-t-0 md:pt-2",
+              "max-w-md transition-[opacity,transform] duration-500 ease-out md:pt-2",
               humanDim ? "opacity-35" : "opacity-100",
               hovered === "human" && "md:-translate-y-0.5",
             )}
             aria-label={`${copy.human.title}. ${copy.human.cta}`}
           >
-            <p className="label-mono text-[11px] text-accent">
+            <p className="label-mono text-[10px] text-accent md:text-[11px]">
               {copy.human.code}
             </p>
-            <h3 className="mt-4 text-[clamp(1.45rem,2.4vw,2rem)] font-medium leading-[1.08] tracking-[-0.03em]">
+            <h3 className="mt-3 text-[clamp(1.05rem,4.2vw,2rem)] font-medium leading-[1.08] tracking-[-0.03em] md:mt-4">
               {copy.human.title}
             </h3>
-            <p className="mt-4 text-sm leading-relaxed text-muted md:text-[0.95rem]">
+            <p className="mt-3 text-[12px] leading-relaxed text-muted md:mt-4 md:text-[0.95rem]">
               {copy.human.description}
             </p>
             <p
               className={cx(
-                "label-mono mt-5 text-[10px] tracking-[0.12em] text-ink/40 transition-opacity duration-500",
+                "label-mono mt-4 text-[8px] leading-relaxed tracking-[0.08em] text-ink/40 transition-opacity duration-500 md:mt-5 md:text-[10px] md:tracking-[0.12em]",
                 hovered === "human" || touch ? "opacity-100" : "opacity-45",
               )}
             >
               {copy.human.meta}
             </p>
-            <span className="label-mono mt-6 inline-flex min-h-11 items-center gap-2 text-[11px] text-ink">
+            <span className="label-mono mt-4 inline-flex min-h-10 items-center gap-1.5 text-[10px] text-ink md:mt-6 md:min-h-11 md:gap-2 md:text-[11px]">
               {copy.human.cta}
               <span aria-hidden>→</span>
             </span>
@@ -448,30 +448,30 @@ export function ChooseDirectionSection({
             onFocus={() => setHovered("agentic")}
             onBlur={() => setHovered(null)}
             className={cx(
-              "max-w-md border-t border-white/10 pt-8 transition-[opacity,transform] duration-500 ease-out md:justify-self-end md:border-t-0 md:pt-2 md:text-right",
+              "max-w-md justify-self-end text-right transition-[opacity,transform] duration-500 ease-out md:pt-2",
               agenticDim ? "opacity-35" : "opacity-100",
               hovered === "agentic" && "md:-translate-y-0.5",
             )}
             aria-label={`${copy.agentic.title}. ${copy.agentic.cta}`}
           >
-            <p className="label-mono text-[11px] text-accent">
+            <p className="label-mono text-[10px] text-accent md:text-[11px]">
               {copy.agentic.code}
             </p>
-            <h3 className="mt-4 text-[clamp(1.45rem,2.4vw,2rem)] font-medium leading-[1.08] tracking-[-0.03em]">
+            <h3 className="mt-3 text-[clamp(1.05rem,4.2vw,2rem)] font-medium leading-[1.08] tracking-[-0.03em] md:mt-4">
               {copy.agentic.title}
             </h3>
-            <p className="mt-4 text-sm leading-relaxed text-muted md:ml-auto md:text-[0.95rem]">
+            <p className="mt-3 ml-auto text-[12px] leading-relaxed text-muted md:mt-4 md:text-[0.95rem]">
               {copy.agentic.description}
             </p>
             <p
               className={cx(
-                "label-mono mt-5 text-[10px] tracking-[0.12em] text-ink/40 transition-opacity duration-500",
+                "label-mono mt-4 text-[8px] leading-relaxed tracking-[0.08em] text-ink/40 transition-opacity duration-500 md:mt-5 md:text-[10px] md:tracking-[0.12em]",
                 hovered === "agentic" || touch ? "opacity-100" : "opacity-45",
               )}
             >
               {copy.agentic.meta}
             </p>
-            <span className="label-mono mt-6 inline-flex min-h-11 items-center gap-2 text-[11px] text-ink md:justify-end">
+            <span className="label-mono mt-4 inline-flex min-h-10 items-center justify-end gap-1.5 text-[10px] text-ink md:mt-6 md:min-h-11 md:gap-2 md:text-[11px]">
               {copy.agentic.cta}
               <span aria-hidden>→</span>
             </span>
