@@ -269,6 +269,20 @@
     "heading": "Field Notes",
     "read": "Read note"
   },
+  "conferenceAnnounce": {
+    "label": "ANNOUNCEMENT · CONFERENCE 2026",
+    "supporting": "II All-Russian conference at SPbU — behavioral economics, information security, and a Youth Day with applied masterclasses.",
+    "cta": "VIEW PROGRAM"
+  },
+  "eventDetail": {
+    "label": "/ CONFERENCE PROGRAM",
+    "back": "Home",
+    "dates": "Dates",
+    "format": "Format",
+    "organizers": "Organizers",
+    "sponsors": "Sponsors",
+    "infoPartner": "Media partner"
+  },
   "footer": {
     "institution": "Saint Petersburg State University",
     "tagline1": "FROM UNDERSTANDING BEHAVIOR",

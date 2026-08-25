@@ -7,12 +7,28 @@ export type FieldNote = {
   title: Localized;
   excerpt: Localized;
   motif: "notes" | "conference" | "data" | "collab";
+  href?: string;
 };
 
 /**
  * Editorial field notes grounded in verified lab milestones — not fabricated events.
  */
 export const fieldNotes: FieldNote[] = [
+  {
+    id: "note-00",
+    date: "2026-10-09",
+    category: { en: "Conference", ru: "Конференция" },
+    title: {
+      en: "II All-Russian conference: Behavioral Economics and Information Security",
+      ru: "II Всероссийская конференция: поведенческая экономика и информационная безопасность",
+    },
+    excerpt: {
+      en: "9–10 October 2026 at SPbU — plenaries, antifraud panels, platform dialogue, and Youth Day with the Golden Detector simulation. Full program published.",
+      ru: "9–10 октября 2026 в СПбГУ — пленарные заседания, антифрод-панели, диалог платформ и Молодёжный день с симулятором «Золотой Детектор». Программа опубликована.",
+    },
+    motif: "conference",
+    href: "events/behavioral-economics-information-security-2026",
+  },
   {
     id: "note-01",
     date: "2025-12-17",

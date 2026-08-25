@@ -14,6 +14,7 @@ import { PeopleSection } from "@/components/sections/PeopleSection";
 import { PartnersSection } from "@/components/sections/PartnersSection";
 import { ManifestoSection } from "@/components/sections/ManifestoSection";
 import { FieldNotesSection } from "@/components/sections/FieldNotesSection";
+import { ConferenceAnnounce } from "@/components/sections/ConferenceAnnounce";
 import { DecisionNetworkSection } from "@/components/sections/DecisionNetworkSection";
 import { CollaborationSection } from "@/components/sections/CollaborationSection";
 import { getDictionary, isLocale, type Locale } from "@/lib/i18n";
@@ -44,6 +45,7 @@ export default async function HomePage({ params }: Props) {
     <>
       <Hero dict={dict} />
       <FieldVideoSection dict={dict} />
+      <ConferenceAnnounce locale={locale} dict={dict} />
       <ResearchAreas locale={locale} dict={dict} />
       <MethodsSection locale={locale} dict={dict} />
       <DecisionNetworkSection dict={dict} />
