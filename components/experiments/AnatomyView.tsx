@@ -143,13 +143,13 @@ export function AnatomyView({
           {dict.ctaAgain}
         </button>
         <Link
-          href={`${getLocalizedPath(locale)}#research`}
+          href={getLocalizedPath(locale, "research/human")}
           className="label-mono inline-flex min-h-12 w-full items-center justify-center border border-white/12 px-5 py-3.5 text-[12px] text-muted transition-colors hover:border-white/30 hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:min-h-11 sm:w-auto sm:justify-start"
         >
           {dict.ctaResearch}
         </Link>
         <Link
-          href={getLocalizedPath(locale, "research")}
+          href={getLocalizedPath(locale, "research/agentic-ai")}
           className="label-mono inline-flex min-h-12 w-full items-center justify-center border border-white/12 px-5 py-3.5 text-[12px] text-muted transition-colors hover:border-white/30 hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:min-h-11 sm:w-auto sm:justify-start"
         >
           {dict.ctaExplore}

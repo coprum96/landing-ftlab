@@ -1,11 +1,13 @@
 {
   "meta": {
-    "title": "FinTechLab — Behavior. Finance. Protection.",
-    "description": "A research lab on behavioral risk in digital finance — experiments, protective tools, and training built for decisions under pressure."
+    "title": "FinTechLab - Behavior. Finance. Protection.",
+    "description": "A research lab on behavioral risk in digital finance - experiments, protective tools, and training built for decisions under pressure."
   },
   "nav": {
     "brand": "FINTECHLAB",
     "research": "Research",
+    "researchHuman": "Human",
+    "researchAgentic": "Agentic AI",
     "projects": "Projects",
     "publications": "Publications",
     "people": "People",
@@ -22,12 +24,12 @@
     "read": "READ"
   },
   "hero": {
-    "label": "FINTECHLAB — EST. 2025",
+    "label": "FINTECHLAB - EST. 2025",
     "line1": "BEHAVIOR.",
     "line2": "FINANCE.",
     "line3": "PROTECTION.",
-    "supporting": "We study behavioral vulnerabilities in digital finance — and turn experimental evidence into protective technologies, education, and regulatory insight.",
-    "cta": "EXPLORE RESEARCH"
+    "supporting": "We study behavioral vulnerabilities in digital finance - and turn experimental evidence into protective technologies, education, and regulatory insight.",
+    "cta": "CHOOSE DIRECTION"
   },
   "fieldVideo": {
     "label": "/ FIELD SIGNAL",
@@ -35,8 +37,28 @@
     "line2": "fails under pressure.",
     "line3": "We measure why."
   },
+  "chooseDirection": {
+    "label": "/ RESEARCH DIRECTIONS",
+    "heading": "WHO MAKES THE DECISION?",
+    "supporting": "We study financial decision systems - human and autonomous - before decisions become financial losses.",
+    "origin": "FTLAB",
+    "human": {
+      "code": "01 / HUMAN",
+      "title": "Human Financial Behavior",
+      "description": "How people perceive risk, respond to pressure, and make financial decisions under manipulation.",
+      "meta": "PERCEPTION · PRESSURE · BIAS · DECISION · ACTION",
+      "cta": "Explore Human Research"
+    },
+    "agentic": {
+      "code": "02 / AGENTIC AI",
+      "title": "Agentic AI",
+      "description": "How autonomous systems interpret intent, exercise authority, and make financial decisions.",
+      "meta": "INTENT · CONTEXT · AUTHORITY · EXECUTION · CONTROL",
+      "cta": "Explore Agentic AI"
+    }
+  },
   "research": {
-    "label": "/01 — RESEARCH",
+    "label": "/ PILLARS",
     "heading": "Four research pillars.",
     "questionLabel": "Question",
     "methodLabel": "Method",
@@ -44,12 +66,12 @@
     "applicationLabel": "Application"
   },
   "methods": {
-    "label": "/02 — HOW WE STUDY BEHAVIOR",
+    "label": "/02 - HOW WE STUDY BEHAVIOR",
     "heading": "Research instruments.",
-    "supporting": "Experimental simulation, measurement, modeling, and intervention design — scored by changes in action, not only awareness."
+    "supporting": "Experimental simulation, measurement, modeling, and intervention design - scored by changes in action, not only awareness."
   },
   "projects": {
-    "label": "/03 — CURRENT RESEARCH & TECHNOLOGY",
+    "label": "/03 - CURRENT RESEARCH & TECHNOLOGY",
     "heading": "From programs to tools.",
     "explore": "Explore",
     "viewAll": "All projects",
@@ -64,14 +86,14 @@
     }
   },
   "impact": {
-    "label": "/04 — FROM RESEARCH TO IMPACT",
+    "label": "/04 - FROM RESEARCH TO IMPACT",
     "heading": "Science that becomes protection.",
     "supporting": "A working loop from observation to implementation in financial environments."
   },
   "experiments": {
     "label": "/ EXPERIMENT",
     "heading": "Would you recognize\nmanipulation\nunder pressure?",
-    "supporting": "A short interactive simulation. Experience a financial social-engineering attack in two steps — and see how FTLAB breaks down the manipulation behind it.",
+    "supporting": "A short interactive simulation. Experience a financial social-engineering attack in two steps - and see how FTLAB breaks down the manipulation behind it.",
     "ctaEnter": "ENTER THE SIMULATION",
     "step1": "STEP 1 OF 2",
     "step2": "STEP 2 OF 2",
@@ -143,14 +165,30 @@
     "patternTitle": "MANIPULATION PATTERN IDENTIFIED",
     "patternName": "SOCIAL ENGINEERING / FINANCIAL IMPERSONATION",
     "patternMechanismsLabel": "BEHAVIORAL MECHANISMS",
-    "patternMechanisms": ["URGENCY", "AUTHORITY", "LOSS AVERSION", "FORCED FLOW"],
+    "patternMechanisms": [
+      "URGENCY",
+      "AUTHORITY",
+      "LOSS AVERSION",
+      "FORCED FLOW"
+    ],
     "patternObjectiveLabel": "ATTACK OBJECTIVE",
     "patternObjective": "KEEP THE USER INSIDE THE ATTACKER-CONTROLLED DECISION PATH",
     "pathsTitle": "DECISION PATHS",
     "attackerPathLabel": "ATTACKER PATH",
-    "attackerPath": ["MESSAGE", "PRESSURE", "RESPONSE", "NEXT REQUEST", "COMPLIANCE"],
+    "attackerPath": [
+      "MESSAGE",
+      "PRESSURE",
+      "RESPONSE",
+      "NEXT REQUEST",
+      "COMPLIANCE"
+    ],
     "safePathLabel": "SAFE PATH",
-    "safePath": ["MESSAGE", "PAUSE", "EXIT FLOW", "INDEPENDENT VERIFICATION"],
+    "safePath": [
+      "MESSAGE",
+      "PAUSE",
+      "EXIT FLOW",
+      "INDEPENDENT VERIFICATION"
+    ],
     "brokenHeadline": "ATTACK FLOW BROKEN",
     "brokenSub": "You left the attacker-controlled sequence. That is the critical defensive action.",
     "whyWorkedTitle": "WHY THIS WORKED",
@@ -161,13 +199,23 @@
       "The attacker lost control of the interaction."
     ],
     "safeDecisionTitle": "SAFE DECISION PATH",
-    "safeDecisionPath": ["PAUSE", "EXIT", "VERIFY", "DECIDE"],
+    "safeDecisionPath": [
+      "PAUSE",
+      "EXIT",
+      "VERIFY",
+      "DECIDE"
+    ],
     "completedHeadline": "ATTACK COMPLETED",
     "completedSafeNote": "THIS WAS A SAFE SIMULATION.",
     "completedSafeBody": "No payment occurred. No information was requested. Nothing was stored.",
     "whereWonTitle": "WHERE THE ATTACK WON",
     "whereWonBody": "The attacker maintained control of the decision path from message to action.",
-    "whereWonStack": ["URGENCY", "AUTHORITY", "LOSS", "FORCED FLOW"],
+    "whereWonStack": [
+      "URGENCY",
+      "AUTHORITY",
+      "LOSS",
+      "FORCED FLOW"
+    ],
     "whereWonMid": "REDUCED REFLECTION",
     "whereWonEnd": "COMPLIANCE",
     "defensiveTitle": "THE DEFENSIVE MOVE",
@@ -185,29 +233,51 @@
       "COMPLIANCE REQUEST"
     ],
     "anatomyDefenseLabel": "DEFENSE PATH",
-    "anatomyDefense": ["PAUSE", "BREAK CONTACT", "INDEPENDENT VERIFICATION", "SAFE DECISION"],
+    "anatomyDefense": [
+      "PAUSE",
+      "BREAK CONTACT",
+      "INDEPENDENT VERIFICATION",
+      "SAFE DECISION"
+    ],
     "readsTitle": "HOW FTLAB READS THE SCENARIO",
-    "readsNote": "This refers to this simulation — not an actual visitor risk model.",
+    "readsNote": "This refers to this simulation - not an actual visitor risk model.",
     "reads": [
       {
         "id": "01",
         "label": "LANGUAGE",
-        "items": ["Urgency", "Threat framing", "Authority language"]
+        "items": [
+          "Urgency",
+          "Threat framing",
+          "Authority language"
+        ]
       },
       {
         "id": "02",
         "label": "INTERACTION",
-        "items": ["Forced sequence", "Reduced exit opportunities", "Escalation"]
+        "items": [
+          "Forced sequence",
+          "Reduced exit opportunities",
+          "Escalation"
+        ]
       },
       {
         "id": "03",
         "label": "DECISION ARCHITECTURE",
-        "items": ["Time pressure", "Loss framing", "Controlled choice environment"]
+        "items": [
+          "Time pressure",
+          "Loss framing",
+          "Controlled choice environment"
+        ]
       },
       {
         "id": "04",
         "label": "BEHAVIORAL MECHANISMS",
-        "items": ["Authority bias", "Loss aversion", "Cognitive load", "Commitment escalation"]
+        "items": [
+          "Authority bias",
+          "Loss aversion",
+          "Cognitive load",
+          "Commitment escalation"
+        ]
       }
     ],
     "classificationLabel": "SIMULATION CLASSIFICATION",
@@ -217,16 +287,16 @@
     "ctaExplore": "VIEW FTLAB RESEARCH →",
     "ctaLinkedIn": "FOLLOW FTLAB ON LINKEDIN ↗",
     "continueAnatomy": "OPEN ATTACK ANATOMY",
-    "disclaimer": "Educational simulation — not a diagnostic tool, not an individual fraud-risk assessment, and not a formal scientific study."
+    "disclaimer": "Educational simulation - not a diagnostic tool, not an individual fraud-risk assessment, and not a formal scientific study."
   },
   "education": {
-    "label": "/05 — FROM RESEARCH TO EDUCATION",
+    "label": "/05 - FROM RESEARCH TO EDUCATION",
     "heading": "Education as infrastructure.",
     "supporting": "Master’s programs, professional courses, and training formats that move laboratory methods into classrooms and financial organizations.",
     "viewAll": "All programs"
   },
   "publications": {
-    "label": "/06 — RESEARCH OUTPUT",
+    "label": "/06 - RESEARCH OUTPUT",
     "heading": "Selected research output.",
     "filters": {
       "all": "ALL",
@@ -249,13 +319,13 @@
     "doiLabel": "DOI"
   },
   "people": {
-    "label": "/07 — LABORATORY",
+    "label": "/07 - LABORATORY",
     "heading": "People behind the research.",
     "supporting": "Academia, regulation, and banking practice in one research unit.",
     "viewProfile": "Profile"
   },
   "partners": {
-    "label": "/08 — ECOSYSTEM",
+    "label": "/08 - ECOSYSTEM",
     "heading": "Science connected to practice.",
     "supporting": "Collaborations named in laboratory materials. Relationship labels stay conservative."
   },
@@ -265,14 +335,14 @@
     "line3": "We study the space where manipulation meets protection."
   },
   "fieldNotes": {
-    "label": "/ FIELD NOTES",
+    "label": "/07 - FIELD NOTES",
     "heading": "Field Notes",
     "read": "Read note"
   },
   "conferenceAnnounce": {
-    "label": "ANNOUNCEMENT · CONFERENCE 2026",
-    "supporting": "II All-Russian conference at SPbU — behavioral economics, information security, and a Youth Day with applied masterclasses.",
-    "cta": "VIEW PROGRAM"
+    "label": "ANNOUNCEMENT",
+    "line": "Conference 2026 at SPbU: Behavioral Economics and Information Security - 9-10 October.",
+    "cta": "LEARN MORE"
   },
   "eventDetail": {
     "label": "/ CONFERENCE PROGRAM",
@@ -298,12 +368,14 @@
   },
   "pages": {
     "research": {
-      "title": "Research",
-      "subtitle": "Cognitive-behavioral security, digital victimology, protective technologies, and regulatory analytics."
+      "label": "/01 - HUMAN",
+      "title": "Human Financial Behavior",
+      "subtitle": "How people perceive risk, respond to pressure, and make financial decisions under manipulation - across cognitive security, victimology, protective technologies, and regulation.",
+      "meta": "PERCEPTION · PRESSURE · BIAS · DECISION · ACTION"
     },
     "projects": {
       "title": "Projects",
-      "subtitle": "Research programs, infrastructure, tools, and implementations — with factual status where known."
+      "subtitle": "Research programs, infrastructure, tools, and implementations - with factual status where known."
     },
     "publications": {
       "title": "Publications",
@@ -320,13 +392,295 @@
     "about": {
       "title": "About",
       "subtitle": "FinTechLab SPbU studies the relationship between human behavior, financial environments, digital systems, and protection.",
-      "body": "Founded in 2025 at Saint Petersburg State University, the Laboratory of Modern Financial Technologies builds a scientific and applied base against behavioral vulnerabilities in modern financial threats. Work integrates behavioral economics, neuroscience, digital victimology, and financial-security practice — moving from experiment to technology, education, and regulatory insight."
+      "body": "Founded in 2025 at Saint Petersburg State University, the Laboratory of Modern Financial Technologies builds a scientific and applied base against behavioral vulnerabilities in modern financial threats. Work integrates behavioral economics, neuroscience, digital victimology, and financial-security practice - moving from experiment to technology, education, and regulatory insight."
+    },
+    "agenticAi": {
+      "label": "/02 - AGENTIC AI",
+      "title": "Agentic AI in Finance",
+      "researchLabel": "FINTECHLAB / AGENTIC FINANCE RESEARCH",
+      "headline": "Agentic AI in Finance",
+      "subheadline": "We research, build and stress-test autonomous financial systems.",
+      "secondary": "From financial reasoning to delegated authority, autonomous execution and machine-to-machine finance.",
+      "supporting": "We study how AI agents interact with money, financial infrastructure, humans and other autonomous systems - and what happens when those agents are allowed to act.",
+      "meta": "RESEARCH · BUILD · SIMULATE · ATTACK · MEASURE · DEFEND",
+      "statusNote": "Research and engineering programme. Experimental systems and methods in development - not production deployments or commercial claims.",
+      "transition": {
+        "label": "The transition",
+        "title": "From AI assistance to financial autonomy.",
+        "lede": "We study what happens when AI stops advising and starts acting on money.",
+        "fromLabel": "Traditional financial AI",
+        "toLabel": "Agentic financial systems",
+        "from": [
+          "Data",
+          "Model",
+          "Recommendation",
+          "Human Action"
+        ],
+        "to": [
+          "Intent",
+          "Agent",
+          "Reasoning",
+          "Authority",
+          "Execution",
+          "Monitoring"
+        ],
+        "altFrom": [
+          "AI observes",
+          "AI recommends",
+          "AI decides",
+          "AI acts",
+          "AI transacts"
+        ],
+        "caption": "Financial AI is moving from systems that analyze and recommend toward autonomous agents that access financial systems, reason about states, use tools, communicate with other agents, and execute transactions."
+      },
+      "question": {
+        "label": "Main research question",
+        "title": "What happens when AI is authorized to act on money?",
+        "traditionalLabel": "Traditional",
+        "traditional": [
+          "Analyze",
+          "Recommend",
+          "Human decides"
+        ],
+        "agenticLabel": "Agentic",
+        "agentic": [
+          "Observe",
+          "Reason",
+          "Plan",
+          "Act",
+          "Verify"
+        ]
+      },
+      "cycle": {
+        "label": "How we work",
+        "title": "We study both sides: how autonomous financial systems work - and how they fail.",
+        "supporting": "Authorized adversarial research in controlled environments. ATTACK means red-team evaluation, not offensive capability transfer.",
+        "attackNote": "Authorized adversarial security research / red teaming in controlled environments."
+      },
+      "architecture": {
+        "label": "Research architecture",
+        "title": "An autonomous financial system.",
+        "supporting": "From human intent to money movement - with authority, risk controls and audit as first-class layers."
+      },
+      "areas": {
+        "label": "Research areas",
+        "title": "Core research programme.",
+        "supporting": "Six priority fronts. Full programme remains available below.",
+        "featuredLabel": "Priority fronts",
+        "featuredTitle": "Where FinTechLab focuses first.",
+        "allLabel": "All research areas",
+        "showAll": "Show all 12",
+        "showLess": "Show priority only"
+      },
+      "fraud": {
+        "label": "Financial loss prevention",
+        "title": "Should this financial action happen at all?",
+        "supporting": "We research Financial Action Risk - a runtime decision over intent, identity, behavior, agent, context and transaction.",
+        "inputsLabel": "Signal space",
+        "decisionsLabel": "Control decisions"
+      },
+      "agentConflict": {
+        "label": "Agent × Agent",
+        "title": "Agent vs Agent",
+        "supporting": "Future financial crime may increasingly involve autonomous systems on both sides.",
+        "offensiveLabel": "Offensive agents",
+        "defensiveLabel": "Defensive agents",
+        "speedLabel": "Machine-speed financial conflict",
+        "speedText": "Financial institutions may need autonomous defense because attacks will increasingly operate at autonomous speed."
+      },
+      "human": {
+        "label": "Human × Agent",
+        "title": "Human × Agent Financial Behavior",
+        "supporting": "FinTechLab is not only a technical lab. We study trust, delegation, automation bias, social engineering and the friction that protects without destroying usability.",
+        "disciplines": "Behavioral economics · Decision science · Social engineering · Financial psychology · Human-AI interaction"
+      },
+      "adversarial": {
+        "label": "Adversarial research",
+        "title": "Breaking Financial Agents",
+        "supporting": "We deliberately stress-test autonomous financial systems in controlled environments.",
+        "goal": "Understand how financial agents fail before attackers do.",
+        "surfacesLabel": "Attack surfaces under study",
+        "ethic": "Ethical, authorized and controlled red-team research."
+      },
+      "governance": {
+        "label": "Runtime governance",
+        "title": "Financial Agent Governance",
+        "supporting": "Static AI governance is not enough when agents can act. We study runtime governance of intent, observation, tools, permissions, actions and outcomes.",
+        "observabilityTitle": "Financial Agent Observability",
+        "observabilityText": "A system should make autonomous financial behavior inspectable, measurable and replayable."
+      },
+      "replay": {
+        "label": "Transaction replay",
+        "title": "Why did the agent do that?",
+        "scenario": "Why did this AI agent transfer €18,720 to this counterparty at 14:32?",
+        "supporting": "A future financial institution must reconstruct the full causal chain of an autonomous financial action.",
+        "concept": "Financial Action Replay",
+        "fieldsLabel": "Reconstruction surface"
+      },
+      "simulation": {
+        "label": "Agent simulation",
+        "title": "Financial Agent Simulation",
+        "supporting": "Before autonomous systems receive real financial authority, they must be tested in simulated environments.",
+        "scaleLabel": "Scale",
+        "scale": [
+          "1 agent",
+          "100 agents",
+          "10,000 agents",
+          "Emergent financial behavior"
+        ]
+      },
+      "systemic": {
+        "label": "Systemic risk",
+        "title": "When thousands of agents make the same decision",
+        "supporting": "Correlated models, correlated reasoning, correlated execution - at machine speed."
+      },
+      "liability": {
+        "label": "Agent liability",
+        "title": "Who is responsible when an agent loses money?",
+        "supporting": "Accountability, liability boundaries, financial guarantees, insurance, dispute resolution and execution provenance.",
+        "product": "AI Agent Liability Insurance",
+        "productNote": "An emerging product direction under research - not a live offering."
+      },
+      "infrastructure": {
+        "label": "Emerging infrastructure",
+        "title": "The financial stack for autonomous systems.",
+        "supporting": "FinTechLab studies how these building blocks interact as infrastructure for agents - not as isolated tutorials."
+      },
+      "radar": {
+        "label": "Future product radar",
+        "title": "What we expect to emerge",
+        "supporting": "Research hypotheses and emerging product directions - not claims that every product already exists."
+      },
+      "concepts": {
+        "label": "Research concepts",
+        "title": "Programme concepts under active interest.",
+        "supporting": "Serious research directions we are prototyping and stress-testing - not startup advertisements."
+      },
+      "philosophy": {
+        "label": "Research philosophy",
+        "line1": "We do not study agents only when they work.",
+        "line2": "We study them when they fail.",
+        "closing": "We want to understand autonomous financial systems before they become financial infrastructure."
+      },
+      "back": "Back to directions",
+      "humanCta": "Human research",
+      "ecosystem": {
+        "label": "Programme map",
+        "title": "Agentic finance ecosystem.",
+        "supporting": "Eight connected acts. Hover to inspect. Click to travel into the programme.",
+        "hint": "INTERACTIVE MAP · HOVER / CLICK TO NAVIGATE",
+        "enter": "Enter section",
+        "core": "AGENTIC FINANCE",
+        "supportingTouch": "Eight connected acts. Tap a layer, then enter the section.",
+        "hintTouch": "INTERACTIVE MAP · TAP TO SELECT · ENTER TO TRAVEL",
+        "mobileHint": "TAP TO SELECT · ENTER SECTION TO TRAVEL",
+        "jump": "MAP ↑",
+        "swipe": "SWIPE"
+      },
+      "stakes": {
+        "label": "Why now",
+        "title": "When AI can move money, the risk is no longer informational.",
+        "supporting": "It is financial. Machine-speed. And poorly governed.",
+        "items": [
+          {
+            "code": "01",
+            "title": "Loss at machine speed",
+            "text": "Autonomous systems can initiate irreversible transfers faster than human oversight can intervene."
+          },
+          {
+            "code": "02",
+            "title": "Authority without identity",
+            "text": "Financial rails were built for people and institutions - not for non-human actors with delegated power."
+          },
+          {
+            "code": "03",
+            "title": "Agent vs agent conflict",
+            "text": "Offense and defense increasingly operate as autonomous systems. Institutions need research on both sides."
+          }
+        ],
+        "closing": "FinTechLab studies this transition before autonomous finance becomes infrastructure."
+      },
+      "threat": {
+        "label": "Threat surface",
+        "title": "How autonomous financial systems fail.",
+        "supporting": "We study financial action risk, agent-versus-agent conflict, and authorized red-team failure modes - in controlled environments.",
+        "tabs": [
+          {
+            "id": "action",
+            "title": "Financial Action Risk",
+            "text": "Should this financial action happen at all? Intent, identity, behavior, agent, context and transaction decide ALLOW / CHALLENGE / LIMIT / DELAY / BLOCK / ESCALATE."
+          },
+          {
+            "id": "conflict",
+            "title": "Agent vs Agent",
+            "text": "Future financial crime may involve autonomous systems on both sides. Defense must operate at machine speed."
+          },
+          {
+            "id": "break",
+            "title": "Breaking Agents",
+            "text": "We adversarially stress-test agents through prompt injection, poisoned context, authority abuse and manipulation - to understand failure before attackers do."
+          }
+        ],
+        "goal": "Understand how financial agents fail before attackers do."
+      },
+      "close": {
+        "label": "Work with the lab",
+        "title": "Autonomous finance is becoming infrastructure.",
+        "line": "We want partners who will study it before that happens.",
+        "audiencesLabel": "Who this is for",
+        "audiences": [
+          {
+            "title": "Banks & PSPs",
+            "text": "Agent identity, delegated authority, loss prevention, runtime controls."
+          },
+          {
+            "title": "Security & risk",
+            "text": "Red-team research, agent risk scoring, financial action firewalls."
+          },
+          {
+            "title": "Regulators & policy",
+            "text": "Observability, replay, liability boundaries, governance models."
+          },
+          {
+            "title": "Universities & partners",
+            "text": "Joint research, simulation environments, publication tracks."
+          }
+        ],
+        "cta": "CONTACT THE LAB",
+        "mapCta": "Open programme map",
+        "humanCta": "Human research track",
+        "philosophy1": "We do not study agents only when they work.",
+        "philosophy2": "We study them when they fail."
+      },
+      "heroCta": {
+        "map": "Enter programme map",
+        "contact": "Contact the lab"
+      },
+      "horizon": {
+        "label": "Horizon",
+        "title": "What we expect to emerge.",
+        "supporting": "Research hypotheses and emerging directions - not claims that every product already exists.",
+        "tabs": [
+          {
+            "id": "near",
+            "title": "2026-2027"
+          },
+          {
+            "id": "mid",
+            "title": "2027-2028"
+          },
+          {
+            "id": "concepts",
+            "title": "Concepts"
+          }
+        ]
+      }
     }
   },
   "decisionNetwork": {
     "title": "THE DECISION NETWORK",
     "heading": "From stimulus to financial action.",
-    "supporting": "A live map of how a financial choice forms — from the first cue to the irreversible click.",
+    "supporting": "A live map of how a financial choice forms - from the first cue to the irreversible click.",
     "stages": [
       "STIMULUS",
       "PERCEPTION",
@@ -336,9 +690,9 @@
       "ACTION"
     ],
     "stageCopy": [
-      "An external cue enters the field — message, alert, offer, authority signal.",
+      "An external cue enters the field - message, alert, offer, authority signal.",
       "Attention locks; meaning is assigned faster than verification can catch up.",
-      "Cognitive shortcuts tilt the frame — trust, loss, urgency, social proof.",
+      "Cognitive shortcuts tilt the frame - trust, loss, urgency, social proof.",
       "Time and consequence compress the option space until pause feels costly.",
       "A choice crystallizes under incomplete information and affective load.",
       "Behavior becomes irreversible: transfer, disclosure, compliance, silence."
@@ -372,12 +726,12 @@
     "label": "WORK WITH FTLAB",
     "heading": "Want to know more?",
     "cta": "CONTACT US",
-    "mailSubject": "Contact — FinTechLab SPbU"
+    "mailSubject": "Contact - FinTechLab SPbU"
   },
   "evidence": {
     "label": "/ EVIDENCE",
     "heading": "What the laboratory can show today.",
-    "supporting": "Counts below are derived from catalogued lab materials on this site — not marketing estimates."
+    "supporting": "Counts below are derived from catalogued lab materials on this site - not marketing estimates."
   },
   "legal": {
     "privacy": {
@@ -398,7 +752,7 @@
           "p": "Browsing public pages does not require registration. If you email us, we process the content of your message, your email address, and any personal data you voluntarily include, solely to respond and manage correspondence. We do not operate a contact form that writes personal data into a Website database."
         },
         {
-          "h": "4. Interactive simulation — no experiment data collection",
+          "h": "4. Interactive simulation - no experiment data collection",
           "p": "The anti-fraud simulation does not request personal data, banking details, credentials, one-time codes, PINs, or payment information. Choices, timing, click behaviour, results, and experiment state are not stored, logged, or transmitted to our servers. Experiment state exists only temporarily in browser memory for the active session and is discarded when you refresh or leave the page."
         },
         {
@@ -547,7 +901,7 @@
           "p": "No real payment, transfer, account action, or banking operation occurs. The simulation does not request credentials, OTP, PIN, card numbers, or other banking secrets. Choices and results are not stored or transmitted by the Website; experiment state exists only temporarily in browser memory."
         },
         {
-          "h": "4. Simulated analysis — not a production risk model",
+          "h": "4. Simulated analysis - not a production risk model",
           "p": "On-screen “signal analysis” explains the constructed attack scenario for educational purposes. It is not a live production machine-learning system scoring visitors, not a biometric or psychophysiological measurement, and not a claim of personal psychological profiling."
         },
         {

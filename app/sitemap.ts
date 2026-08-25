@@ -7,7 +7,8 @@ import { absoluteUrl } from "@/lib/seo";
 
 const staticPaths = [
   "",
-  "research",
+  "research/human",
+  "research/agentic-ai",
   "projects",
   "education",
   "publications",

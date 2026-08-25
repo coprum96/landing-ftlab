@@ -17,6 +17,13 @@ export const motion = {
     lightOpacity: 0.03,
   },
 
+  /** Choose Direction — origin → divergence */
+  chooseDirection: {
+    revealDuration: 0.75,
+    hoverDuration: 0.5,
+    pointerInfluence: 0.012,
+  },
+
   /** Background decision network canvas */
   network: {
     nodeMin: 40,
@@ -29,6 +36,22 @@ export const motion = {
     driftAmplitude: 18,
     signalDurationMs: [700, 1200] as const,
     signalIntervalMs: [8000, 16000] as const,
+  },
+
+  /**
+   * Agentic Execution Lattice — directed financial control mesh.
+   * Distinct from Human Decision Network (organic constellation).
+   */
+  agenticField: {
+    laneCount: 7,
+    laneCountMd: 5,
+    laneCountTouch: 4,
+    packetMax: 10,
+    packetSpeed: 0.22,
+    gateHoldMs: 280,
+    a2aDistance: 120,
+    cursorCorridor: 48,
+    cursorRadius: 56,
   },
 
   /** Scroll reveals */

@@ -11,7 +11,6 @@ import { LanguageSwitch } from "@/components/ui/LanguageSwitch";
 import { MobileMenu } from "@/components/layout/MobileMenu";
 
 const links = [
-  { key: "research" as const, path: "research" },
   { key: "projects" as const, path: "projects" },
   { key: "education" as const, path: "education" },
   { key: "publications" as const, path: "publications" },
@@ -36,6 +35,7 @@ export function Header({
   const { direction, y } = useScrollDirection(motion.header.hideDelta);
   const reduced = useReducedMotionPreferred();
   const [open, setOpen] = useState(false);
+  const [researchOpen, setResearchOpen] = useState(false);
 
   const hide =
     !reduced &&
@@ -43,6 +43,11 @@ export function Header({
     scrolled &&
     direction === "down" &&
     y > motion.header.scrollThreshold + 80;
+
+  const researchActive =
+    isActivePath(pathname, locale, "research/human") ||
+    isActivePath(pathname, locale, "research/agentic-ai") ||
+    isActivePath(pathname, locale, "research");
 
   return (
     <>
@@ -73,6 +78,70 @@ export function Header({
             className="col-span-6 hidden min-w-0 items-center justify-center gap-5 xl:flex 2xl:gap-7"
             aria-label="Primary"
           >
+            {/* Research → Human / Agentic choice */}
+            <div
+              className="relative"
+              onMouseEnter={() => setResearchOpen(true)}
+              onMouseLeave={() => setResearchOpen(false)}
+            >
+              <button
+                type="button"
+                className={cx(
+                  "group relative shrink-0 whitespace-nowrap label-mono text-[11px] transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
+                  researchActive ? "text-ink" : "text-muted hover:text-ink",
+                )}
+                aria-expanded={researchOpen}
+                aria-haspopup="true"
+                onFocus={() => setResearchOpen(true)}
+              >
+                <span className="inline-block transition-transform duration-300 group-hover:translate-x-[2px]">
+                  {dict.nav.research}
+                </span>
+                <span
+                  className={cx(
+                    "absolute -bottom-1 left-0 h-px bg-accent transition-all duration-300",
+                    researchActive || researchOpen ? "w-full" : "w-0 group-hover:w-full",
+                  )}
+                />
+              </button>
+
+              <div
+                className={cx(
+                  "absolute left-1/2 top-full z-50 w-44 -translate-x-1/2 pt-3 transition-[opacity,transform] duration-300",
+                  researchOpen
+                    ? "pointer-events-auto translate-y-0 opacity-100"
+                    : "pointer-events-none translate-y-1 opacity-0",
+                )}
+              >
+                <div className="border border-white/10 bg-[#0a0a0a]/95 px-4 py-3 backdrop-blur-md">
+                  <Link
+                    href={getLocalizedPath(locale, "research/human")}
+                    className={cx(
+                      "label-mono block py-2 text-[11px] tracking-[0.1em] transition-colors",
+                      isActivePath(pathname, locale, "research/human")
+                        ? "text-accent"
+                        : "text-muted hover:text-ink",
+                    )}
+                    onClick={() => setResearchOpen(false)}
+                  >
+                    {dict.nav.researchHuman}
+                  </Link>
+                  <Link
+                    href={getLocalizedPath(locale, "research/agentic-ai")}
+                    className={cx(
+                      "label-mono block py-2 text-[11px] tracking-[0.1em] transition-colors",
+                      isActivePath(pathname, locale, "research/agentic-ai")
+                        ? "text-accent"
+                        : "text-muted hover:text-ink",
+                    )}
+                    onClick={() => setResearchOpen(false)}
+                  >
+                    {dict.nav.researchAgentic}
+                  </Link>
+                </div>
+              </div>
+            </div>
+
             {links.map((item) => {
               const active = isActivePath(pathname, locale, item.path);
               return (

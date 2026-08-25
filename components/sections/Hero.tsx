@@ -12,16 +12,16 @@ export function Hero({ dict }: { dict: Dictionary }) {
   const { headlineRef, lightRef } = useHeroReveal(rootRef);
   const reduced = useReducedMotionPreferred();
 
-  const scrollToResearch = () => {
+  const scrollToDirections = () => {
     document
-      .getElementById("research")
+      .getElementById("choose-direction")
       ?.scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
   };
 
   return (
     <section
       ref={rootRef}
-      className="relative flex min-h-[100svh] items-end overflow-hidden pb-16 pt-28 md:pb-24 md:pt-32"
+      className="relative flex min-h-[100svh] items-end overflow-hidden pb-16 pt-16 md:pb-24 md:pt-20"
     >
       <DecisionNetwork
         labels={dict.decisionNetwork.labels}
@@ -76,7 +76,7 @@ export function Hero({ dict }: { dict: Dictionary }) {
         <div data-hero-meta className="col-span-12 mt-12 md:col-span-4">
           <MagneticLink
             type="button"
-            onClick={scrollToResearch}
+            onClick={scrollToDirections}
             className="label-mono group items-center gap-3 text-[11px] text-ink"
             strength={0.2}
           >

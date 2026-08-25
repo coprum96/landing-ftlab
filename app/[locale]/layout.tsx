@@ -6,6 +6,7 @@ import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { HtmlLang } from "@/components/layout/HtmlLang";
 import { MediaCursor } from "@/components/motion/MediaCursor";
+import { ConferenceAnnounce } from "@/components/sections/ConferenceAnnounce";
 import { getDictionary, isLocale, type Locale } from "@/lib/i18n";
 import { buildPageMetadata } from "@/lib/seo";
 
@@ -45,10 +46,13 @@ export default async function LocaleLayout({ children, params }: Props) {
       <SmoothScroll>
         <MediaCursor labels={dict.cursor} />
         <Header locale={locale} dict={dict} />
-        <PageTransition>
-          <main id="main">{children}</main>
-        </PageTransition>
-        <Footer locale={locale} dict={dict} />
+        <div className="pt-[var(--header-h)]">
+          <ConferenceAnnounce locale={locale} dict={dict} />
+          <PageTransition>
+            <main id="main">{children}</main>
+          </PageTransition>
+          <Footer locale={locale} dict={dict} />
+        </div>
       </SmoothScroll>
     </div>
   );

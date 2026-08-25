@@ -8,7 +8,7 @@ import { LanguageSwitch } from "@/components/ui/LanguageSwitch";
 import { getLenisInstance } from "@/lib/lenis";
 
 type NavLink = {
-  key: "research" | "projects" | "education" | "publications" | "people" | "about";
+  key: "projects" | "education" | "publications" | "people" | "about";
   path: string;
 };
 
@@ -125,12 +125,36 @@ export function MobileMenu({
           </div>
 
           <nav className="mt-16 flex flex-col gap-2" aria-label={dict.nav.menu}>
+            <motion.div
+              initial={{ y: 24, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0, duration: 0.45 }}
+            >
+              <p className="headline-display py-2">{dict.nav.research}</p>
+              <div className="mb-4 ml-1 flex flex-col gap-1 border-l border-white/15 pl-4">
+                <Link
+                  href={getLocalizedPath(locale, "research/human")}
+                  onClick={onClose}
+                  className="label-mono min-h-11 py-2 text-[12px] text-muted transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                >
+                  {dict.nav.researchHuman}
+                </Link>
+                <Link
+                  href={getLocalizedPath(locale, "research/agentic-ai")}
+                  onClick={onClose}
+                  className="label-mono min-h-11 py-2 text-[12px] text-muted transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                >
+                  {dict.nav.researchAgentic}
+                </Link>
+              </div>
+            </motion.div>
+
             {links.map((item, index) => (
               <motion.div
                 key={item.path}
                 initial={{ y: 24, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.05 * index, duration: 0.45 }}
+                transition={{ delay: 0.05 * (index + 1), duration: 0.45 }}
               >
                 <Link
                   href={getLocalizedPath(locale, item.path)}

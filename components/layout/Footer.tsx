@@ -25,7 +25,7 @@ export function Footer({
   dict: Dictionary;
 }) {
   const links = [
-    { label: dict.nav.research, path: "research" },
+    { label: dict.nav.research, path: "research/human" },
     { label: dict.nav.projects, path: "projects" },
     { label: dict.nav.education, path: "education" },
     { label: dict.nav.publications, path: "publications" },

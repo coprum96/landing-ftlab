@@ -25,7 +25,7 @@ export default function NotFound() {
               {dict.nav.projects}
             </Link>
             <Link
-              href={`/${locale}/research`}
+              href={`/${locale}/research/human`}
               className="text-muted hover:text-accent"
             >
               {dict.nav.research}

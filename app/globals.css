@@ -236,9 +236,9 @@ video {
   }
 }
 
-/* Header clearance for page content */
+/* Header clearance handled by locale layout wrapper */
 .page-top {
-  padding-top: calc(var(--header-h) + 1.25rem);
+  padding-top: 1.25rem;
 }
 
 .cta-pulse {
