@@ -24,7 +24,7 @@ const NODES: EcoNode[] = [
     target: "why-now",
     code: "01",
     title: { en: "Why now", ru: "Почему сейчас" },
-    short: { en: "Why now", ru: "Why now" },
+    short: { en: "Why now", ru: "Сейчас" },
     blurb: {
       en: "When AI can move money, risk becomes financial.",
       ru: "Когда AI двигает деньги, риск становится финансовым.",
@@ -60,7 +60,7 @@ const NODES: EcoNode[] = [
     target: "areas",
     code: "04",
     title: { en: "Priority fronts", ru: "Приоритеты" },
-    short: { en: "Fronts", ru: "Fronts" },
+    short: { en: "Fronts", ru: "Приоритеты" },
     blurb: {
       en: "Identity, authority, risk, fraud, treasury, AML.",
       ru: "Идентичность, полномочия, риск, fraud, treasury, AML.",
@@ -72,7 +72,7 @@ const NODES: EcoNode[] = [
     target: "threat",
     code: "05",
     title: { en: "Threat surface", ru: "Угрозы" },
-    short: { en: "Threat", ru: "Threat" },
+    short: { en: "Threat", ru: "Угрозы" },
     blurb: {
       en: "Action risk, agent vs agent, adversarial failure modes.",
       ru: "Action risk, agent vs agent, адверсариальные отказы.",
@@ -108,7 +108,7 @@ const NODES: EcoNode[] = [
     target: "collaborate-agentic",
     code: "08",
     title: { en: "Work with us", ru: "Сотрудничество" },
-    short: { en: "Partner", ru: "Partner" },
+    short: { en: "Partner", ru: "Партнёры" },
     blurb: {
       en: "Banks, security teams, regulators, universities.",
       ru: "Банки, security, регуляторы, университеты.",
@@ -206,10 +206,6 @@ export function AgenticEcosystemSection({
     window.setTimeout(() => setPaused(false), 2000);
   }, []);
 
-  const selectOnly = useCallback((index: number) => {
-    setActive(index);
-  }, []);
-
   const useTouchCopy = touch || !isMdUp;
   const supporting = useTouchCopy ? eco.supportingTouch : eco.supporting;
   const hint = useTouchCopy ? eco.hintTouch : eco.hint;
@@ -217,22 +213,43 @@ export function AgenticEcosystemSection({
   return (
     <section
       id="ecosystem"
-      className="relative overflow-hidden border-t border-white/10 py-16 md:py-28"
+      className="relative overflow-hidden border-t border-white/10 py-12 md:py-28"
     >
       <div className="editorial-grid relative z-[1]">
         <div className="col-span-12 md:col-span-5">
           <FadeIn>
             <SectionLabel>{eco.label}</SectionLabel>
             <h2 className="headline-section mt-5 max-w-xl">{eco.title}</h2>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-muted">
+            <p className="mt-5 max-w-md text-base leading-relaxed text-muted md:mt-6">
               {supporting}
             </p>
-            <p className="label-mono mt-6 text-[10px] tracking-[0.14em] text-ink/35 md:mt-8">
+            <p className="label-mono mt-4 text-[10px] tracking-[0.14em] text-ink/35 md:mt-8">
               {hint}
             </p>
           </FadeIn>
 
-          <div className="mt-8 border border-white/10 bg-[#090909]/80 p-5 backdrop-blur-sm md:mt-12 md:p-6">
+          {/* Mobile: grid first, one tap = jump */}
+          <ul className="mt-8 grid grid-cols-2 gap-2 md:hidden">
+            {NODES.map((node, index) => (
+              <li key={node.id}>
+                <button
+                  type="button"
+                  onClick={() => travel(index)}
+                  className="flex min-h-12 w-full flex-col justify-center border border-white/10 px-3 py-3.5 text-left transition-colors active:border-accent/40 active:bg-accent/[0.06]"
+                >
+                  <span className="label-mono text-[10px] text-accent/80">
+                    {node.code}
+                  </span>
+                  <span className="mt-1.5 block label-mono text-[11px] tracking-[0.08em] text-ink">
+                    {node.title[locale]}
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          {/* Desktop / tablet: inspect then enter */}
+          <div className="mt-12 hidden border border-white/10 bg-[#090909]/80 p-5 backdrop-blur-sm md:mt-12 md:block md:p-6">
             <p className="label-mono text-[10px] tracking-[0.14em] text-accent">
               {activeNode.code} / {activeNode.title[locale]}
             </p>
@@ -248,34 +265,6 @@ export function AgenticEcosystemSection({
               <span aria-hidden>→</span>
             </button>
           </div>
-
-          {/* Mobile navigator - primary UI under md */}
-          <ul className="mt-6 grid grid-cols-2 gap-2 md:hidden">
-            {NODES.map((node, index) => (
-              <li key={node.id}>
-                <button
-                  type="button"
-                  onClick={() => selectOnly(index)}
-                  className={cx(
-                    "flex min-h-12 w-full flex-col justify-center border px-3 py-3 text-left transition-colors",
-                    active === index
-                      ? "border-accent/50 bg-accent/[0.06]"
-                      : "border-white/10 active:border-white/25",
-                  )}
-                >
-                  <span className="label-mono text-[9px] text-accent/80">
-                    {node.code}
-                  </span>
-                  <span className="mt-1 block label-mono text-[10px] tracking-[0.1em] text-ink">
-                    {node.title[locale]}
-                  </span>
-                </button>
-              </li>
-            ))}
-          </ul>
-          <p className="label-mono mt-3 text-[9px] tracking-[0.12em] text-ink/30 md:hidden">
-            {eco.mobileHint}
-          </p>
         </div>
 
         {/* Orbit - tablet + desktop */}

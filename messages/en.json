@@ -571,9 +571,9 @@
         "hint": "INTERACTIVE MAP · HOVER / CLICK TO NAVIGATE",
         "enter": "Enter section",
         "core": "AGENTIC FINANCE",
-        "supportingTouch": "Eight connected acts. Tap a layer, then enter the section.",
-        "hintTouch": "INTERACTIVE MAP · TAP TO SELECT · ENTER TO TRAVEL",
-        "mobileHint": "TAP TO SELECT · ENTER SECTION TO TRAVEL",
+        "supportingTouch": "Eight connected acts. Tap a section to jump.",
+        "hintTouch": "TAP A SECTION TO JUMP",
+        "mobileHint": "TAP A SECTION TO JUMP",
         "jump": "MAP ↑",
         "swipe": "SWIPE"
       },

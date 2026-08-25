@@ -434,7 +434,7 @@ export function ChooseDirectionSection({
             >
               {copy.human.meta}
             </p>
-            <span className="label-mono mt-6 inline-flex items-center gap-2 text-[11px] text-ink">
+            <span className="label-mono mt-6 inline-flex min-h-11 items-center gap-2 text-[11px] text-ink">
               {copy.human.cta}
               <span aria-hidden>→</span>
             </span>
@@ -471,7 +471,7 @@ export function ChooseDirectionSection({
             >
               {copy.agentic.meta}
             </p>
-            <span className="label-mono mt-6 inline-flex items-center gap-2 text-[11px] text-ink md:justify-end">
+            <span className="label-mono mt-6 inline-flex min-h-11 items-center gap-2 text-[11px] text-ink md:justify-end">
               {copy.agentic.cta}
               <span aria-hidden>→</span>
             </span>
