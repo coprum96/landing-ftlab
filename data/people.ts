@@ -332,6 +332,22 @@ export const people: Person[] = [
 
 export const featuredPeople = people.filter((p) => p.featured);
 
+/** EN keeps founder-first; RU places Stas fourth after lab leadership. */
+export function peopleForLocale(locale: "en" | "ru"): Person[] {
+  if (locale !== "ru") return people;
+
+  const stas = people.find((p) => p.id === "medyanik-s");
+  if (!stas) return people;
+
+  const rest = people.filter((p) => p.id !== "medyanik-s");
+  const insertAt = Math.min(3, rest.length);
+  return [...rest.slice(0, insertAt), stas, ...rest.slice(insertAt)];
+}
+
+export function featuredPeopleForLocale(locale: "en" | "ru"): Person[] {
+  return peopleForLocale(locale).filter((p) => p.featured);
+}
+
 export function getPersonBySlug(slug: string) {
   return people.find((p) => p.slug === slug);
 }

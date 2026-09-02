@@ -5,7 +5,7 @@ import Image from "next/image";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { FadeIn } from "@/components/motion/RevealText";
 import { AbstractMedia } from "@/components/visual/AbstractMedia";
-import { featuredPeople, people } from "@/data/people";
+import { featuredPeopleForLocale, peopleForLocale } from "@/data/people";
 import { mediaPaths } from "@/lib/media";
 import { getLocalizedPath, type Dictionary, type Locale } from "@/lib/i18n";
 
@@ -33,9 +33,10 @@ export function PeopleSection({
   dict: Dictionary;
   all?: boolean;
 }) {
-  const items = all
-    ? people
-    : featuredPeople.slice(0, HOMEPAGE_FEATURED_COUNT);
+  const ordered = all
+    ? peopleForLocale(locale)
+    : featuredPeopleForLocale(locale).slice(0, HOMEPAGE_FEATURED_COUNT);
+  const items = ordered;
 
   return (
     <section
