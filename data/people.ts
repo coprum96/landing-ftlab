@@ -129,6 +129,41 @@ export const people: Person[] = [
     featured: true,
   },
   {
+    id: "pisarenko",
+    slug: "zhanna-pisarenko",
+    name: {
+      en: "Zhanna V. Pisarenko",
+      ru: "Жанна В. Писаренко",
+    },
+    role: {
+      en: "Leading Researcher",
+      ru: "Ведущий научный сотрудник",
+    },
+    focus: {
+      en: "Insurance markets · green finance · financial ecosystems",
+      ru: "Страховые рынки · зелёные финансы · финансовые экосистемы",
+    },
+    bio: {
+      en: "Doctor of Economic Sciences; Professor at the Department of Risk Management and Insurance, SPbU. Leading researcher of the laboratory; works on insurance and pension markets, financial ecosystems, and sustainable finance.",
+      ru: "Доктор экономических наук; профессор кафедры управления рисками и страхования СПбГУ. Ведущий научный сотрудник лаборатории; исследует страховые и пенсионные рынки, финансовые экосистемы и устойчивые финансы.",
+    },
+    detail: {
+      en: "Deputy head of the Laboratory of Asian Economic Studies; chair of the Faculty scientific commission in economics and business. Research spans financial convergence, institutional investors, climate and environmental risk, fintech and insurance technologies. Author of 160+ publications, including 15 monographs and textbooks. Corresponding member of the Russian Engineering Academy.",
+      ru: "Заместитель руководителя Лаборатории азиатских экономических исследований; председатель научной комиссии факультета в области экономики и бизнеса. Исследует финансовую конвергенцию, институциональных инвесторов, климатические и экологические риски, финтех и страховые технологии. Автор 160+ публикаций, включая 15 монографий и учебников. Член-корреспондент Российской инженерной академии.",
+    },
+    institution: {
+      en: "Saint Petersburg State University",
+      ru: "Санкт-Петербургский государственный университет",
+    },
+    links: {
+      web: "https://econ.spbu.ru/ru/people/pisarenko-zhanna-viktorovna",
+    },
+    initials: "ZP",
+    motif: "d",
+    hasPhoto: true,
+    featured: true,
+  },
+  {
     id: "skvortsov",
     slug: "oleg-skvortsov",
     name: {

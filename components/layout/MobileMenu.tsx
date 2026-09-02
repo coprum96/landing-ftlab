@@ -101,7 +101,7 @@ export function MobileMenu({
           role="dialog"
           aria-modal="true"
           aria-labelledby={titleId}
-          className="fixed inset-0 z-[60] bg-[#080808] px-6 pb-10 pt-6"
+          className="fixed inset-0 z-[60] flex max-h-[100dvh] flex-col bg-[#080808] px-6 pb-[max(2.5rem,env(safe-area-inset-bottom))] pt-[max(1.5rem,env(safe-area-inset-top))]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -110,7 +110,7 @@ export function MobileMenu({
             if (event.target === event.currentTarget) onClose();
           }}
         >
-          <div className="flex items-center justify-between">
+          <div className="flex shrink-0 items-center justify-between">
             <span id={titleId} className="label-mono text-[12px]">
               {dict.nav.brand}
             </span>
@@ -124,51 +124,53 @@ export function MobileMenu({
             </button>
           </div>
 
-          <nav className="mt-16 flex flex-col gap-2" aria-label={dict.nav.menu}>
-            <motion.div
-              initial={{ y: 24, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0, duration: 0.45 }}
-            >
-              <p className="headline-display py-2">{dict.nav.research}</p>
-              <div className="mb-4 ml-1 flex flex-col gap-1 border-l border-white/15 pl-4">
-                <Link
-                  href={getLocalizedPath(locale, "research/human")}
-                  onClick={onClose}
-                  className="label-mono min-h-11 py-2 text-[12px] text-muted transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-                >
-                  {dict.nav.researchHuman}
-                </Link>
-                <Link
-                  href={getLocalizedPath(locale, "research/agentic-ai")}
-                  onClick={onClose}
-                  className="label-mono min-h-11 py-2 text-[12px] text-muted transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-                >
-                  {dict.nav.researchAgentic}
-                </Link>
-              </div>
-            </motion.div>
-
-            {links.map((item, index) => (
+          <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain [-webkit-overflow-scrolling:touch]">
+            <nav className="mt-12 flex flex-col gap-2 pb-8" aria-label={dict.nav.menu}>
               <motion.div
-                key={item.path}
                 initial={{ y: 24, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.05 * (index + 1), duration: 0.45 }}
+                transition={{ delay: 0, duration: 0.45 }}
               >
-                <Link
-                  href={getLocalizedPath(locale, item.path)}
-                  onClick={onClose}
-                  className="headline-display block min-h-11 break-words py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-                >
-                  {dict.nav[item.key]}
-                </Link>
+                <p className="headline-display py-2">{dict.nav.research}</p>
+                <div className="mb-4 ml-1 flex flex-col gap-1 border-l border-white/15 pl-4">
+                  <Link
+                    href={getLocalizedPath(locale, "research/human")}
+                    onClick={onClose}
+                    className="label-mono min-h-11 py-2 text-[12px] text-muted transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                  >
+                    {dict.nav.researchHuman}
+                  </Link>
+                  <Link
+                    href={getLocalizedPath(locale, "research/agentic-ai")}
+                    onClick={onClose}
+                    className="label-mono min-h-11 py-2 text-[12px] text-muted transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                  >
+                    {dict.nav.researchAgentic}
+                  </Link>
+                </div>
               </motion.div>
-            ))}
-          </nav>
 
-          <div className="mt-16">
-            <LanguageSwitch locale={locale} />
+              {links.map((item, index) => (
+                <motion.div
+                  key={item.path}
+                  initial={{ y: 24, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.05 * (index + 1), duration: 0.45 }}
+                >
+                  <Link
+                    href={getLocalizedPath(locale, item.path)}
+                    onClick={onClose}
+                    className="headline-display block min-h-11 break-words py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                  >
+                    {dict.nav[item.key]}
+                  </Link>
+                </motion.div>
+              ))}
+            </nav>
+
+            <div className="pb-4">
+              <LanguageSwitch locale={locale} />
+            </div>
           </div>
         </motion.div>
       ) : null}
