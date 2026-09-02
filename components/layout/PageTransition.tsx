@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useLayoutEffect, useMemo, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { gsap, ease, registerGsap } from "@/lib/animations";
 import { motion } from "@/lib/motion";
@@ -36,13 +36,9 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
   const panelRef = useRef<HTMLDivElement>(null);
   const labelRef = useRef<HTMLSpanElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const [label, setLabel] = useState(() => labelForPath(pathname));
+  const label = useMemo(() => labelForPath(pathname), [pathname]);
   const first = useRef(true);
   const key = useMemo(() => pathname, [pathname]);
-
-  useEffect(() => {
-    setLabel(labelForPath(pathname));
-  }, [pathname]);
 
   useLayoutEffect(() => {
     scrollToTopInstant();

@@ -76,7 +76,8 @@ export function ChooseDirectionSection({
         opacity: 1,
         y: 0,
       });
-      setRevealed(true);
+      // Defer to avoid synchronous setState-in-effect lint cascade.
+      queueMicrotask(() => setRevealed(true));
       return;
     }
 

@@ -119,8 +119,6 @@ const NODES: EcoNode[] = [
 
 /** Desktop radii */
 const RING_RADIUS_LG = [140, 210, 285] as const;
-/** Tablet radii - slightly tighter */
-const RING_RADIUS_MD = [110, 165, 220] as const;
 
 /**
  * Rotating research ecosystem map.

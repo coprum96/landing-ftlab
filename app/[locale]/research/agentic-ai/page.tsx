@@ -1,16 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { AgenticHeroSection } from "@/components/sections/agentic/AgenticHeroSection";
-import { AgenticStakesSection } from "@/components/sections/agentic/AgenticStakesSection";
-import { AgenticEcosystemSection } from "@/components/sections/agentic/AgenticEcosystemSection";
-import { AgenticEcoJump } from "@/components/sections/agentic/AgenticEcoJump";
-import { AgenticAutonomySection } from "@/components/sections/agentic/AgenticAutonomySection";
-import { AgenticQuestionSection } from "@/components/sections/agentic/AgenticQuestionSection";
-import { AgenticCycleSection } from "@/components/sections/agentic/AgenticCycleSection";
-import { AgenticArchitectureSection } from "@/components/sections/agentic/AgenticArchitectureSection";
-import { AgenticResearchAreasSection } from "@/components/sections/agentic/AgenticResearchAreasSection";
-import { AgenticThreatSection } from "@/components/sections/agentic/AgenticThreatSection";
-import { AgenticHorizonCompactSection } from "@/components/sections/agentic/AgenticHorizonCompactSection";
+import { AgenticBridgeSection } from "@/components/sections/agentic/AgenticBridgeSection";
+import { AgenticTracksSection } from "@/components/sections/agentic/AgenticTracksSection";
+import { AgenticAfsbSection } from "@/components/sections/agentic/AgenticAfsbSection";
 import { AgenticCloseSection } from "@/components/sections/agentic/AgenticCloseSection";
 import {
   getDictionary,
@@ -35,9 +28,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 /**
- * Agentic AI in Finance - compressed flagship narrative.
- * Hero → Why now → Map → Transition → Method → Architecture →
- * Priority fronts → Threat → Horizon → Close/CTA
+ * Agentic Financial Safety - focused research programme.
+ * Hero → Bridge → Four tracks → AFSB → Close/CTA
  */
 export default async function AgenticAiResearchPage({ params }: Props) {
   const { locale: raw } = await params;
@@ -55,22 +47,14 @@ export default async function AgenticAiResearchPage({ params }: Props) {
         humanHref={humanHref}
         agenticHref={agenticHref}
       />
-      <AgenticStakesSection dict={dict} />
-      <AgenticEcosystemSection locale={locale} dict={dict} />
-      <AgenticAutonomySection dict={dict} />
-      <AgenticQuestionSection dict={dict} />
-      <AgenticCycleSection locale={locale} dict={dict} />
-      <AgenticArchitectureSection locale={locale} dict={dict} />
-      <AgenticResearchAreasSection locale={locale} dict={dict} />
-      <AgenticThreatSection locale={locale} dict={dict} />
-      <AgenticHorizonCompactSection locale={locale} dict={dict} />
+      <AgenticBridgeSection locale={locale} dict={dict} />
+      <AgenticTracksSection locale={locale} dict={dict} />
+      <AgenticAfsbSection locale={locale} dict={dict} />
       <AgenticCloseSection
         locale={locale}
         dict={dict}
         humanHref={humanHref}
       />
-
-      <AgenticEcoJump label={dict.pages.agenticAi.ecosystem.jump} />
     </div>
   );
 }

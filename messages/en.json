@@ -7,7 +7,7 @@
     "brand": "FINTECHLAB",
     "research": "Research",
     "researchHuman": "Human",
-    "researchAgentic": "Agentic AI",
+    "researchAgentic": "Agentic Safety",
     "projects": "Projects",
     "publications": "Publications",
     "people": "People",
@@ -50,11 +50,11 @@
       "cta": "Explore Human Research"
     },
     "agentic": {
-      "code": "02 / AGENTIC AI",
-      "title": "Agentic AI",
-      "description": "How autonomous systems interpret intent, exercise authority, and make financial decisions.",
-      "meta": "INTENT · CONTEXT · AUTHORITY · EXECUTION · CONTROL",
-      "cta": "Explore Agentic AI"
+      "code": "02 / AGENTIC SAFETY",
+      "title": "Agentic Financial Safety",
+      "description": "How autonomous agents act on money - and how unsafe financial actions can be stopped before execution.",
+      "meta": "INTENT · BEHAVIOR · ACTION · PREVENTION",
+      "cta": "Explore Agentic Safety"
     }
   },
   "research": {
@@ -395,15 +395,15 @@
       "body": "Founded in 2025 at Saint Petersburg State University, the Laboratory of Modern Financial Technologies builds a scientific and applied base against behavioral vulnerabilities in modern financial threats. Work integrates behavioral economics, neuroscience, digital victimology, and financial-security practice - moving from experiment to technology, education, and regulatory insight."
     },
     "agenticAi": {
-      "label": "/02 - AGENTIC AI",
-      "title": "Agentic AI in Finance",
-      "researchLabel": "FINTECHLAB / AGENTIC FINANCE RESEARCH",
-      "headline": "Agentic AI in Finance",
-      "subheadline": "We research, build and stress-test autonomous financial systems.",
-      "secondary": "From financial reasoning to delegated authority, autonomous execution and machine-to-machine finance.",
-      "supporting": "We study how AI agents interact with money, financial infrastructure, humans and other autonomous systems - and what happens when those agents are allowed to act.",
-      "meta": "RESEARCH · BUILD · SIMULATE · ATTACK · MEASURE · DEFEND",
-      "statusNote": "Research and engineering programme. Experimental systems and methods in development - not production deployments or commercial claims.",
+      "label": "/02 - AGENTIC FINANCIAL SAFETY",
+      "title": "Agentic Financial Safety",
+      "researchLabel": "FINTECHLAB / AGENTIC FINANCIAL SAFETY",
+      "headline": "Agentic Financial Safety",
+      "subheadline": "FTLAB studies the safety of autonomous financial decisions.",
+      "secondary": "We study what happens before an autonomous decision becomes a financial loss.",
+      "supporting": "As financial decisions move from humans to autonomous AI agents, financial security must move beyond identity and authorization. We study whether an agent's actions still reflect human intent, how agent behavior changes under manipulation, and how harmful financial actions can be stopped before execution.",
+      "meta": "HUMAN INTENT → AGENT BEHAVIOR → FINANCIAL ACTION → LOSS PREVENTION",
+      "statusNote": "Research programme in progress. Tracks are active or under construction - not production deployments.",
       "transition": {
         "label": "The transition",
         "title": "From AI assistance to financial autonomy.",
@@ -625,35 +625,35 @@
       },
       "close": {
         "label": "Work with the lab",
-        "title": "Autonomous finance is becoming infrastructure.",
-        "line": "We want partners who will study it before that happens.",
+        "title": "Study the control layer before execution becomes irreversible.",
+        "line": "We partner with institutions that need research on intent fidelity, agent behavior and pre-execution financial controls.",
         "audiencesLabel": "Who this is for",
         "audiences": [
           {
             "title": "Banks & PSPs",
-            "text": "Agent identity, delegated authority, loss prevention, runtime controls."
+            "text": "Pre-execution controls, delegated authority and loss prevention for agent-initiated actions."
           },
           {
             "title": "Security & risk",
-            "text": "Red-team research, agent risk scoring, financial action firewalls."
+            "text": "Behavioral integrity, red-team evaluation and runtime governance for financial agents."
           },
           {
             "title": "Regulators & policy",
-            "text": "Observability, replay, liability boundaries, governance models."
+            "text": "Observability, intervention models and safety benchmarks for autonomous finance."
           },
           {
             "title": "Universities & partners",
-            "text": "Joint research, simulation environments, publication tracks."
+            "text": "Joint research on intent fidelity, agent behavior and shared experimental infrastructure."
           }
         ],
         "cta": "CONTACT THE LAB",
-        "mapCta": "Open programme map",
+        "mapCta": "View research tracks",
         "humanCta": "Human research track",
-        "philosophy1": "We do not study agents only when they work.",
-        "philosophy2": "We study them when they fail."
+        "philosophy1": "Financial intelligence helps an agent decide what to do.",
+        "philosophy2": "Financial safety determines whether the action should be allowed to happen."
       },
       "heroCta": {
-        "map": "Enter programme map",
+        "map": "View research tracks",
         "contact": "Contact the lab"
       },
       "horizon": {
@@ -674,6 +674,52 @@
             "title": "Concepts"
           }
         ]
+      },
+      "bridge": {
+        "label": "From human to agent",
+        "title": "Financial security now has a second decision-maker.",
+        "paragraphs": [
+          "Financial security used to focus primarily on the human making the decision.",
+          "Autonomous agents introduce a second decision-maker.",
+          "FTLAB studies both sides of this delegation: the human intent that starts the process and the autonomous behavior that ultimately reaches execution."
+        ],
+        "humanLabel": "HUMAN LAYER",
+        "agentLabel": "AGENTIC LAYER",
+        "chainLabel": "RESEARCH CHAIN"
+      },
+      "tracks": {
+        "label": "Research tracks",
+        "title": "Four directions. One programme.",
+        "supporting": "Agentic Financial Safety is organized around intent, behavior, execution control and machine-speed risk - not a catalogue of agent use-cases.",
+        "diagramLabel": "DIAGRAM",
+        "humanCase": "HUMAN CASE",
+        "agentCase": "AGENT CASE",
+        "authShift": "Traditional security asks whether the agent was authorized. We ask whether the authorized agent is still behaving as intended.",
+        "traditionalQ": "TRADITIONAL SECURITY",
+        "traditionalA": "Was the agent authorized?",
+        "ftlabQ": "FTLAB",
+        "ftlabA": "Is the authorized agent still behaving as intended?",
+        "intentFormula": "Iₕ = Human Intent · Iₐ = Agent Interpretation · A = Proposed Action · Intent Fidelity = f(Iₕ, Iₐ, A)",
+        "speedFormula": "As T(decision) → T(settlement), the opportunity for human intervention decreases.",
+        "statuses": {
+          "active": "STATUS / ACTIVE",
+          "building": "STATUS / BUILDING",
+          "research": "STATUS / RESEARCH",
+          "planned": "STATUS / PLANNED"
+        }
+      },
+      "afsb": {
+        "label": "Infrastructure",
+        "code": "AFSB",
+        "title": "Agentic Financial Safety Benchmark",
+        "subtitle": "A shared experimental environment for measuring financial-agent failures before they become real losses.",
+        "status": "STATUS / BUILDING",
+        "description": "AFSB is the shared experimental infrastructure for Agentic Financial Safety. It connects the four research tracks through controlled financial environments where agent failures can be observed before real capital is at risk.",
+        "note": "Environments, failure scenarios and metrics define the measurement frame. Results and datasets will be published when evidence is available.",
+        "environmentsLabel": "ENVIRONMENTS",
+        "scenariosLabel": "ATTACK / FAILURE SCENARIOS",
+        "metricsLabel": "METRICS",
+        "infraLabel": "LAB INFRASTRUCTURE · EXPERIMENTAL PLATFORM"
       }
     }
   },

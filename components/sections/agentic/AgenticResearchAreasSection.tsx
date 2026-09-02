@@ -37,9 +37,10 @@ export function AgenticResearchAreasSection({
     );
   }, [showAll]);
 
-  useEffect(() => {
+  const toggleShowAll = () => {
+    setShowAll((prev) => !prev);
     setActive(0);
-  }, [showAll]);
+  };
 
   useEffect(() => {
     if (!touch) return;
@@ -158,7 +159,7 @@ export function AgenticResearchAreasSection({
         <div className="col-span-12 mt-8">
           <button
             type="button"
-            onClick={() => setShowAll((v) => !v)}
+            onClick={toggleShowAll}
             className="label-mono inline-flex min-h-11 items-center border border-white/15 px-4 py-3 text-[11px] tracking-[0.14em] text-ink transition-colors hover:border-white/30"
           >
             {showAll ? a.showLess : a.showAll}

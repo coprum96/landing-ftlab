@@ -7,11 +7,10 @@ import { getLenisInstance } from "@/lib/lenis";
 import type { Dictionary, Locale } from "@/lib/i18n";
 
 export function AgenticCloseSection({
-  locale,
   dict,
   humanHref,
 }: {
-  locale: Locale;
+  locale?: Locale;
   dict: Dictionary;
   humanHref: string;
 }) {
@@ -20,8 +19,8 @@ export function AgenticCloseSection({
     dict.collaborate.mailSubject,
   )}`;
 
-  const openMap = () => {
-    const el = document.getElementById("ecosystem");
+  const openTracks = () => {
+    const el = document.getElementById("tracks");
     if (!el) return;
     const lenis = getLenisInstance();
     const offset =
@@ -90,7 +89,7 @@ export function AgenticCloseSection({
           </a>
           <button
             type="button"
-            onClick={openMap}
+            onClick={openTracks}
             className="label-mono inline-flex min-h-12 items-center justify-center border border-white/15 px-6 py-4 text-[11px] tracking-[0.14em] text-ink transition-colors hover:border-white/30"
           >
             {c.mapCta}

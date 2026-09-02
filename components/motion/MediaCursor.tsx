@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { gsap, ease } from "@/lib/animations";
 import { useIsTouch, useReducedMotionPreferred } from "@/lib/hooks";
 import { cx } from "@/lib/utils";
@@ -14,19 +14,19 @@ type Labels = {
   read: string;
 };
 
+function subscribe() {
+  return () => {};
+}
+
 export function MediaCursor({ labels }: { labels: Labels }) {
   const touch = useIsTouch();
   const reduced = useReducedMotionPreferred();
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(subscribe, () => true, () => false);
   const [active, setActive] = useState(false);
   const [label, setLabel] = useState<string | null>(null);
   const enabled = mounted && !touch && !reduced;
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     if (!enabled) return;
