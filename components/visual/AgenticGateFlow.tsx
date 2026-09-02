@@ -242,6 +242,10 @@ export function AgenticGateFlow({
 
   return (
     <div className={cx("relative overflow-hidden", className)}>
+      <p className="sr-only">
+        Animated diagram of financial action packets moving from intent through
+        an agent gate. Current gate decision: {decision}.
+      </p>
       <canvas
         ref={canvasRef}
         className="pointer-events-none absolute inset-0 h-full w-full"

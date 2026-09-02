@@ -116,10 +116,15 @@ export function Header({
                 <div className="border border-white/10 bg-[#0a0a0a]/95 px-4 py-3 backdrop-blur-md">
                   <Link
                     href={getLocalizedPath(locale, "research/human")}
-                    className={cx(
-                      "label-mono block py-2 text-[11px] tracking-[0.1em] transition-colors",
+                    aria-current={
                       isActivePath(pathname, locale, "research/human")
-                        ? "text-accent"
+                        ? "page"
+                        : undefined
+                    }
+                    className={cx(
+                      "label-mono block min-h-11 py-2 text-xs tracking-[0.1em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
+                      isActivePath(pathname, locale, "research/human")
+                        ? "text-accent underline decoration-accent/70 underline-offset-4"
                         : "text-muted hover:text-ink",
                     )}
                     onClick={() => setResearchOpen(false)}
@@ -128,10 +133,15 @@ export function Header({
                   </Link>
                   <Link
                     href={getLocalizedPath(locale, "research/agentic-ai")}
-                    className={cx(
-                      "label-mono block py-2 text-[11px] tracking-[0.1em] transition-colors",
+                    aria-current={
                       isActivePath(pathname, locale, "research/agentic-ai")
-                        ? "text-accent"
+                        ? "page"
+                        : undefined
+                    }
+                    className={cx(
+                      "label-mono block min-h-11 py-2 text-xs tracking-[0.1em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
+                      isActivePath(pathname, locale, "research/agentic-ai")
+                        ? "text-accent underline decoration-accent/70 underline-offset-4"
                         : "text-muted hover:text-ink",
                     )}
                     onClick={() => setResearchOpen(false)}
@@ -169,10 +179,10 @@ export function Header({
           </nav>
 
           <div className="col-span-4 flex items-center justify-end gap-4 xl:col-span-3 xl:gap-5">
-            <LanguageSwitch locale={locale} />
+            <LanguageSwitch locale={locale} dict={dict} />
             <button
               type="button"
-              className="label-mono min-h-11 min-w-11 text-[11px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent xl:hidden"
+              className="label-mono min-h-11 min-w-11 text-xs focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent xl:hidden"
               aria-expanded={open}
               aria-controls="mobile-menu"
               onClick={() => setOpen(true)}

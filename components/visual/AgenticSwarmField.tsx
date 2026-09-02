@@ -168,22 +168,22 @@ export function AgenticSwarmField({
 
       // settlement horizon
       const sx = settlementX();
-      ctx.strokeStyle = "rgba(255,255,255,0.06)";
+        ctx.strokeStyle = "rgba(255,255,255,0.14)";
       ctx.setLineDash([3, 6]);
       ctx.beginPath();
       ctx.moveTo(sx, height * 0.12);
       ctx.lineTo(sx, height * 0.88);
       ctx.stroke();
       ctx.setLineDash([]);
-      ctx.fillStyle = "rgba(242,240,234,0.28)";
-      ctx.font = "9px ui-monospace, SFMono-Regular, Menlo, monospace";
+      ctx.fillStyle = "rgba(242,240,234,0.72)";
+      ctx.font = "10px ui-monospace, SFMono-Regular, Menlo, monospace";
       ctx.textAlign = "center";
       ctx.fillText("SETTLEMENT", sx, height * 0.1);
 
       // control membrane
       const mx = membraneX();
       const membraneAlpha =
-        m === "cascade" ? 0.12 : m === "hold" ? 0.55 : 0.38;
+        m === "cascade" ? 0.22 : m === "hold" ? 0.72 : 0.5;
       const grad = ctx.createLinearGradient(mx - 18, 0, mx + 18, 0);
       grad.addColorStop(0, "rgba(158,27,50,0)");
       grad.addColorStop(0.5, `rgba(158,27,50,${membraneAlpha + gatePulse * 0.25})`);
@@ -205,7 +205,7 @@ export function AgenticSwarmField({
         }
       }
 
-      ctx.fillStyle = "rgba(158,27,50,0.75)";
+      ctx.fillStyle = "rgba(242,240,234,0.85)";
       ctx.fillText(
         m === "hold" ? "HITL HOLD" : m === "cascade" ? "OPEN PATH" : "CONTROL",
         mx,
@@ -221,7 +221,7 @@ export function AgenticSwarmField({
           const dy = a.y - b.y;
           const dist = Math.hypot(dx, dy);
           if (dist > Math.min(width, height) * 0.42) continue;
-          ctx.strokeStyle = "rgba(255,255,255,0.05)";
+          ctx.strokeStyle = "rgba(255,255,255,0.12)";
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
           ctx.lineTo(b.x, b.y);
@@ -303,16 +303,16 @@ export function AgenticSwarmField({
         ctx.beginPath();
         ctx.arc(a.x, a.y, a.r + (near ? 2 : 0), 0, Math.PI * 2);
         ctx.fillStyle = near
-          ? "rgba(158,27,50,0.9)"
-          : "rgba(242,240,234,0.75)";
+          ? "rgba(158,27,50,0.95)"
+          : "rgba(242,240,234,0.92)";
         ctx.fill();
-        ctx.strokeStyle = "rgba(255,255,255,0.12)";
+        ctx.strokeStyle = "rgba(255,255,255,0.28)";
         ctx.beginPath();
-        ctx.arc(a.x, a.y, a.r + 6, 0, Math.PI * 2);
+        ctx.arc(a.x, a.y, a.r + 7, 0, Math.PI * 2);
         ctx.stroke();
 
-        ctx.fillStyle = "rgba(242,240,234,0.4)";
-        ctx.font = "9px ui-monospace, SFMono-Regular, Menlo, monospace";
+        ctx.fillStyle = "rgba(242,240,234,0.72)";
+        ctx.font = "10px ui-monospace, SFMono-Regular, Menlo, monospace";
         ctx.textAlign = "center";
         ctx.fillText(a.label, a.x, a.y - 14);
       });
@@ -374,8 +374,8 @@ export function AgenticSwarmField({
 
       // legend corner
       ctx.textAlign = "left";
-      ctx.fillStyle = "rgba(242,240,234,0.3)";
-      ctx.font = "9px ui-monospace, SFMono-Regular, Menlo, monospace";
+      ctx.fillStyle = "rgba(242,240,234,0.55)";
+      ctx.font = "10px ui-monospace, SFMono-Regular, Menlo, monospace";
       ctx.fillText("AGENTS", width * 0.05, height * 0.1);
     };
 
@@ -421,6 +421,11 @@ export function AgenticSwarmField({
 
   return (
     <div className={cx("relative overflow-hidden", className)}>
+      <p className="sr-only">
+        Interactive multi-agent topology. Agents exchange messages on the left.
+        A control membrane sits before settlement on the right. Current membrane
+        mode: {mode}. Click the field or use Inject risk to send a risk packet.
+      </p>
       <canvas
         ref={canvasRef}
         className="absolute inset-0 h-full w-full cursor-crosshair touch-none"

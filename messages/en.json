@@ -15,7 +15,9 @@
     "about": "About",
     "contact": "Contact",
     "menu": "Menu",
-    "close": "Close"
+    "close": "Close",
+    "languageEn": "English",
+    "languageRu": "Russian"
   },
   "cursor": {
     "view": "VIEW",
@@ -364,7 +366,12 @@
     "terms": "Terms",
     "researchDisclaimer": "Research Disclaimer",
     "linkedin": "FinTechLab on LinkedIn",
-    "contact": "Contact the lab"
+    "contact": "Contact the lab",
+    "groupInstitution": "Institution",
+    "groupResearch": "Research",
+    "groupContact": "Contact",
+    "groupLegal": "Legal",
+    "opensNewTab": "(opens in a new tab)"
   },
   "pages": {
     "research": {
@@ -652,9 +659,9 @@
         "philosophy2": "Financial safety determines whether the action should be allowed to happen."
       },
       "heroCta": {
-        "map": "View research tracks",
-        "contact": "Contact the lab",
-        "demo": "Open control layer"
+        "map": "Explore the four research tracks",
+        "contact": "Discuss a research partnership",
+        "demo": "Explore the control-layer model"
       },
       "horizon": {
         "label": "Horizon",
@@ -705,8 +712,19 @@
           "active": "STATUS / ACTIVE",
           "building": "STATUS / BUILDING",
           "research": "STATUS / RESEARCH",
-          "planned": "STATUS / PLANNED"
-        }
+          "planned": "STATUS / PLANNED",
+          "experimental": "STATUS / EXPERIMENTAL"
+        },
+        "statusLegendLabel": "Status meanings",
+        "statusDefs": {
+          "active": "Active — research work is underway with defined questions and methods.",
+          "building": "Building — infrastructure or tooling is being assembled; not a finished product.",
+          "research": "Research — exploratory direction under study; findings are not yet settled.",
+          "planned": "Planned — queued for future work; not started.",
+          "experimental": "Experimental — interactive explanatory model, not production decisioning."
+        },
+        "nextAction": "Methodology forthcoming",
+        "nextActionHint": "Detailed methods, experiments and updates will be published as the track matures."
       },
       "afsb": {
         "label": "Infrastructure",
@@ -715,11 +733,22 @@
         "subtitle": "A shared experimental environment for measuring financial-agent failures before they become real losses.",
         "status": "STATUS / BUILDING",
         "description": "AFSB is the shared experimental infrastructure for Agentic Financial Safety. It connects the four research tracks through controlled financial environments where agent failures can be observed before real capital is at risk.",
-        "note": "Environments, failure scenarios and metrics define the measurement frame. Results and datasets will be published when evidence is available.",
         "environmentsLabel": "ENVIRONMENTS",
         "scenariosLabel": "ATTACK / FAILURE SCENARIOS",
         "metricsLabel": "METRICS",
-        "infraLabel": "LAB INFRASTRUCTURE · EXPERIMENTAL PLATFORM"
+        "infraLabel": "LAB INFRASTRUCTURE · EXPERIMENTAL PLATFORM",
+        "stageLabel": "Current stage",
+        "stage": "Definition and environment design",
+        "doneLabel": "Completed so far",
+        "done": [
+          "Research frame across four safety tracks",
+          "Initial environment and failure-scenario catalogue",
+          "Metric vocabulary for intent, loss and intervention"
+        ],
+        "nextLabel": "Next planned release",
+        "next": "Shared experimental runs and published protocols — when evidence is ready",
+        "cta": "Ask about AFSB updates",
+        "availabilityNote": "No public datasets or scored leaderboard yet. What you see here is the measurement frame under construction."
       },
       "controlDemo": {
         "label": "Interactive model",
@@ -741,7 +770,10 @@
           "medium": "MED",
           "high": "HIGH"
         },
-        "footer": "Financial intelligence proposes the action. Financial safety decides whether execution should proceed."
+        "footer": "Financial intelligence proposes the action. Financial safety decides whether execution should proceed.",
+        "selectedDecision": "Selected decision",
+        "selectedMarker": "currently selected",
+        "liveSummary": "{scenario} selected. Gate decision: {decision}. {risk}."
       },
       "motionBand": {
         "label": "LIVING MODEL",
@@ -753,19 +785,82 @@
         "status": "STATUS / INTERACTIVE MODEL",
         "title": "Agents talk. Money moves. Judgment sits in between.",
         "supporting": "A research sketch of multi-agent financial coordination: message traffic between agents, proposed actions racing toward settlement, and a control membrane that can contain, hold, or leave the path open.",
-        "modeLabel": "MEMBRANE",
+        "instructions": "Choose a membrane mode, then inject a risk packet or click the field. Agents exchange messages on the left; settlement sits on the right; the membrane is the control boundary between them.",
+        "legendAgents": "Agents — coordinated actors proposing actions",
+        "legendRisk": "Risk packet — higher-risk financial action",
+        "legendMembrane": "Membrane — pre-settlement control boundary",
+        "legendSettlement": "Settlement — irreversible execution horizon",
+        "modeGroup": "Membrane mode",
+        "actionGroup": "Simulation actions",
+        "modeLabel": "MEMBRANE MODE",
         "modes": {
-          "contained": "CONTAINED",
-          "hold": "HITL HOLD",
-          "cascade": "CASCADE"
+          "contained": "Contained",
+          "hold": "Human review hold",
+          "cascade": "Cascade"
         },
         "modesHint": {
           "contained": "Risky actions stop at the membrane. Routine traffic may pass.",
-          "hold": "Human-in-the-loop pause — actions freeze at the gate until judgment.",
+          "hold": "Human-in-the-loop (HITL) hold — actions freeze at the gate until judgment.",
           "cascade": "Membrane open. Machine-speed coordination reaches settlement unchecked."
         },
-        "inject": "INJECT RISK",
-        "footer": "Click the field or INJECT RISK — illustrative model, not a live trading system."
+        "inject": "Inject risk",
+        "reset": "Reset model",
+        "resultLabel": "Current state",
+        "footer": "Illustrative model — not a live trading system.",
+        "liveInject": "Risk packet injected toward the membrane.",
+        "liveReset": "Topology model reset to Contained."
+      },
+      "audienceCue": "For financial institutions, security teams, regulators and researchers.",
+      "glossary": {
+        "label": "Terms",
+        "title": "How we use the words on this page.",
+        "items": [
+          {
+            "term": "Agentic Financial Safety",
+            "def": "The research programme studying autonomous financial decisions before loss."
+          },
+          {
+            "term": "Control layer",
+            "def": "A pre-execution judgment step that can allow, review or block a proposed financial action."
+          },
+          {
+            "term": "Membrane",
+            "def": "The visual metaphor for that control boundary in the live topology model."
+          },
+          {
+            "term": "Intent fidelity",
+            "def": "Whether an agent action still represents what the human originally wanted."
+          },
+          {
+            "term": "HITL",
+            "def": "Human-in-the-loop — a pause for human judgment before execution continues."
+          }
+        ]
+      },
+      "contactForm": {
+        "title": "Discuss a research partnership",
+        "supporting": "Use the form to open a prefilled message in your mail client. The lab email stays visible if that path is unavailable.",
+        "responseTime": "We typically reply within 5–7 business days.",
+        "include": "Please include your institution, the decision context you care about, and whether you need research, evaluation or partnership discussion.",
+        "name": "Name",
+        "org": "Organization",
+        "email": "Work email",
+        "message": "Message",
+        "submit": "Compose email",
+        "copyEmail": "Copy lab email",
+        "validation": "Name, work email and message are required.",
+        "opened": "Your mail client should open with a prefilled message. If it does not, write directly to the lab email below.",
+        "copied": "Lab email copied to clipboard.",
+        "copyFailed": "Could not copy. Please select the lab email manually.",
+        "mailSubject": "Agentic Financial Safety — research partnership"
+      },
+      "evidence": {
+        "label": "Evidence & adjacent research",
+        "title": "What is published today — and what is still forming.",
+        "supporting": "Agentic Financial Safety is an active programme. The publications below are adjacent lab research on behavioral and financial security. Agentic-specific protocols and benchmark results will be linked here when released.",
+        "note": "Hypothesis and programme framing are not the same as published agentic benchmark results.",
+        "viewAll": "View all publications",
+        "viewTeam": "Meet the team"
       }
     }
   },

@@ -31,19 +31,26 @@ export function AgenticMotionBand({ dict }: { dict: Dictionary }) {
   }, [reduced]);
 
   return (
-    <section className="relative overflow-hidden border-t border-white/10">
-      <div className="relative min-h-[42vh] md:min-h-[52vh]">
-        <video
-          ref={videoRef}
-          className="absolute inset-0 h-full w-full object-cover opacity-45"
-          src="/media/videos/decision-network.mp4"
-          poster="/media/posters/decision-network.jpg"
-          muted
-          loop
-          playsInline
-          preload="none"
-          aria-hidden
-        />
+    <section className="relative overflow-hidden border-t border-white/15">
+      <div className="relative min-h-[28vh] md:min-h-[34vh]">
+        {!reduced ? (
+          <video
+            ref={videoRef}
+            className="absolute inset-0 h-full w-full object-cover opacity-40"
+            src="/media/videos/decision-network.mp4"
+            poster="/media/posters/decision-network.jpg"
+            muted
+            loop
+            playsInline
+            preload="none"
+            aria-hidden
+          />
+        ) : (
+          <div
+            className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_50%,rgba(158,27,50,0.18),transparent_55%)]"
+            aria-hidden
+          />
+        )}
         <div
           className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#080808] via-[#080808]/75 to-[#080808]/40"
           aria-hidden
@@ -53,17 +60,14 @@ export function AgenticMotionBand({ dict }: { dict: Dictionary }) {
           aria-hidden
         />
 
-        <div className="editorial-grid relative z-10 flex min-h-[42vh] items-end py-12 md:min-h-[52vh] md:py-16">
+        <div className="editorial-grid relative z-10 flex min-h-[28vh] items-end py-8 md:min-h-[34vh] md:py-12">
           <div className="col-span-12 md:col-span-8">
             <FadeIn>
-              <p className="label-mono text-[10px] tracking-[0.16em] text-accent">
+              <p className="label-mono text-xs tracking-[0.12em] text-accent">
                 {copy.label}
               </p>
-              <p className="mt-5 max-w-2xl text-[clamp(1.35rem,3vw,2.1rem)] font-medium leading-[1.15] tracking-[-0.03em] text-ink">
+              <p className="mt-4 max-w-2xl text-[clamp(1.25rem,2.8vw,1.85rem)] font-medium leading-[1.15] tracking-[-0.03em] text-ink">
                 {copy.line}
-              </p>
-              <p className="label-mono mt-6 text-[11px] leading-relaxed tracking-[0.12em] text-ink/55 md:text-[12px]">
-                {copy.chain}
               </p>
             </FadeIn>
           </div>

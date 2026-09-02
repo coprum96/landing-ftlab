@@ -28,11 +28,11 @@ function VerticalFlow({
     <ol className="space-y-0">
       {steps.map((step, index) => (
         <li key={`${step.en}-${index}`}>
-          <p className="label-mono text-[11px] tracking-[0.1em] text-ink">
+          <p className="label-mono text-xs tracking-[0.08em] text-ink">
             {step[locale]}
           </p>
           {index < steps.length - 1 ? (
-            <p className="label-mono py-1.5 text-[9px] text-ink/30" aria-hidden>
+            <p className="label-mono py-1.5 text-xs text-ink/45" aria-hidden>
               ↓
             </p>
           ) : null}
@@ -150,8 +150,8 @@ export function AgenticTracksSection({
 
   return (
     <section
-      id="tracks"
-      className="scroll-mt-[calc(var(--header-h)+1.5rem)] border-t border-white/10 py-14 md:py-24"
+      id="research-tracks"
+      className="agentic-anchor border-t border-white/15 py-10 md:py-16"
     >
       <div className="editorial-grid">
         <div className="col-span-12 md:col-span-9">
@@ -161,48 +161,116 @@ export function AgenticTracksSection({
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
               {t.supporting}
             </p>
+            <div className="mt-6 max-w-2xl border border-white/15 px-4 py-4">
+              <p className="label-mono text-xs tracking-[0.1em] text-ink/65">
+                {t.statusLegendLabel}
+              </p>
+              <ul className="mt-3 space-y-2">
+                {(
+                  [
+                    "active",
+                    "building",
+                    "research",
+                    "planned",
+                  ] as const
+                ).map((key) => (
+                  <li
+                    key={key}
+                    className="flex items-start gap-3 text-sm leading-relaxed text-ink/80 md:text-[15px]"
+                  >
+                    <span
+                      className={cx(
+                        "mt-1.5 inline-block h-2 w-2 shrink-0 rounded-full",
+                        key === "active" && "bg-ink",
+                        key === "building" && "bg-accent",
+                        key === "research" && "bg-ink/45",
+                        key === "planned" && "border border-white/40 bg-transparent",
+                      )}
+                      aria-hidden
+                    />
+                    <span>{t.statusDefs[key]}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </FadeIn>
         </div>
 
-        <div className="col-span-12 mt-10 border-t border-white/10 md:mt-14">
+        <div className="col-span-12 mt-8 border-t border-white/15 md:mt-10">
           {safetyTracks.map((track) => {
             const open = openId === track.id;
             const panelId = `${baseId}-${track.id}-panel`;
+            const buttonId = `${baseId}-${track.id}-button`;
             return (
               <article
                 key={track.id}
                 id={track.id}
-                className="scroll-mt-[calc(var(--header-h)+1.5rem)] border-b border-white/10"
+                className="agentic-anchor border-b border-white/15"
               >
-                <h3 className="sr-only">{track.title[locale]}</h3>
-                <button
-                  type="button"
-                  aria-expanded={open}
-                  aria-controls={panelId}
-                  onClick={() => setOpenId(open ? "" : track.id)}
-                  className="grid min-h-14 w-full grid-cols-12 gap-3 py-6 text-left md:gap-6 md:py-8"
-                >
-                  <span className="col-span-2 label-mono text-[12px] text-accent md:col-span-1">
-                    {track.code}
-                  </span>
-                  <span className="col-span-10 md:col-span-4">
-                    <span className="block text-[clamp(1.05rem,2vw,1.45rem)] font-medium tracking-[-0.02em] text-ink">
-                      {track.title[locale]}
+                <h3 className="m-0">
+                  <button
+                    id={buttonId}
+                    type="button"
+                    aria-expanded={open}
+                    aria-controls={panelId}
+                    onClick={() => setOpenId(open ? "" : track.id)}
+                    className="grid min-h-14 w-full grid-cols-12 items-start gap-3 py-5 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:gap-6 md:py-6"
+                  >
+                    <span className="col-span-2 label-mono pt-1 text-xs text-accent md:col-span-1">
+                      {track.code}
                     </span>
-                    <span className="label-mono mt-2 inline-block text-[9px] tracking-[0.14em] text-ink/40">
-                      {statusLabel(dict, track.status)}
+                    <span className="col-span-9 md:col-span-4">
+                      <span className="block text-[clamp(1.05rem,2vw,1.45rem)] font-medium tracking-[-0.02em] text-ink">
+                        {track.title[locale]}
+                      </span>
+                      <span
+                        className={cx(
+                          "label-mono mt-2 inline-flex items-center gap-2 text-xs tracking-[0.1em]",
+                          track.status === "active" && "text-ink",
+                          track.status === "building" && "text-accent",
+                          track.status === "research" && "text-ink/70",
+                          track.status === "planned" && "text-ink/55",
+                        )}
+                      >
+                        <span
+                          className={cx(
+                            "inline-block h-1.5 w-1.5 rounded-full",
+                            track.status === "active" && "bg-ink",
+                            track.status === "building" && "bg-accent",
+                            track.status === "research" && "bg-ink/45",
+                            track.status === "planned" &&
+                              "border border-white/40 bg-transparent",
+                          )}
+                          aria-hidden
+                        />
+                        {statusLabel(dict, track.status)}
+                      </span>
                     </span>
-                  </span>
-                  <span className="col-span-12 text-sm leading-relaxed text-muted md:col-span-7 md:text-base">
-                    {track.headline[locale]}
-                  </span>
-                </button>
+                    <span
+                      className="col-span-1 flex justify-end pt-1 text-ink/70 md:col-span-1"
+                      aria-hidden
+                    >
+                      <span
+                        className={cx(
+                          "inline-flex h-8 w-8 items-center justify-center border border-white/25 text-sm transition-transform",
+                          open ? "rotate-45 border-accent/50 text-accent" : "",
+                        )}
+                      >
+                        +
+                      </span>
+                    </span>
+                    <span className="col-span-12 text-base leading-relaxed text-muted md:col-span-6">
+                      {track.headline[locale]}
+                    </span>
+                  </button>
+                </h3>
 
                 <div
                   id={panelId}
                   role="region"
+                  aria-labelledby={buttonId}
                   hidden={!open}
-                  className={cx(open ? "pb-8 md:pb-12" : "")}
+                  className={cx(open ? "pb-6 md:pb-10" : "")}
                 >
                   {open ? (
                     <div className="grid grid-cols-12 gap-6 md:gap-8">
@@ -248,12 +316,19 @@ export function AgenticTracksSection({
                           {track.focus.map((f) => (
                             <li
                               key={f.en}
-                              className="label-mono border border-white/10 px-2.5 py-1.5 text-[9px] tracking-[0.08em] text-muted"
+                              className="label-mono border border-white/20 px-2.5 py-2 text-xs tracking-[0.08em] text-ink/80"
                             >
                               {f[locale]}
                             </li>
                           ))}
                         </ul>
+
+                        <p className="mt-6 border-t border-white/15 pt-5 text-sm leading-relaxed text-ink/75 md:text-[15px]">
+                          <span className="font-medium text-ink">
+                            {t.nextAction}.
+                          </span>{" "}
+                          {t.nextActionHint}
+                        </p>
                       </div>
 
                       <div className="col-span-12 md:col-span-4">

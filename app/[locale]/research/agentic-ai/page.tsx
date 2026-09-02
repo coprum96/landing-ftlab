@@ -7,6 +7,8 @@ import { AgenticTracksSection } from "@/components/sections/agentic/AgenticTrack
 import { AgenticSwarmSection } from "@/components/sections/agentic/AgenticSwarmSection";
 import { AgenticControlLayerDemo } from "@/components/sections/agentic/AgenticControlLayerDemo";
 import { AgenticAfsbSection } from "@/components/sections/agentic/AgenticAfsbSection";
+import { AgenticGlossarySection } from "@/components/sections/agentic/AgenticGlossarySection";
+import { AgenticEvidenceSection } from "@/components/sections/agentic/AgenticEvidenceSection";
 import { AgenticCloseSection } from "@/components/sections/agentic/AgenticCloseSection";
 import {
   getDictionary,
@@ -33,6 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 /**
  * Agentic Financial Safety - focused research programme.
  * Hero → Bridge → Motion → Tracks → Swarm → Control-layer → AFSB → Close
+ * Anchors: #from-human-to-agent #research-tracks #live-topology #control-layer #afsb #evidence #terms #work-with-the-lab
  */
 export default async function AgenticAiResearchPage({ params }: Props) {
   const { locale: raw } = await params;
@@ -56,6 +59,8 @@ export default async function AgenticAiResearchPage({ params }: Props) {
       <AgenticSwarmSection dict={dict} />
       <AgenticControlLayerDemo locale={locale} dict={dict} />
       <AgenticAfsbSection locale={locale} dict={dict} />
+      <AgenticEvidenceSection locale={locale} dict={dict} />
+      <AgenticGlossarySection dict={dict} />
       <AgenticCloseSection
         locale={locale}
         dict={dict}

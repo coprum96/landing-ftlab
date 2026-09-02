@@ -24,11 +24,15 @@ export function Footer({
   locale: Locale;
   dict: Dictionary;
 }) {
-  const links = [
-    { label: dict.nav.research, path: "research/human" },
+  const research = [
+    { label: dict.nav.researchHuman, path: "research/human" },
+    { label: dict.nav.researchAgentic, path: "research/agentic-ai" },
     { label: dict.nav.projects, path: "projects" },
-    { label: dict.nav.education, path: "education" },
     { label: dict.nav.publications, path: "publications" },
+  ];
+
+  const institution = [
+    { label: dict.nav.education, path: "education" },
     { label: dict.nav.people, path: "people" },
     { label: dict.nav.about, path: "about" },
   ];
@@ -42,63 +46,91 @@ export function Footer({
   const mailto = `mailto:${lab.contactEmail}?subject=${encodeURIComponent(
     dict.collaborate.mailSubject,
   )}`;
+  const linkedInLabel = `${dict.footer.linkedin} ${dict.footer.opensNewTab}`;
 
   return (
-    <footer className="border-t border-white/10 section-pad pt-24 pb-12">
+    <footer className="border-t border-white/15 section-pad pt-20 pb-12">
       <div className="editorial-grid">
-        <div className="col-span-12 md:col-span-5">
-          <div className="flex items-center gap-4">
-            <Link
-              href={getLocalizedPath(locale)}
-              className="label-mono inline-flex min-h-11 items-center text-[12px] text-ink"
-            >
-              {dict.nav.brand}
-            </Link>
-            <a
-              href={lab.linkedInUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-11 w-11 items-center justify-center text-muted transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-              aria-label={dict.footer.linkedin}
-              title={dict.footer.linkedin}
-            >
-              <LinkedInIcon className="h-5 w-5" />
-            </a>
-          </div>
-          <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-muted">
+        <div className="col-span-12 md:col-span-4">
+          <p className="label-mono text-xs tracking-[0.1em] text-ink/60">
+            {dict.footer.groupInstitution}
+          </p>
+          <Link
+            href={getLocalizedPath(locale)}
+            className="label-mono mt-4 inline-flex min-h-11 items-center text-xs text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+          >
+            {dict.nav.brand}
+          </Link>
+          <p className="mt-3 max-w-sm text-base leading-relaxed text-muted">
             {dict.footer.institution}
+          </p>
+          <div className="mt-4 flex flex-col gap-1">
+            {institution.map((link) => (
+              <AnimatedLink
+                key={link.path}
+                href={getLocalizedPath(locale, link.path)}
+                className="label-mono inline-flex min-h-11 items-center text-xs text-ink/70 hover:text-ink"
+              >
+                {link.label}
+              </AnimatedLink>
+            ))}
+          </div>
+        </div>
+
+        <div className="col-span-12 mt-10 md:col-span-3 md:mt-0">
+          <p className="label-mono text-xs tracking-[0.1em] text-ink/60">
+            {dict.footer.groupResearch}
+          </p>
+          <div className="mt-4 flex flex-col gap-1">
+            {research.map((link) => (
+              <AnimatedLink
+                key={link.path}
+                href={getLocalizedPath(locale, link.path)}
+                className="label-mono inline-flex min-h-11 items-center text-xs text-ink/70 hover:text-ink"
+              >
+                {link.label}
+              </AnimatedLink>
+            ))}
+          </div>
+        </div>
+
+        <div className="col-span-12 mt-10 md:col-span-3 md:mt-0">
+          <p className="label-mono text-xs tracking-[0.1em] text-ink/60">
+            {dict.footer.groupContact}
           </p>
           <a
             href={mailto}
-            className="label-mono mt-6 inline-flex min-h-11 items-center text-[12px] text-ink/90 underline decoration-white/25 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+            className="label-mono mt-4 inline-flex min-h-11 items-center text-xs text-ink underline decoration-white/30 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
           >
             {dict.footer.contact}
           </a>
-          <p className="label-mono mt-2 text-[12px] text-muted">
-            {lab.contactEmail}
+          <p className="mt-2 text-sm text-ink/75">{lab.contactEmail}</p>
+          <a
+            href={lab.linkedInUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm text-ink/75 transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+            aria-label={linkedInLabel}
+          >
+            <LinkedInIcon className="h-4 w-4" />
+            <span>LinkedIn</span>
+            <span className="sr-only">{dict.footer.opensNewTab}</span>
+          </a>
+          <div className="mt-6">
+            <LanguageSwitch locale={locale} dict={dict} />
+          </div>
+        </div>
+
+        <div className="col-span-12 mt-10 md:col-span-2 md:mt-0">
+          <p className="label-mono text-xs tracking-[0.1em] text-ink/60">
+            {dict.footer.groupLegal}
           </p>
-        </div>
-
-        <div className="col-span-12 mt-12 flex flex-col gap-1 md:col-span-4 md:mt-0">
-          {links.map((link) => (
-            <AnimatedLink
-              key={link.path}
-              href={getLocalizedPath(locale, link.path)}
-              className="label-mono inline-flex min-h-11 items-center text-[12px] text-muted hover:text-ink"
-            >
-              {link.label}
-            </AnimatedLink>
-          ))}
-        </div>
-
-        <div className="col-span-12 mt-12 flex flex-col gap-1 md:col-span-3 md:mt-0 md:justify-self-end">
-          <LanguageSwitch locale={locale} />
-          <div className="mt-6 flex flex-col gap-1">
+          <div className="mt-4 flex flex-col gap-1">
             {legal.map((link) => (
               <Link
                 key={link.path}
                 href={getLocalizedPath(locale, link.path)}
-                className="label-mono inline-flex min-h-11 items-center text-[12px] text-muted transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                className="label-mono inline-flex min-h-11 items-center text-xs text-ink/70 transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
               >
                 {link.label}
               </Link>
@@ -106,7 +138,7 @@ export function Footer({
           </div>
         </div>
 
-        <div className="col-span-12 mt-24 md:mt-36">
+        <div className="col-span-12 mt-16 md:mt-24">
           <p className="headline-display max-w-5xl">
             {dict.footer.tagline1}
             <br />
@@ -114,21 +146,9 @@ export function Footer({
           </p>
         </div>
 
-        <div className="col-span-12 mt-16 flex flex-col gap-3 border-t border-white/10 pt-8 text-[13px] text-muted md:flex-row md:items-center md:justify-between">
+        <div className="col-span-12 mt-12 flex flex-col gap-3 border-t border-white/15 pt-8 text-sm text-ink/65 md:flex-row md:items-center md:justify-between">
           <p>{dict.footer.copyright}</p>
-          <div className="flex items-center gap-4">
-            <p>{dict.footer.attribution}</p>
-            <a
-              href={lab.linkedInUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-10 w-10 shrink-0 items-center justify-center text-muted transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-              aria-label={dict.footer.linkedin}
-              title={dict.footer.linkedin}
-            >
-              <LinkedInIcon className="h-4 w-4" />
-            </a>
-          </div>
+          <p>{dict.footer.attribution}</p>
         </div>
       </div>
     </footer>
