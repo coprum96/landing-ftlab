@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { AgenticHeroSection } from "@/components/sections/agentic/AgenticHeroSection";
 import { AgenticBridgeSection } from "@/components/sections/agentic/AgenticBridgeSection";
+import { AgenticMotionBand } from "@/components/sections/agentic/AgenticMotionBand";
 import { AgenticTracksSection } from "@/components/sections/agentic/AgenticTracksSection";
+import { AgenticSwarmSection } from "@/components/sections/agentic/AgenticSwarmSection";
+import { AgenticControlLayerDemo } from "@/components/sections/agentic/AgenticControlLayerDemo";
 import { AgenticAfsbSection } from "@/components/sections/agentic/AgenticAfsbSection";
 import { AgenticCloseSection } from "@/components/sections/agentic/AgenticCloseSection";
 import {
@@ -29,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 /**
  * Agentic Financial Safety - focused research programme.
- * Hero → Bridge → Four tracks → AFSB → Close/CTA
+ * Hero → Bridge → Motion → Tracks → Swarm → Control-layer → AFSB → Close
  */
 export default async function AgenticAiResearchPage({ params }: Props) {
   const { locale: raw } = await params;
@@ -48,7 +51,10 @@ export default async function AgenticAiResearchPage({ params }: Props) {
         agenticHref={agenticHref}
       />
       <AgenticBridgeSection locale={locale} dict={dict} />
+      <AgenticMotionBand dict={dict} />
       <AgenticTracksSection locale={locale} dict={dict} />
+      <AgenticSwarmSection dict={dict} />
+      <AgenticControlLayerDemo locale={locale} dict={dict} />
       <AgenticAfsbSection locale={locale} dict={dict} />
       <AgenticCloseSection
         locale={locale}

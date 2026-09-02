@@ -403,7 +403,6 @@
       "secondary": "We study what happens before an autonomous decision becomes a financial loss.",
       "supporting": "As financial decisions move from humans to autonomous AI agents, financial security must move beyond identity and authorization. We study whether an agent's actions still reflect human intent, how agent behavior changes under manipulation, and how harmful financial actions can be stopped before execution.",
       "meta": "HUMAN INTENT → AGENT BEHAVIOR → FINANCIAL ACTION → LOSS PREVENTION",
-      "statusNote": "Research programme in progress. Tracks are active or under construction - not production deployments.",
       "transition": {
         "label": "The transition",
         "title": "From AI assistance to financial autonomy.",
@@ -654,7 +653,8 @@
       },
       "heroCta": {
         "map": "View research tracks",
-        "contact": "Contact the lab"
+        "contact": "Contact the lab",
+        "demo": "Open control layer"
       },
       "horizon": {
         "label": "Horizon",
@@ -720,6 +720,52 @@
         "scenariosLabel": "ATTACK / FAILURE SCENARIOS",
         "metricsLabel": "METRICS",
         "infraLabel": "LAB INFRASTRUCTURE · EXPERIMENTAL PLATFORM"
+      },
+      "controlDemo": {
+        "label": "Interactive model",
+        "status": "STATUS / EXPERIMENTAL",
+        "title": "Should this financial action execute?",
+        "supporting": "A conceptual pre-execution control layer. Change the scenario to see how intent, behavior and context can move a decision from ALLOW to REVIEW or BLOCK.",
+        "note": "This is an explanatory prototype - not a live risk engine and not production decisioning.",
+        "scenarioLabel": "SCENARIO",
+        "flowLabel": "DECISION CHAIN",
+        "layerLabel": "FTLAB CONTROL LAYER",
+        "decisionLabel": "GATE DECISION",
+        "steps": {
+          "intent": "HUMAN INTENT",
+          "agent": "AGENT BEHAVIOR",
+          "action": "PROPOSED ACTION"
+        },
+        "levels": {
+          "low": "LOW",
+          "medium": "MED",
+          "high": "HIGH"
+        },
+        "footer": "Financial intelligence proposes the action. Financial safety decides whether execution should proceed."
+      },
+      "motionBand": {
+        "label": "LIVING MODEL",
+        "line": "Before settlement, every autonomous action still has to pass through judgment.",
+        "chain": "HUMAN INTENT → AGENT BEHAVIOR → FINANCIAL ACTION → LOSS PREVENTION"
+      },
+      "swarm": {
+        "label": "Live topology",
+        "status": "STATUS / INTERACTIVE MODEL",
+        "title": "Agents talk. Money moves. Judgment sits in between.",
+        "supporting": "A research sketch of multi-agent financial coordination: message traffic between agents, proposed actions racing toward settlement, and a control membrane that can contain, hold, or leave the path open.",
+        "modeLabel": "MEMBRANE",
+        "modes": {
+          "contained": "CONTAINED",
+          "hold": "HITL HOLD",
+          "cascade": "CASCADE"
+        },
+        "modesHint": {
+          "contained": "Risky actions stop at the membrane. Routine traffic may pass.",
+          "hold": "Human-in-the-loop pause — actions freeze at the gate until judgment.",
+          "cascade": "Membrane open. Machine-speed coordination reaches settlement unchecked."
+        },
+        "inject": "INJECT RISK",
+        "footer": "Click the field or INJECT RISK — illustrative model, not a live trading system."
       }
     }
   },

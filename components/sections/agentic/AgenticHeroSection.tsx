@@ -39,9 +39,25 @@ export function AgenticHeroSection({
     else el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  const openDemo = () => {
+    const el = document.getElementById("control-layer");
+    if (!el) return;
+    const lenis = getLenisInstance();
+    const offset =
+      -(
+        parseFloat(
+          getComputedStyle(document.documentElement).getPropertyValue(
+            "--header-h",
+          ),
+        ) || 72
+      ) - 8;
+    if (lenis) lenis.scrollTo(el, { offset, duration: 1.15 });
+    else el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <section className="relative overflow-hidden pb-10 pt-6 md:min-h-[88svh] md:pb-20 md:pt-0">
-      <AgenticExecutionField className="opacity-50 md:opacity-[0.95]" />
+      <AgenticExecutionField className="opacity-70 md:opacity-[0.95]" />
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_70%_40%,transparent_10%,rgba(8,8,8,0.55)_50%,#080808_90%)] md:bg-[radial-gradient(ellipse_at_70%_40%,transparent_10%,rgba(8,8,8,0.45)_55%,#080808_88%)]"
         aria-hidden
@@ -84,14 +100,21 @@ export function AgenticHeroSection({
             <div className="mt-7 flex flex-col items-stretch gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center">
               <button
                 type="button"
-                onClick={openTracks}
+                onClick={openDemo}
                 className="label-mono inline-flex min-h-12 items-center justify-center border border-accent/70 bg-accent/10 px-6 py-3.5 text-[11px] tracking-[0.14em] text-ink transition-colors hover:border-accent hover:bg-accent/20"
+              >
+                {page.heroCta.demo}
+              </button>
+              <button
+                type="button"
+                onClick={openTracks}
+                className="label-mono inline-flex min-h-12 items-center justify-center border border-white/15 px-6 py-3.5 text-[11px] tracking-[0.14em] text-ink transition-colors hover:border-white/30"
               >
                 {page.heroCta.map}
               </button>
               <a
                 href={mailto}
-                className="label-mono inline-flex min-h-12 items-center justify-center border border-white/15 px-6 py-3.5 text-[11px] tracking-[0.14em] text-ink transition-colors hover:border-white/30"
+                className="label-mono inline-flex min-h-11 items-center justify-center px-2 py-2 text-[11px] tracking-[0.14em] text-ink/55 underline-offset-4 transition-colors hover:text-ink hover:underline sm:min-h-12"
               >
                 {page.heroCta.contact}
               </a>
@@ -99,9 +122,6 @@ export function AgenticHeroSection({
 
             <p className="label-mono mt-6 text-[10px] leading-relaxed tracking-[0.1em] text-ink/40 md:mt-10">
               {page.meta}
-            </p>
-            <p className="mt-3 max-w-xl text-xs leading-relaxed text-ink/55 md:text-[13px]">
-              {page.statusNote}
             </p>
           </FadeIn>
         </div>
