@@ -5,6 +5,7 @@
   },
   "nav": {
     "brand": "FINTECHLAB",
+    "brandShort": "FINTECHLAB",
     "research": "Research",
     "researchHuman": "Human",
     "researchAgentic": "Agentic Safety",
@@ -104,7 +105,7 @@
     "safeLabel": "SAFE SIMULATION",
     "safeHint": "No personal data is requested, stored or transmitted.",
     "analysisTitle": "FTLAB / SIGNAL ANALYSIS",
-    "statusAnalyzing": "ANALYZING MESSAGE STRUCTURE...",
+    "statusAnalyzing": "ANALYZING MESSAGE STRUCTURE..",
     "statusEscalation": "ESCALATION DETECTED",
     "statusPattern": "MANIPULATION PATTERN IDENTIFIED",
     "statusBroken": "ATTACK FLOW BROKEN",
@@ -346,7 +347,7 @@
   },
   "conferenceAnnounce": {
     "label": "ANNOUNCEMENT",
-    "line": "Conference 2026 at SPbU: Behavioral Economics and Information Security - 9-10 October.",
+    "line": "Conference 2026: Behavioral Economics and Information Security - 9-10 October.",
     "cta": "LEARN MORE"
   },
   "eventDetail": {
@@ -359,11 +360,11 @@
     "infoPartner": "Media partner"
   },
   "footer": {
-    "institution": "Saint Petersburg State University",
+    "institution": "FinTechLab",
     "tagline1": "FROM UNDERSTANDING BEHAVIOR",
     "tagline2": "TO FINANCIAL PROTECTION.",
-    "copyright": "© 2026 FinTechLab / SPbU. All rights reserved.",
-    "attribution": "Laboratory of Modern Financial Technologies at Saint Petersburg State University.",
+    "copyright": "© 2026 FinTechLab. All rights reserved.",
+    "attribution": "Laboratory of Modern Financial Technologies.",
     "privacy": "Privacy",
     "personalData": "Personal data",
     "terms": "Terms",
@@ -401,16 +402,16 @@
     },
     "about": {
       "title": "About",
-      "subtitle": "FinTechLab SPbU studies the relationship between human behavior, financial environments, digital systems, and protection.",
-      "body": "Founded in 2025 at Saint Petersburg State University, the Laboratory of Modern Financial Technologies builds a scientific and applied base against behavioral vulnerabilities in modern financial threats. Work integrates behavioral economics, neuroscience, digital victimology, and financial-security practice - moving from experiment to technology, education, and regulatory insight."
+      "subtitle": "FinTechLab studies the relationship between human behavior, financial environments, digital systems, and protection.",
+      "body": "Founded in 2025, the Laboratory of Modern Financial Technologies builds a scientific and applied base against behavioral vulnerabilities in modern financial threats. Work integrates behavioral economics, neuroscience, digital victimology, and financial-security practice - moving from experiment to technology, education, and regulatory insight."
     },
     "agenticAi": {
       "label": "/02 - AGENTIC FINANCIAL SAFETY",
       "title": "Agentic Financial Safety",
       "researchLabel": "FINTECHLAB / AGENTIC FINANCIAL SAFETY",
       "headline": "Agentic Financial Safety",
-      "subheadline": "FTLAB studies the safety of autonomous financial decisions.",
-      "secondary": "We study what happens before an autonomous decision becomes a financial loss.",
+      "subheadline": "FTLAB helps financial institutions evaluate whether AI-agent actions remain faithful to human intent—and design controls that review or block unsafe actions before money moves.",
+      "secondary": "Before an AI agent moves money, institutions need to know whether the action is intended, authorized and safe. FTLAB researches how to make that judgment.",
       "supporting": "As financial decisions move from humans to autonomous AI agents, financial security must move beyond identity and authorization. We study whether an agent's actions still reflect human intent, how agent behavior changes under manipulation, and how harmful financial actions can be stopped before execution.",
       "meta": "HUMAN INTENT → AGENT BEHAVIOR → FINANCIAL ACTION → LOSS PREVENTION",
       "transition": {
@@ -662,9 +663,9 @@
         "philosophy2": "Financial safety determines whether the action should be allowed to happen."
       },
       "heroCta": {
-        "map": "Explore the four research tracks",
         "contact": "Discuss a research partnership",
-        "demo": "Explore the control-layer model"
+        "demo": "Explore the control-layer model",
+        "map": "View the four research tracks"
       },
       "horizon": {
         "label": "Horizon",
@@ -727,7 +728,9 @@
           "experimental": "Experimental — interactive explanatory model, not production decisioning."
         },
         "nextAction": "Methodology forthcoming",
-        "nextActionHint": "Detailed methods, experiments and updates will be published as the track matures."
+        "nextActionHint": "Detailed methods, experiments and updates will be published as the track matures.",
+        "expandLabel": "Expand",
+        "collapseLabel": "Collapse"
       },
       "afsb": {
         "label": "Infrastructure",
@@ -750,8 +753,22 @@
         ],
         "nextLabel": "Next planned release",
         "next": "Shared experimental runs and published protocols — when evidence is ready",
-        "cta": "Ask about AFSB updates",
-        "availabilityNote": "No public datasets or scored leaderboard yet. What you see here is the measurement frame under construction."
+        "cta": "Get AFSB updates",
+        "availabilityNote": "No public datasets or scored leaderboard yet. What you see here is the measurement frame under construction.",
+        "bridgeFromDemo": "AFSB is the infrastructure used to test the control model above: shared environments, failure scenarios and metrics before real capital moves.",
+        "joinTitle": "What joining AFSB means",
+        "joinItems": [
+          "Contribute failure scenarios",
+          "Provide test environments",
+          "Review metrics",
+          "Join pilots as they open",
+          "Receive early protocols",
+          "Co-author materials when agreed"
+        ],
+        "milestone": "Next milestone before public release: an agreed run protocol and a first controlled experimental session.",
+        "taxonomyToggle": "Show full environments, scenarios and metrics",
+        "taxonomyHide": "Hide catalogue",
+        "subscribeHint": "Leave your work email via the partnership form with enquiry type “AFSB participation”."
       },
       "controlDemo": {
         "label": "Interactive model",
@@ -787,15 +804,15 @@
         "label": "Live topology",
         "status": "STATUS / INTERACTIVE MODEL",
         "title": "Agents talk. Money moves. Judgment sits in between.",
-        "supporting": "A research sketch of multi-agent financial coordination: message traffic between agents, proposed actions racing toward settlement, and a control membrane that can contain, hold, or leave the path open.",
-        "instructions": "Choose a membrane mode, then inject a risk packet or click the field. Agents exchange messages on the left; settlement sits on the right; the membrane is the control boundary between them.",
+        "supporting": "A research sketch of multi-agent financial coordination: message traffic between agents, proposed actions racing toward settlement, and a pre-execution control boundary that can contain, hold, or leave the path open.",
+        "instructions": "Choose a control-boundary mode, then inject a risk packet or click the field. Agents exchange messages on the left; settlement sits on the right; the pre-execution control boundary (membrane metaphor) sits between them.",
         "legendAgents": "Agents — coordinated actors proposing actions",
         "legendRisk": "Risk packet — higher-risk financial action",
-        "legendMembrane": "Membrane — pre-settlement control boundary",
+        "legendMembrane": "Pre-execution control boundary — judgment gate before settlement (visual “membrane”)",
         "legendSettlement": "Settlement — irreversible execution horizon",
-        "modeGroup": "Membrane mode",
+        "modeGroup": "Control-boundary mode",
         "actionGroup": "Simulation actions",
-        "modeLabel": "MEMBRANE MODE",
+        "modeLabel": "CONTROL BOUNDARY",
         "modes": {
           "contained": "Contained",
           "hold": "Human review hold",
@@ -827,8 +844,8 @@
             "def": "A pre-execution judgment step that can allow, review or block a proposed financial action."
           },
           {
-            "term": "Membrane",
-            "def": "The visual metaphor for that control boundary in the live topology model."
+            "term": "Pre-execution control boundary",
+            "def": "The judgment gate before settlement that can allow, review or block a proposed financial action. “Membrane” is the visualization metaphor used in the live topology model."
           },
           {
             "term": "Intent fidelity",
@@ -838,23 +855,57 @@
             "term": "HITL",
             "def": "Human-in-the-loop — a pause for human judgment before execution continues."
           }
-        ]
+        ],
+        "mobileSummary": "Show term definitions"
       },
       "contactForm": {
         "title": "Discuss a research partnership",
-        "supporting": "Use the form to open a prefilled message in your mail client. The lab email stays visible if that path is unavailable.",
-        "responseTime": "We typically reply within 5–7 business days.",
-        "include": "Please include your institution, the decision context you care about, and whether you need research, evaluation or partnership discussion.",
+        "supporting": "Your enquiry is submitted to the lab website over a secure POST. Message contents are never placed in the URL, browser history or analytics query string.",
+        "responseTime": "We acknowledge enquiries within two business days. A full substantive reply may take longer depending on the request.",
+        "include": "Organization and enquiry type are required. Briefly describe the financial decision context.",
+        "privacyNote": "Form data is processed only to respond to your enquiry. Submitting through the website does not open your email client.",
+        "privacyLink": "Privacy policy",
         "name": "Name",
         "org": "Organization",
         "email": "Work email",
         "message": "Message",
-        "submit": "Compose email",
+        "enquiryType": "Enquiry type",
+        "enquiryOptions": [
+          {
+            "value": "research-partnership",
+            "label": "Research partnership"
+          },
+          {
+            "value": "agent-evaluation",
+            "label": "Agent evaluation"
+          },
+          {
+            "value": "red-team",
+            "label": "Red-team study"
+          },
+          {
+            "value": "afsb",
+            "label": "AFSB participation"
+          },
+          {
+            "value": "academic",
+            "label": "Academic collaboration"
+          },
+          {
+            "value": "other",
+            "label": "Other"
+          }
+        ],
+        "submit": "Send partnership enquiry",
+        "submitting": "Sending…",
         "copyEmail": "Copy lab email",
-        "validation": "Name, work email and message are required.",
-        "opened": "Your mail client should open with a prefilled message. If it does not, write directly to the lab email below.",
+        "fieldRequired": "Please complete this field.",
+        "emailInvalid": "Enter a valid email address.",
+        "success": "Enquiry sent. We will acknowledge receipt within two business days.",
+        "networkError": "Could not send. Try again or copy the lab email as a fallback.",
+        "deliveryUnavailable": "Server delivery is temporarily unavailable. Copy the lab email and write directly.",
         "copied": "Lab email copied to clipboard.",
-        "copyFailed": "Could not copy. Please select the lab email manually.",
+        "copyFailed": "Could not copy. Select the lab email manually.",
         "mailSubject": "Agentic Financial Safety — research partnership"
       },
       "evidence": {
@@ -863,7 +914,104 @@
         "supporting": "Agentic Financial Safety is an active programme. The publications below are adjacent lab research on behavioral and financial security. Agentic-specific protocols and benchmark results will be linked here when released.",
         "note": "Hypothesis and programme framing are not the same as published agentic benchmark results.",
         "viewAll": "View all publications",
-        "viewTeam": "Meet the team"
+        "viewTeam": "Meet the team",
+        "artefactLabel": "Programme artefact available to inspect now",
+        "artefactCta": "View partnership offers"
+      },
+      "plainSummary": "Before an AI agent moves money, institutions need to know whether the action is intended, authorized and safe. FTLAB researches how to make that judgment.",
+      "midCta": {
+        "label": "NEXT STEP",
+        "title": "Need an agent-safety evaluation for a financial decision context?",
+        "line": "Share the decision context. We acknowledge enquiries within two business days.",
+        "cta": "Discuss a research partnership"
+      },
+      "process": {
+        "title": "How an engagement works",
+        "steps": [
+          "Introductory call",
+          "Define the financial decision context",
+          "Select failure scenarios and controls",
+          "Run a controlled evaluation",
+          "Deliver findings and recommendations"
+        ]
+      },
+      "offers": {
+        "label": "Partnership offers",
+        "title": "Concrete ways institutions can work with the lab.",
+        "supporting": "Each offer is a research evaluation in a controlled setting — not a product sale and not certification.",
+        "forLabel": "Who it is for",
+        "evaluatesLabel": "What FTLAB evaluates",
+        "providesLabel": "What the institution provides",
+        "receivesLabel": "What the partner receives",
+        "durationLabel": "Approximate duration",
+        "items": [
+          {
+            "title": "Agent safety evaluation",
+            "for": "Banks, PSPs and risk/security teams deploying agents with action authority.",
+            "evaluates": "Whether proposed actions stay faithful to intent, authority bounds and pre-execution failure points.",
+            "provides": "Agent description, authority policy and 2–4 priority financial scenarios.",
+            "receives": "A written findings note with control gaps and recommended next experiments.",
+            "duration": "3–6 weeks after the intro call",
+            "next": "Request an evaluation"
+          },
+          {
+            "title": "Financial-agent red-team research",
+            "for": "Teams that need authorized adversarial stress-testing before production rollout.",
+            "evaluates": "Context injection, intent drift, authority abuse and escalation paths.",
+            "provides": "A sandbox or staged environment, engagement rules and risk tolerance criteria.",
+            "receives": "A failure-scenario catalogue and observed failure-mode map.",
+            "duration": "4–8 weeks",
+            "next": "Request a red-team study"
+          },
+          {
+            "title": "Pre-execution control-layer study",
+            "for": "Payment and agent-runtime architects designing allow / review / block gates.",
+            "evaluates": "Signals available before settlement, HITL holds and audit completeness.",
+            "provides": "Current control design and decision logs (anonymized if required).",
+            "receives": "Recommendations for control boundaries and observability.",
+            "duration": "3–5 weeks",
+            "next": "Request a control-layer study"
+          },
+          {
+            "title": "Intent-fidelity assessment",
+            "for": "Product and research teams measuring drift between human mandate and agent action.",
+            "evaluates": "Intent representation, agent interpretation and divergence from the proposed action.",
+            "provides": "Sample mandates/prompts and proposed-action logs.",
+            "receives": "A fidelity measurement frame and prioritized gaps.",
+            "duration": "3–6 weeks",
+            "next": "Request a fidelity assessment"
+          },
+          {
+            "title": "AFSB research participation",
+            "for": "Institutions willing to contribute scenarios, environments or metric review.",
+            "evaluates": "Fitness of the contributed material for shared experimental infrastructure.",
+            "provides": "Candidate scenarios or environments and a research owner contact.",
+            "receives": "Early protocol access as materials are published, and optional co-review.",
+            "duration": "Ongoing / milestone-based",
+            "next": "Request AFSB participation"
+          }
+        ]
+      },
+      "programme": {
+        "title": "Programme ownership",
+        "supporting": "Agentic Financial Safety draws on the lab’s behavioral-security, AI/ML and financial-sector expertise.",
+        "profileCta": "Profile",
+        "contactLabel": "Programme contact",
+        "contactCta": "Send an enquiry",
+        "people": [
+          {
+            "name": "Stas Medyanik",
+            "slug": "stas-medyanik",
+            "role": "Founder · Senior Researcher · AI / ML",
+            "blurb": "Technical programme owner for antifraud pipelines, behavioral risk scoring and agent-evaluation infrastructure."
+          },
+          {
+            "name": "Olga V. Medyanik",
+            "slug": "olga-medyanik",
+            "role": "Deputy Scientific Director · Leading Researcher",
+            "blurb": "Behavioral economics and applied decision security — methods the programme extends into the agentic setting."
+          }
+        ]
       }
     }
   },
@@ -917,23 +1065,56 @@
     "heading": "Want to know more?",
     "supporting": "Research partnerships, evaluation requests, and education collaborations. Email remains available if the form path is unavailable.",
     "cta": "CONTACT US",
-    "mailSubject": "Contact - FinTechLab SPbU",
+    "mailSubject": "Contact - FinTechLab",
     "contactForm": {
       "title": "Contact the laboratory",
-      "supporting": "Use the form to open a prefilled message in your mail client. The lab email stays visible as a fallback.",
-      "responseTime": "We typically reply within 5–7 business days.",
-      "include": "Please include your institution and whether you need research partnership, evaluation, education, or another collaboration.",
+      "supporting": "Your enquiry is submitted over a secure POST. Contents are never placed in the URL.",
+      "responseTime": "We acknowledge enquiries within two business days.",
+      "include": "Organization and enquiry type are required.",
       "name": "Name",
       "org": "Organization",
       "email": "Work email",
       "message": "Message",
-      "submit": "Compose email",
+      "submit": "Send enquiry",
       "copyEmail": "Copy lab email",
-      "validation": "Name, work email and message are required.",
-      "opened": "Your mail client should open with a prefilled message. If it does not, write directly to the lab email below.",
       "copied": "Lab email copied to clipboard.",
       "copyFailed": "Could not copy. Please select the lab email manually.",
-      "mailSubject": "Contact - FinTechLab SPbU"
+      "mailSubject": "Contact - FinTechLab",
+      "privacyNote": "Form data is processed only to respond to your enquiry.",
+      "privacyLink": "Privacy policy",
+      "enquiryType": "Enquiry type",
+      "enquiryOptions": [
+        {
+          "value": "research-partnership",
+          "label": "Research partnership"
+        },
+        {
+          "value": "agent-evaluation",
+          "label": "Agent evaluation"
+        },
+        {
+          "value": "red-team",
+          "label": "Red-team study"
+        },
+        {
+          "value": "afsb",
+          "label": "AFSB participation"
+        },
+        {
+          "value": "academic",
+          "label": "Academic collaboration"
+        },
+        {
+          "value": "other",
+          "label": "Other"
+        }
+      ],
+      "submitting": "Sending…",
+      "fieldRequired": "Please complete this field.",
+      "emailInvalid": "Enter a valid email address.",
+      "success": "Enquiry sent. We will acknowledge receipt within two business days.",
+      "networkError": "Could not send. Try again or copy the lab email.",
+      "deliveryUnavailable": "Server delivery is temporarily unavailable. Copy the lab email."
     }
   },
   "evidence": {
@@ -945,11 +1126,11 @@
     "privacy": {
       "title": "Privacy Policy",
       "updated": "Effective date: 21 August 2026",
-      "intro": "This Privacy Policy explains how the FinTechLab SPbU website (the “Website”) handles information when you visit or use it. The Website is operated by the Laboratory of Modern Financial Technologies at Saint Petersburg State University (“FinTechLab”, “we”, “us”). By using the Website, you acknowledge this Policy.",
+      "intro": "This Privacy Policy explains how the FinTechLab website (the “Website”) handles information when you visit or use it. The Website is operated by FinTechLab (“FinTechLab”, “we”, “us”), the Laboratory of Modern Financial Technologies. By using the Website, you acknowledge this Policy.",
       "sections": [
         {
           "h": "1. Controller and contact",
-          "p": "For privacy matters relating to this Website, contact FinTechLab at legal@ftlab.space. FinTechLab is a research laboratory of Saint Petersburg State University. Where institutional rules of the University apply, those rules prevail to the extent of any conflict with this Policy."
+          "p": "For privacy matters relating to this Website, contact FinTechLab at legal@ftlab.space. FinTechLab is an independent research laboratory. Where mandatory local laws apply, those rules prevail to the extent of any conflict with this Policy."
         },
         {
           "h": "2. Scope",
@@ -957,7 +1138,7 @@
         },
         {
           "h": "3. Information we process",
-          "p": "Browsing public pages does not require registration. If you email us, we process the content of your message, your email address, and any personal data you voluntarily include, solely to respond and manage correspondence. We do not operate a contact form that writes personal data into a Website database."
+          "p": "Browsing public pages does not require registration. If you use the Website contact form or email us, we process the content of your message, your name, organization, email address, enquiry type, and any personal data you voluntarily include, solely to respond and manage correspondence. The contact form submits over HTTPS POST to the Website; message contents are not placed in URLs. We do not use the form for marketing lists. Delivery may be forwarded to the lab mailbox or an operator-configured webhook."
         },
         {
           "h": "4. Interactive simulation - no experiment data collection",
@@ -981,7 +1162,7 @@
         },
         {
           "h": "9. Disclosure",
-          "p": "We do not sell personal data. We may disclose information if required by law, court order, or competent authority, or to protect the rights, safety, or integrity of the University, FinTechLab, users, or the public. Service providers that host or operate technical infrastructure may process technical data strictly as needed to provide those services."
+          "p": "We do not sell personal data. We may disclose information if required by law, court order, or competent authority, or to protect the rights, safety, or integrity of FinTechLab, users, or the public. Service providers that host or operate technical infrastructure may process technical data strictly as needed to provide those services."
         },
         {
           "h": "10. International transfers",
@@ -1008,15 +1189,15 @@
     "personalData": {
       "title": "Personal Data Notice",
       "updated": "Effective date: 21 August 2026",
-      "intro": "This Notice supplements the Privacy Policy and describes personal-data handling for the FinTechLab SPbU Website in clear terms for visitors.",
+      "intro": "This Notice supplements the Privacy Policy and describes personal-data handling for the FinTechLab Website in clear terms for visitors.",
       "sections": [
         {
-          "h": "1. No account and no website form database",
-          "p": "The public Website does not require an account. It does not operate a contact form that collects personal data into a Website database."
+          "h": "1. Account and contact form",
+          "p": "The public Website does not require an account. The partnership contact form submits enquiries over HTTPS POST for correspondence only; it is not used as a marketing database."
         },
         {
-          "h": "2. Email",
-          "p": "If you write to legal@ftlab.space (or another published laboratory address), FinTechLab processes the personal data contained in your message in order to respond and manage correspondence."
+          "h": "2. Email and form delivery",
+          "p": "If you use the contact form or write to legal@ftlab.space (or another published laboratory address), FinTechLab processes the personal data contained in your message in order to respond and manage correspondence."
         },
         {
           "h": "3. Interactive simulation",
@@ -1035,11 +1216,11 @@
     "terms": {
       "title": "Terms of Use",
       "updated": "Effective date: 21 August 2026",
-      "intro": "These Terms of Use (“Terms”) govern access to and use of the FinTechLab SPbU website (the “Website”). By accessing or using the Website, you agree to these Terms. If you do not agree, do not use the Website.",
+      "intro": "These Terms of Use (“Terms”) govern access to and use of the FinTechLab website (the “Website”). By accessing or using the Website, you agree to these Terms. If you do not agree, do not use the Website.",
       "sections": [
         {
           "h": "1. Operator",
-          "p": "The Website presents information about the Laboratory of Modern Financial Technologies at Saint Petersburg State University (“FinTechLab”). Contact: legal@ftlab.space."
+          "p": "The Website presents information about FinTechLab — the Laboratory of Modern Financial Technologies. Contact: legal@ftlab.space."
         },
         {
           "h": "2. Nature of the content",
@@ -1055,11 +1236,11 @@
         },
         {
           "h": "5. Intellectual property",
-          "p": "Text, design, graphics, software references, audiovisual materials, and other content on the Website remain the property of their respective rights holders, including Saint Petersburg State University, FinTechLab, and attributed authors, unless expressly stated otherwise. You may view content for personal, non-commercial informational use. You may not copy, scrape, redistribute, or commercially exploit Website content without prior written permission, except as permitted by mandatory law."
+          "p": "Text, design, graphics, software references, audiovisual materials, and other content on the Website remain the property of their respective rights holders, including FinTechLab, and attributed authors, unless expressly stated otherwise. You may view content for personal, non-commercial informational use. You may not copy, scrape, redistribute, or commercially exploit Website content without prior written permission, except as permitted by mandatory law."
         },
         {
           "h": "6. Acceptable use",
-          "p": "You agree not to misuse the Website, attempt unauthorized access to systems or data, interfere with Website operation or security, introduce malware, or use the Website in any manner that is unlawful or harmful to FinTechLab, the University, or others."
+          "p": "You agree not to misuse the Website, attempt unauthorized access to systems or data, interfere with Website operation or security, introduce malware, or use the Website in any manner that is unlawful or harmful to FinTechLab or others."
         },
         {
           "h": "7. External links",
@@ -1067,11 +1248,11 @@
         },
         {
           "h": "8. Disclaimer of warranties",
-          "p": "The Website and its content are provided “as is” and “as available”. To the fullest extent permitted by law, FinTechLab and Saint Petersburg State University disclaim warranties of accuracy, completeness, merchantability, fitness for a particular purpose, and non-infringement."
+          "p": "The Website and its content are provided “as is” and “as available”. To the fullest extent permitted by law, FinTechLab disclaim warranties of accuracy, completeness, merchantability, fitness for a particular purpose, and non-infringement."
         },
         {
           "h": "9. Limitation of liability",
-          "p": "To the fullest extent permitted by applicable law, FinTechLab and Saint Petersburg State University shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or for any loss of data, profits, or opportunity arising from your use of, or inability to use, the Website or reliance on its content. Nothing in these Terms excludes liability that cannot be excluded under mandatory law."
+          "p": "To the fullest extent permitted by applicable law, FinTechLab shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or for any loss of data, profits, or opportunity arising from your use of, or inability to use, the Website or reliance on its content. Nothing in these Terms excludes liability that cannot be excluded under mandatory law."
         },
         {
           "h": "10. Privacy",
@@ -1094,7 +1275,7 @@
     "researchDisclaimer": {
       "title": "Research Disclaimer",
       "updated": "Effective date: 21 August 2026",
-      "intro": "This Research Disclaimer applies to educational demonstrations, interactive simulations, and research-facing materials published on the FinTechLab SPbU website, including the anti-fraud simulation.",
+      "intro": "This Research Disclaimer applies to educational demonstrations, interactive simulations, and research-facing materials published on the FinTechLab website, including the anti-fraud simulation.",
       "sections": [
         {
           "h": "1. Educational purpose only",

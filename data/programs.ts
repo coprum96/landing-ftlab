@@ -55,7 +55,7 @@ export const educationPrograms: EducationProgram[] = [
       ru: "Поведенческая экономика и экономическая психология",
     },
     description: {
-      en: "SPbU master’s program; described as a Bank of Russia pilot project with banking and industry collaborators.",
+      en: "Master’s program; described as a Bank of Russia pilot project with banking and industry collaborators.",
       ru: "Магистратура СПбГУ; в материалах лаборатории — пилотный проект Банка России с банковскими и индустриальными участниками.",
     },
     href: "https://spbu.ru/postupayushchim/programms/magistratura/povedencheskaya-ekonomika-i-ekonomicheskaya-psikhologiya",
@@ -71,7 +71,7 @@ export const educationPrograms: EducationProgram[] = [
       ru: "Платформенная экономика",
     },
     description: {
-      en: "SPbU master’s program developed with regulatory and industry collaborators named in laboratory materials.",
+      en: "Master’s program developed with regulatory and industry collaborators named in laboratory materials.",
       ru: "Магистратура СПбГУ, в материалах лаборатории — совместно с регуляторными и индустриальными участниками.",
     },
     href: "https://spbu.ru/postupayushchim/programms/magistratura/platformennaya-ekonomika",
@@ -87,7 +87,7 @@ export const educationPrograms: EducationProgram[] = [
       ru: "ДОП «Поведенческая экономика и экономическая психология»",
     },
     description: {
-      en: "Additional professional education track at SPbU.",
+      en: "Additional professional education track.",
       ru: "Программа дополнительного образования СПбГУ.",
     },
     href: "https://spbu.ru/postupayushchim/programms/dopolnitelnyeprogrammy/povedencheskaya-ekonomika-i-ekonomicheskaya",
@@ -204,7 +204,7 @@ export const educationPrograms: EducationProgram[] = [
     code: "E/011",
     kind: "community",
     title: {
-      en: "Cyber Ambassadors of SPbU",
+      en: "Cyber Ambassadors",
       ru: "Кибер-амбассадоры СПбГУ",
     },
     description: {

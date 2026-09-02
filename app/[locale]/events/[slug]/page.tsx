@@ -11,6 +11,7 @@ import {
   type Locale,
 } from "@/lib/i18n";
 import { buildPageMetadata } from "@/lib/seo";
+import { labBrandName } from "@/data/lab";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return buildPageMetadata({
     locale,
     path: `events/${slug}`,
-    title: `${event.title[locale]} — FinTechLab / SPbU`,
+    title: `${event.title[locale]} — ${labBrandName(locale)}`,
     description: event.summary[locale],
   });
 }

@@ -57,7 +57,7 @@ export function Footer({
           </p>
           <Link
             href={getLocalizedPath(locale)}
-            className="label-mono mt-4 inline-flex min-h-11 items-center text-xs text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+            className="label-mono mt-4 inline-flex min-h-11 max-w-sm items-center text-xs leading-snug text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
           >
             {dict.nav.brand}
           </Link>

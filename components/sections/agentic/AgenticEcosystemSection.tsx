@@ -289,7 +289,7 @@ export function AgenticEcosystemSection({
 
             <div className="absolute left-1/2 top-1/2 z-[2] flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-white/15 bg-[#0a0a0a]/90 text-center lg:h-32 lg:w-32">
               <p className="label-mono text-[8px] tracking-[0.16em] text-ink/40 sm:text-[9px]">
-                FTLAB
+                {locale === "ru" ? "ЛАБ. СФТ" : "FTLAB"}
               </p>
               <p className="label-mono mt-1 max-w-[5.5rem] text-[9px] leading-tight tracking-[0.12em] text-ink sm:text-[10px]">
                 {eco.core}

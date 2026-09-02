@@ -23,7 +23,7 @@ export const fieldNotes: FieldNote[] = [
       ru: "II Всероссийская конференция: поведенческая экономика и информационная безопасность",
     },
     excerpt: {
-      en: "9–10 October 2026 at SPbU — plenaries, antifraud panels, platform dialogue, and Youth Day with the Golden Detector simulation. Full program published.",
+      en: "9–10 October 2026 — plenaries, antifraud panels, platform dialogue, and Youth Day with the Golden Detector simulation. Full program published.",
       ru: "9–10 октября 2026 в СПбГУ — пленарные заседания, антифрод-панели, диалог платформ и Молодёжный день с симулятором «Золотой Детектор». Программа опубликована.",
     },
     motif: "conference",
@@ -48,11 +48,11 @@ export const fieldNotes: FieldNote[] = [
     date: "2025-09-05",
     category: { en: "Research forum", ru: "Научный форум" },
     title: {
-      en: "Cognitive Shield round table supported at SPbU",
+      en: "Cognitive Shield round table supported",
       ru: "Круглый стол «Когнитивный щит» поддержан в СПбГУ",
     },
     excerpt: {
-      en: "SPbU scientific-event support for the round table on social-engineering counterpractice in banking (through 2026).",
+      en: "Scientific-event support for the round table on social-engineering counterpractice in banking (through 2026).",
       ru: "Поддержка научного мероприятия СПбГУ для круглого стола о практике противодействия социальной инженерии в банковской сфере (до 2026).",
     },
     motif: "conference",
@@ -62,11 +62,11 @@ export const fieldNotes: FieldNote[] = [
     date: "2025-01-01",
     category: { en: "Laboratory", ru: "Лаборатория" },
     title: {
-      en: "FinTechLab SPbU established as interdisciplinary center",
-      ru: "FinTechLab СПбГУ как междисциплинарный центр",
+      en: "FinTechLab established as interdisciplinary center",
+      ru: "Лаборатория современных финансовых технологий как междисциплинарный центр",
     },
     excerpt: {
-      en: "Laboratory materials date formation to 2025 — linking behavioral economics, information security, and financial technology at SPbU.",
+      en: "Laboratory materials date formation to 2025 — linking behavioral economics, information security, and financial technology.",
       ru: "В материалах лаборатории образование центра датируется 2025 годом — на стыке поведенческой экономики, информационной безопасности и финансовых технологий СПбГУ.",
     },
     motif: "notes",

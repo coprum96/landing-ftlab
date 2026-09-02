@@ -12,6 +12,7 @@ import {
   type Locale,
 } from "@/lib/i18n";
 import { buildPageMetadata } from "@/lib/seo";
+import { labBrandName } from "@/data/lab";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return buildPageMetadata({
     locale,
     path: `people/${slug}`,
-    title: `${person.name[locale]} — FinTechLab / SPbU`,
+    title: `${person.name[locale]} — ${labBrandName(locale)}`,
     description: `${person.role[locale]}. ${person.focus[locale]}`,
   });
 }

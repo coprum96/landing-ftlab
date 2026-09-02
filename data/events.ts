@@ -49,7 +49,7 @@ export const events: LabEvent[] = [
       ru: "Поведенческая экономика и информационная безопасность: стратегический диалог",
     },
     summary: {
-      en: "Two days at SPbU: a research–industry dialogue on behavioral economics, trust architecture, antifraud analytics, and platform practice — followed by a Youth Day with masterclasses and the Golden Detector simulation.",
+      en: "Two days: a research–industry dialogue on behavioral economics, trust architecture, antifraud analytics, and platform practice — followed by a Youth Day with masterclasses and the Golden Detector simulation.",
       ru: "Два дня в СПбГУ: диалог науки и практики о поведенческой экономике, архитектуре доверия, антифрод-аналитике и платформах — и Молодёжный день с мастер-классами и симулятором «Золотой Детектор».",
     },
     dates: {
@@ -61,7 +61,7 @@ export const events: LabEvent[] = [
       ru: "Смешанный формат (очно + онлайн)",
     },
     organizers: {
-      en: "SPbU · Laboratory of Modern Financial Technologies · Association of Russian Banks (ARB)",
+      en: "Laboratory of Modern Financial Technologies · Association of Russian Banks (ARB)",
       ru: "СПбГУ · Лаборатория современных финансовых технологий · Ассоциация российских банков (АРБ)",
     },
     sponsors: {
@@ -81,7 +81,7 @@ export const events: LabEvent[] = [
           ru: "День конференции",
         },
         venue: {
-          en: "SPbU, Universitetskaya Emb. 7/9 · Assembly Hall",
+          en: "Universitetskaya Emb. 7/9 · Assembly Hall",
           ru: "СПбГУ, Университетская наб., 7/9 · Актовый зал",
         },
         format: {
@@ -217,7 +217,7 @@ export const events: LabEvent[] = [
           ru: "Молодёжный день — «Архитектура финансового выбора 2.0»",
         },
         venue: {
-          en: "SPbU Faculty of Economics, Tavricheskaya St. 21–23 · Assembly Hall & classrooms",
+          en: "Faculty of Economics, Tavricheskaya St. 21–23 · Assembly Hall & classrooms",
           ru: "Экономический факультет СПбГУ, Таврическая ул., 21–23 · Актовый зал и аудитории",
         },
         format: {
@@ -244,7 +244,7 @@ export const events: LabEvent[] = [
               ru: "Встреча с академиком Г. А. Тосуняном",
             },
             speakers: {
-              en: "President of ARB · Head of the Laboratory of Modern Financial Technologies, SPbU",
+              en: "President of ARB · Head of the Laboratory of Modern Financial Technologies",
               ru: "Президент АРБ · руководитель Лаборатории современных финансовых технологий СПбГУ",
             },
             venue: { en: "Assembly Hall", ru: "Актовый зал" },

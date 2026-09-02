@@ -130,7 +130,7 @@ export function MobileMenu({
         >
           <div className="flex shrink-0 items-center justify-between">
             <span id={titleId} className="label-mono text-xs">
-              {dict.nav.brand}
+              {dict.nav.brandShort}
             </span>
             <button
               ref={closeRef}

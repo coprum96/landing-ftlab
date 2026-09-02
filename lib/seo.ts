@@ -53,7 +53,7 @@ export function buildPageMetadata({
       url: canonical,
       title,
       description,
-      siteName: "FinTechLab",
+      siteName: locale === "ru" ? "Лаборатория современных финансовых технологий" : "FinTechLab",
       images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
     },
     twitter: {

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { FadeIn } from "@/components/motion/RevealText";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { agenticEvaluationProtocol } from "@/data/agenticProtocol";
 import { publications } from "@/data/publications";
 import { getLocalizedPath, type Dictionary, type Locale } from "@/lib/i18n";
 
@@ -19,6 +20,7 @@ export function AgenticEvidenceSection({
   dict: Dictionary;
 }) {
   const copy = dict.pages.agenticAi.evidence;
+  const protocol = agenticEvaluationProtocol;
   const items = EVIDENCE_IDS.map((id) =>
     publications.find((p) => p.id === id),
   ).filter(Boolean);
@@ -26,7 +28,7 @@ export function AgenticEvidenceSection({
   return (
     <section
       id="evidence"
-      className="agentic-anchor border-t border-white/15 py-10 md:py-14"
+      className="agentic-anchor border-t border-white/15 py-8 md:py-12"
     >
       <div className="editorial-grid">
         <div className="col-span-12 md:col-span-9">
@@ -43,6 +45,39 @@ export function AgenticEvidenceSection({
             </p>
           </FadeIn>
         </div>
+
+        <article className="col-span-12 mt-8 border border-accent/35 bg-[#080808] p-5 md:p-7">
+          <p className="label-mono text-sm tracking-[0.1em] text-accent">
+            {copy.artefactLabel}
+          </p>
+          <h3 className="mt-3 text-[1.15rem] font-medium tracking-[-0.02em] text-ink">
+            {protocol.title[locale]}
+          </h3>
+          <p className="label-mono mt-2 text-xs tracking-[0.08em] text-ink/50">
+            {protocol.id} · v{protocol.version} · {protocol.updated}
+          </p>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted">
+            {protocol.summary[locale]}
+          </p>
+          <ol className="mt-6 space-y-4">
+            {protocol.sections.map((section) => (
+              <li key={section.heading.en}>
+                <p className="text-sm font-medium text-ink md:text-[15px]">
+                  {section.heading[locale]}
+                </p>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted md:text-[15px]">
+                  {section.body[locale]}
+                </p>
+              </li>
+            ))}
+          </ol>
+          <a
+            href="#partnership-offers"
+            className="label-mono mt-6 inline-flex min-h-11 items-center text-sm tracking-[0.1em] text-ink underline decoration-white/30 underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          >
+            {copy.artefactCta} →
+          </a>
+        </article>
 
         <ul className="col-span-12 mt-8 divide-y divide-white/15 border-t border-white/15">
           {items.map((item) =>
@@ -66,13 +101,13 @@ export function AgenticEvidenceSection({
         <div className="col-span-12 mt-6 flex flex-wrap gap-x-6 gap-y-3">
           <Link
             href={getLocalizedPath(locale, "publications")}
-            className="label-mono inline-flex min-h-11 items-center text-xs tracking-[0.1em] text-ink underline decoration-white/30 underline-offset-4 transition-colors hover:decoration-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="label-mono inline-flex min-h-11 items-center text-sm tracking-[0.1em] text-ink underline decoration-white/30 underline-offset-4 transition-colors hover:decoration-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             {copy.viewAll} →
           </Link>
           <Link
             href={getLocalizedPath(locale, "people")}
-            className="label-mono inline-flex min-h-11 items-center text-xs tracking-[0.1em] text-ink/75 underline decoration-white/20 underline-offset-4 transition-colors hover:text-ink hover:decoration-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="label-mono inline-flex min-h-11 items-center text-sm tracking-[0.1em] text-ink/75 underline decoration-white/20 underline-offset-4 transition-colors hover:text-ink hover:decoration-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             {copy.viewTeam} →
           </Link>

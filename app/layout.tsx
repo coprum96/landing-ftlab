@@ -20,14 +20,14 @@ const mono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(absoluteUrl()),
   title: {
-    default: "FinTechLab / SPbU",
+    default: "FinTechLab",
     template: "%s",
   },
   description:
     "Research laboratory for behavioral finance, financial technology, and behavioral security.",
   openGraph: {
     type: "website",
-    siteName: "FinTechLab / SPbU",
+    siteName: "FinTechLab",
     images: [{ url: mediaPaths.ogDefault, width: 1200, height: 630 }],
   },
 };

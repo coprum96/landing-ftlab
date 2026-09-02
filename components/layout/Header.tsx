@@ -169,7 +169,7 @@ export function Header({
               homeActive && "underline decoration-accent/70 underline-offset-4",
             )}
           >
-            {dict.nav.brand}
+            {dict.nav.brandShort}
           </Link>
 
           <nav

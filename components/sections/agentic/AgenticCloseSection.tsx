@@ -6,10 +6,11 @@ import { PartnershipContactForm } from "@/components/sections/agentic/Partnershi
 import type { Dictionary, Locale } from "@/lib/i18n";
 
 export function AgenticCloseSection({
+  locale,
   dict,
   humanHref,
 }: {
-  locale?: Locale;
+  locale: Locale;
   dict: Dictionary;
   humanHref: string;
 }) {
@@ -18,7 +19,7 @@ export function AgenticCloseSection({
   return (
     <section
       id="work-with-the-lab"
-      className="agentic-anchor border-t border-white/15 bg-[#050505] py-12 md:py-20"
+      className="agentic-anchor border-t border-white/15 bg-[#050505] py-10 md:py-16"
     >
       <div className="editorial-grid">
         <div className="col-span-12 md:col-span-10">
@@ -34,7 +35,7 @@ export function AgenticCloseSection({
         </div>
 
         <div className="col-span-12 mt-10 md:mt-12">
-          <p className="label-mono text-xs tracking-[0.12em] text-ink/65">
+          <p className="label-mono text-sm tracking-[0.12em] text-ink/65">
             {c.audiencesLabel}
           </p>
           <div className="mt-6 grid grid-cols-1 gap-0 border-t border-white/15 sm:grid-cols-2">
@@ -57,20 +58,24 @@ export function AgenticCloseSection({
         <div className="col-span-12 mt-8 flex flex-wrap gap-3">
           <a
             href="#research-tracks"
-            className="label-mono inline-flex min-h-12 items-center justify-center border border-white/25 px-6 py-4 text-xs tracking-[0.12em] text-ink transition-colors hover:border-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="label-mono inline-flex min-h-12 items-center justify-center border border-white/25 px-6 py-4 text-sm tracking-[0.1em] text-ink transition-colors hover:border-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             {c.mapCta}
           </a>
           <a
             href={humanHref}
-            className="label-mono inline-flex min-h-12 items-center justify-center px-2 py-4 text-xs tracking-[0.12em] text-ink/70 transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="label-mono inline-flex min-h-12 items-center justify-center px-2 py-4 text-sm tracking-[0.1em] text-ink/70 transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             {c.humanCta} →
           </a>
         </div>
 
         <div className="col-span-12 mt-10 md:col-span-8 md:mt-12">
-          <PartnershipContactForm copy={dict.pages.agenticAi.contactForm} />
+          <PartnershipContactForm
+            locale={locale}
+            copy={dict.pages.agenticAi.contactForm}
+            source="agentic-ai"
+          />
         </div>
       </div>
     </section>

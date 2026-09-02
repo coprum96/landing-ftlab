@@ -4,6 +4,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { PeopleSection } from "@/components/sections/PeopleSection";
 import { getDictionary, isLocale, type Locale } from "@/lib/i18n";
 import { buildPageMetadata } from "@/lib/seo";
+import { labBrandName } from "@/data/lab";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -15,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return buildPageMetadata({
     locale: raw,
     path: "people",
-    title: `${dict.pages.people.title} — FinTechLab / SPbU`,
+    title: `${dict.pages.people.title} — ${labBrandName(raw)}`,
     description: dict.pages.people.subtitle,
   });
 }

@@ -2,9 +2,15 @@
 
 import { FadeIn } from "@/components/motion/RevealText";
 import { PartnershipContactForm } from "@/components/sections/agentic/PartnershipContactForm";
-import type { Dictionary } from "@/lib/i18n";
+import type { Dictionary, Locale } from "@/lib/i18n";
 
-export function CollaborationSection({ dict }: { dict: Dictionary }) {
+export function CollaborationSection({
+  locale,
+  dict,
+}: {
+  locale: Locale;
+  dict: Dictionary;
+}) {
   return (
     <section
       id="collaborate"
@@ -27,7 +33,11 @@ export function CollaborationSection({ dict }: { dict: Dictionary }) {
               {dict.collaborate.supporting}
             </p>
             <div className="mt-10 max-w-xl sm:mt-12">
-              <PartnershipContactForm copy={dict.collaborate.contactForm} />
+              <PartnershipContactForm
+                locale={locale}
+                copy={dict.collaborate.contactForm}
+                source="homepage"
+              />
             </div>
           </FadeIn>
         </div>

@@ -44,7 +44,7 @@ export function AgenticHeroSection({
 
         <div className="col-span-12 mt-8 md:col-span-7 md:mt-12 lg:col-span-6">
           <FadeIn>
-            <p className="label-mono text-xs tracking-[0.12em] text-ink/65">
+            <p className="label-mono text-sm tracking-[0.12em] text-ink/65">
               {page.researchLabel}
             </p>
             <h1 className="headline-section mt-4 max-w-5xl md:mt-5">
@@ -62,22 +62,22 @@ export function AgenticHeroSection({
 
             <div className="mt-7 flex flex-col items-stretch gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center">
               <a
+                href="#work-with-the-lab"
+                className="label-mono inline-flex min-h-12 items-center justify-center border border-accent/70 bg-accent/15 px-6 py-3.5 text-sm tracking-[0.1em] text-ink transition-colors hover:border-accent hover:bg-accent/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              >
+                {page.heroCta.contact}
+              </a>
+              <a
                 href="#control-layer"
-                className="label-mono inline-flex min-h-12 items-center justify-center border border-accent/70 bg-accent/15 px-6 py-3.5 text-xs tracking-[0.12em] text-ink transition-colors hover:border-accent hover:bg-accent/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                className="label-mono inline-flex min-h-12 items-center justify-center border border-white/25 px-6 py-3.5 text-sm tracking-[0.1em] text-ink transition-colors hover:border-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
               >
                 {page.heroCta.demo}
               </a>
               <a
                 href="#research-tracks"
-                className="label-mono inline-flex min-h-12 items-center justify-center border border-white/25 px-6 py-3.5 text-xs tracking-[0.12em] text-ink transition-colors hover:border-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                className="label-mono inline-flex min-h-11 items-center justify-center px-2 py-2 text-sm tracking-[0.1em] text-ink/75 underline underline-offset-4 transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:min-h-12"
               >
                 {page.heroCta.map}
-              </a>
-              <a
-                href="#work-with-the-lab"
-                className="label-mono inline-flex min-h-11 items-center justify-center px-2 py-2 text-xs tracking-[0.12em] text-ink/70 underline-offset-4 transition-colors hover:text-ink hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:min-h-12"
-              >
-                {page.heroCta.contact}
               </a>
             </div>
 

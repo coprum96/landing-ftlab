@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { FadeIn } from "@/components/motion/RevealText";
-import { lab } from "@/data/lab";
+import {lab, labBrandName} from "@/data/lab";
 import { getDictionary, isLocale, type Locale } from "@/lib/i18n";
 import { buildPageMetadata } from "@/lib/seo";
 
@@ -35,7 +35,7 @@ export function makeLegalPage(legalKey: LegalKey) {
     return buildPageMetadata({
       locale: raw,
       path,
-      title: `${page.title} — FinTechLab / SPbU`,
+      title: `${page.title} — ${labBrandName(raw)}`,
       description: page.intro,
     });
   }

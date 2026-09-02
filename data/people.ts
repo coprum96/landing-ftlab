@@ -43,14 +43,14 @@ export const people: Person[] = [
     },
     bio: {
       en: "Founder of FinTechLab. Solutions and integrations engineer specializing in AI and machine learning. Leads research on antifraud pipelines and behavioral risk engines within FinTechLab / SupTech-RegTech.",
-      ru: "Инженер по решениям и интеграциям со специализацией в области ИИ и машинного обучения. Ведёт исследования антифрод-пайплайнов и поведенческих риск-движков в рамках направления FinTechLab / SupTech-RegTech.",
+      ru: "Инженер по решениям и интеграциям со специализацией в области ИИ и машинного обучения. Ведёт исследования антифрод-пайплайнов и поведенческих риск-движков в рамках направления Лаборатория современных финансовых технологий / SupTech-RegTech.",
     },
     detail: {
-      en: "M.Sc. Finance, SPbU; second master's degree in finance from Freie Universität Berlin. Focus: translating behavioral evidence into deployable detection and scoring systems. Builds the technical backbone connecting laboratory experiments to production-grade antifraud and behavioral scoring infrastructure.",
+      en: "M.Sc. Finance; second master's degree in finance from Freie Universität Berlin. Focus: translating behavioral evidence into deployable detection and scoring systems. Builds the technical backbone connecting laboratory experiments to production-grade antifraud and behavioral scoring infrastructure.",
       ru: "Магистр финансов СПбГУ; вторая магистратура по финансам в Свободном университете Берлина. Фокус работы - превращение поведенческих данных в готовые к внедрению системы детекции и скоринга. Создаёт техническую основу, которая соединяет лабораторные эксперименты с промышленными антифрод- и поведенческими скоринг-системами.",
     },
     institution: {
-      en: "Saint Petersburg State University",
+      en: "FinTechLab",
       ru: "Санкт-Петербургский государственный университет",
     },
     links: {},
@@ -112,11 +112,11 @@ export const people: Person[] = [
       ru: "Кандидат психологических наук. Ведёт образовательный трек лаборатории и прикладную работу по поведенческой безопасности, программе «Когнитивный щит» и интерактивным антифрод-инструментам.",
     },
     detail: {
-      en: "Associate Professor, Department of Risk Management and Insurance, SPbU. Head of the master’s program “Behavioral Economics and Economic Psychology”; curator of “Platform Economy”. Member of IAREP and Bank of Russia working groups on behavioral aspects of financial culture and social-engineering crime prevention. Author of 50+ publications and registered research software/databases including Golden Detector.",
+      en: "Associate Professor, Department of Risk Management and Insurance. Head of the master’s program “Behavioral Economics and Economic Psychology”; curator of “Platform Economy”. Member of IAREP and Bank of Russia working groups on behavioral aspects of financial culture and social-engineering crime prevention. Author of 50+ publications and registered research software/databases including Golden Detector.",
       ru: "Доцент кафедры управления рисками и страхования СПбГУ. Руководитель магистратуры «Поведенческая экономика и экономическая психология»; куратор программы «Платформенная экономика». Член IAREP и рабочих групп Банка России по поведенческим аспектам финансовой культуры и противодействию преступлениям с использованием социальной инженерии. Автор 50+ публикаций и зарегистрированных программ/БД, включая «Золотой Детектор».",
     },
     institution: {
-      en: "Saint Petersburg State University",
+      en: "FinTechLab",
       ru: "Санкт-Петербургский государственный университет",
     },
     links: {
@@ -149,7 +149,7 @@ export const people: Person[] = [
     },
     detail: {
       en: "Teaches economic psychology and professional business ethics. Author of 100+ works, including monographs. Serves as a leading researcher (ведущий научный сотрудник) within the FinTechLab team.",
-      ru: "Преподаёт экономическую психологию и профессиональную этику бизнеса. Автор 100+ работ, включая монографии. В составе FinTechLab — ведущий научный сотрудник.",
+      ru: "Преподаёт экономическую психологию и профессиональную этику бизнеса. Автор 100+ работ, включая монографии. В составе Лаборатория современных финансовых технологий — ведущий научный сотрудник.",
     },
     institution: {
       en: "Financial University under the Government of the Russian Federation",
@@ -177,7 +177,7 @@ export const people: Person[] = [
       ru: "Страховые рынки · зелёные финансы · финансовые экосистемы",
     },
     bio: {
-      en: "Doctor of Economic Sciences; Professor at the Department of Risk Management and Insurance, SPbU. Leading researcher of the laboratory; works on insurance and pension markets, financial ecosystems, and sustainable finance.",
+      en: "Doctor of Economic Sciences; Professor, Department of Risk Management and Insurance. Leading researcher of the laboratory; works on insurance and pension markets, financial ecosystems, and sustainable finance.",
       ru: "Доктор экономических наук; профессор кафедры управления рисками и страхования СПбГУ. Ведущий научный сотрудник лаборатории; исследует страховые и пенсионные рынки, финансовые экосистемы и устойчивые финансы.",
     },
     detail: {
@@ -185,7 +185,7 @@ export const people: Person[] = [
       ru: "Заместитель руководителя Лаборатории азиатских экономических исследований; председатель научной комиссии факультета в области экономики и бизнеса. Исследует финансовую конвергенцию, институциональных инвесторов, климатические и экологические риски, финтех и страховые технологии. Автор 160+ публикаций, включая 15 монографий и учебников. Член-корреспондент Российской инженерной академии.",
     },
     institution: {
-      en: "Saint Petersburg State University",
+      en: "FinTechLab",
       ru: "Санкт-Петербургский государственный университет",
     },
     links: {
@@ -311,7 +311,7 @@ export const people: Person[] = [
       ru: "Финансовый консалтинг · медиация · обучение через практику",
     },
     bio: {
-      en: "Partner at the Laboratory of Modern Financial Technologies, Saint Petersburg State University (SPbSU). Master’s in Economics; founder of ARK.",
+      en: "Partner at the Laboratory of Modern Financial Technologies. Master’s in Economics; founder of ARK.",
       ru: "Партнёр Лаборатории современных финансовых технологий Санкт-Петербургского государственного университета (СПбГУ). Магистр экономики; основатель ARK.",
     },
     detail: {
@@ -319,7 +319,7 @@ export const people: Person[] = [
       ru: "Работает на стыке финансового консалтинга, медиации и практико-ориентированного образования — связывает прикладную экспертизу с исследовательской и образовательной повесткой лаборатории.",
     },
     institution: {
-      en: "Saint Petersburg State University",
+      en: "FinTechLab",
       ru: "Санкт-Петербургский государственный университет",
     },
     links: {},

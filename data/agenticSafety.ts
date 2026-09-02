@@ -55,7 +55,7 @@ export const intentFidelitySteps: Localized[] = [
 export const governanceFlow = {
   agent: { en: "AI Agent", ru: "AI-агент" },
   proposed: { en: "Proposed Financial Action", ru: "Предлагаемое финансовое действие" },
-  layer: { en: "FTLAB Control Layer", ru: "Контрольный слой FTLAB" },
+  layer: { en: "FTLAB Control Layer", ru: "Контрольный слой лаборатории СФТ" },
   signals: [
     { en: "Intent Fidelity", ru: "Верность намерению" },
     { en: "Behavioral Risk", ru: "Поведенческий риск" },

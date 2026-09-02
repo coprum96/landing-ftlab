@@ -4,7 +4,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { FadeIn } from "@/components/motion/RevealText";
 import { PartnersSection } from "@/components/sections/PartnersSection";
 import { ImpactSection } from "@/components/sections/ImpactSection";
-import { lab } from "@/data/lab";
+import {lab, labBrandName} from "@/data/lab";
 import { getDictionary, isLocale, type Locale } from "@/lib/i18n";
 import { buildPageMetadata } from "@/lib/seo";
 
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return buildPageMetadata({
     locale: raw,
     path: "about",
-    title: `${dict.pages.about.title} — FinTechLab / SPbU`,
+    title: `${dict.pages.about.title} — ${labBrandName(raw)}`,
     description: dict.pages.about.subtitle,
   });
 }

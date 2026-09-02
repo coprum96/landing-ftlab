@@ -57,7 +57,7 @@ export const publications: Publication[] = [
     },
     authors: "Tosunyan G.A., Medyanik O.V.",
     venue: {
-      en: "Vestnik of Saint Petersburg University. Economics, 42(2)",
+      en: "Vestnik. Economics, 42(2)",
       ru: "Вестник Санкт-Петербургского университета. Экономика, 42(2)",
     },
     note: {

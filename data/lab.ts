@@ -2,16 +2,16 @@ export type Localized = { en: string; ru: string };
 
 export const lab = {
   name: {
-    en: "FinTechLab SPbU",
-    ru: "FinTechLab СПбГУ",
+    en: "FinTechLab",
+    ru: "Лаборатория современных финансовых технологий",
   },
   fullName: {
-    en: "Laboratory of Modern Financial Technologies, Saint Petersburg State University",
-    ru: "Лаборатория современных финансовых технологий Санкт-Петербургского государственного университета",
+    en: "Laboratory of Modern Financial Technologies",
+    ru: "Лаборатория современных финансовых технологий",
   },
   founded: 2025,
   institution: {
-    en: "Saint Petersburg State University",
+    en: "FinTechLab",
     ru: "Санкт-Петербургский государственный университет",
   },
   /**
@@ -41,3 +41,7 @@ export const lab = {
     ru: "Дорожная карта 2025–2027",
   },
 } as const;
+
+export function labBrandName(locale: "en" | "ru") {
+  return lab.name[locale];
+}

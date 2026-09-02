@@ -354,7 +354,7 @@ export const agenticResearchAreas: AgenticResearchArea[] = [
     highlight: {
       label: { en: "Transition", ru: "Переход" },
       text: {
-        en: "Questionnaire → Model Portfolio  →  Goals → Context → Research → Simulation → Strategy → Execution → Monitoring",
+        en: "Questionnaire → Model Portfolio → Goals → Context → Research → Simulation → Strategy → Execution → Monitoring",
         ru: "Анкета → Модельный портфель  →  Цели → Контекст → Research → Simulation → Strategy → Execution → Monitoring",
       },
     },

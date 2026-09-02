@@ -32,7 +32,7 @@ export function AgenticMotionBand({ dict }: { dict: Dictionary }) {
 
   return (
     <section className="relative overflow-hidden border-t border-white/15">
-      <div className="relative min-h-[28vh] md:min-h-[34vh]">
+      <div className="relative min-h-[18vh] md:min-h-[22vh]">
         {!reduced ? (
           <video
             ref={videoRef}
@@ -60,10 +60,10 @@ export function AgenticMotionBand({ dict }: { dict: Dictionary }) {
           aria-hidden
         />
 
-        <div className="editorial-grid relative z-10 flex min-h-[28vh] items-end py-8 md:min-h-[34vh] md:py-12">
+        <div className="editorial-grid relative z-10 flex min-h-[18vh] items-end py-6 md:min-h-[22vh] md:py-10">
           <div className="col-span-12 md:col-span-8">
             <FadeIn>
-              <p className="label-mono text-xs tracking-[0.12em] text-accent">
+              <p className="label-mono text-sm tracking-[0.12em] text-accent">
                 {copy.label}
               </p>
               <p className="mt-4 max-w-2xl text-[clamp(1.25rem,2.8vw,1.85rem)] font-medium leading-[1.15] tracking-[-0.03em] text-ink">

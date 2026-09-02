@@ -46,7 +46,7 @@ export default async function HomePage({ params }: Props) {
       <ManifestoSection dict={dict} />
       <PeopleSection locale={locale} dict={dict} />
       <PartnersSection locale={locale} dict={dict} />
-      <CollaborationSection dict={dict} />
+      <CollaborationSection locale={locale} dict={dict} />
     </>
   );
 }

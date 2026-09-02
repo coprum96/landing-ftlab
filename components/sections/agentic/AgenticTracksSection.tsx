@@ -215,17 +215,18 @@ export function AgenticTracksSection({
                     aria-controls={panelId}
                     onClick={() => setOpenId(open ? "" : track.id)}
                     className="grid min-h-14 w-full grid-cols-12 items-start gap-3 py-5 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:gap-6 md:py-6"
+                    aria-label={`${open ? t.collapseLabel : t.expandLabel} ${track.title[locale]}`}
                   >
-                    <span className="col-span-2 label-mono pt-1 text-xs text-accent md:col-span-1">
+                    <span className="col-span-2 label-mono pt-1 text-xs text-accent md:col-span-1" aria-hidden>
                       {track.code}
                     </span>
-                    <span className="col-span-9 md:col-span-4">
+                    <span className="col-span-9 md:col-span-10 lg:col-span-10">
                       <span className="block text-[clamp(1.05rem,2vw,1.45rem)] font-medium tracking-[-0.02em] text-ink">
                         {track.title[locale]}
                       </span>
                       <span
                         className={cx(
-                          "label-mono mt-2 inline-flex items-center gap-2 text-xs tracking-[0.1em]",
+                          "label-mono mt-2 inline-flex items-center gap-2 text-sm tracking-[0.1em]",
                           track.status === "active" && "text-ink",
                           track.status === "building" && "text-accent",
                           track.status === "research" && "text-ink/70",
@@ -243,12 +244,12 @@ export function AgenticTracksSection({
                           )}
                           aria-hidden
                         />
-                        {statusLabel(dict, track.status)}
+                        <span aria-hidden>{statusLabel(dict, track.status)}</span>
                       </span>
                     </span>
                     <span
-                      className="col-span-1 flex justify-end pt-1 text-ink/70 md:col-span-1"
-                      aria-hidden
+                      className="col-span-1 flex justify-end pt-1 text-ink/70"
+                      aria-hidden="true"
                     >
                       <span
                         className={cx(
@@ -258,9 +259,6 @@ export function AgenticTracksSection({
                       >
                         +
                       </span>
-                    </span>
-                    <span className="col-span-12 text-base leading-relaxed text-muted md:col-span-6">
-                      {track.headline[locale]}
                     </span>
                   </button>
                 </h3>
@@ -275,7 +273,10 @@ export function AgenticTracksSection({
                   {open ? (
                     <div className="grid grid-cols-12 gap-6 md:gap-8">
                       <div className="col-span-12 md:col-span-7 md:col-start-2">
-                        <p className="max-w-2xl text-sm leading-relaxed text-muted md:text-[15px]">
+                        <p className="max-w-2xl text-base font-medium leading-snug tracking-[-0.015em] text-ink">
+                          {track.headline[locale]}
+                        </p>
+                        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted md:text-[15px]">
                           {track.description[locale]}
                         </p>
                         <p className="mt-5 max-w-2xl text-base font-medium leading-snug tracking-[-0.015em] text-ink">
