@@ -27,6 +27,39 @@ export type Person = {
  */
 export const people: Person[] = [
   {
+    id: "medyanik-s",
+    slug: "stas-medyanik",
+    name: {
+      en: "Stas Medyanik",
+      ru: "Стас Медяник",
+    },
+    role: {
+      en: "Founder · Senior Researcher · AI / ML",
+      ru: "Старший исследователь · ИИ / ML",
+    },
+    focus: {
+      en: "Fraud detection · behavioral risk scoring · SupTech / RegTech",
+      ru: "Детекция мошенничества · поведенческий риск-скоринг · SupTech / RegTech",
+    },
+    bio: {
+      en: "Founder of FinTechLab. Solutions and integrations engineer specializing in AI and machine learning. Leads research on antifraud pipelines and behavioral risk engines within FinTechLab / SupTech-RegTech.",
+      ru: "Инженер по решениям и интеграциям со специализацией в области ИИ и машинного обучения. Ведёт исследования антифрод-пайплайнов и поведенческих риск-движков в рамках направления FinTechLab / SupTech-RegTech.",
+    },
+    detail: {
+      en: "M.Sc. Finance, SPbU; second master's degree in finance from Freie Universität Berlin. Focus: translating behavioral evidence into deployable detection and scoring systems. Builds the technical backbone connecting laboratory experiments to production-grade antifraud and behavioral scoring infrastructure.",
+      ru: "Магистр финансов СПбГУ; вторая магистратура по финансам в Свободном университете Берлина. Фокус работы - превращение поведенческих данных в готовые к внедрению системы детекции и скоринга. Создаёт техническую основу, которая соединяет лабораторные эксперименты с промышленными антифрод- и поведенческими скоринг-системами.",
+    },
+    institution: {
+      en: "Saint Petersburg State University",
+      ru: "Санкт-Петербургский государственный университет",
+    },
+    links: {},
+    initials: "SM",
+    motif: "c",
+    hasPhoto: true,
+    featured: true,
+  },
+{
     id: "tosunyan",
     slug: "gagik-tosunyan",
     name: {
@@ -59,7 +92,7 @@ export const people: Person[] = [
     hasPhoto: true,
     featured: true,
   },
-  {
+{
     id: "medyanik-ov",
     slug: "olga-medyanik",
     name: {
@@ -95,7 +128,7 @@ export const people: Person[] = [
     hasPhoto: true,
     featured: true,
   },
-  {
+{
     id: "gagarina",
     slug: "maria-gagarina",
     name: {
@@ -128,7 +161,7 @@ export const people: Person[] = [
     hasPhoto: true,
     featured: true,
   },
-  {
+{
     id: "pisarenko",
     slug: "zhanna-pisarenko",
     name: {
@@ -163,7 +196,7 @@ export const people: Person[] = [
     hasPhoto: true,
     featured: true,
   },
-  {
+{
     id: "skvortsov",
     slug: "oleg-skvortsov",
     name: {
@@ -196,7 +229,7 @@ export const people: Person[] = [
     hasPhoto: true,
     featured: true,
   },
-  {
+{
     id: "kuznetsov",
     slug: "sergey-kuznetsov",
     name: {
@@ -229,40 +262,7 @@ export const people: Person[] = [
     hasPhoto: true,
     featured: true,
   },
-  {
-    id: "medyanik-s",
-    slug: "stas-medyanik",
-    name: {
-      en: "Stas Medyanik",
-      ru: "Стас Медяник",
-    },
-    role: {
-      en: "Founder · Senior Researcher · AI / ML",
-      ru: "Старший исследователь · ИИ / ML",
-    },
-    focus: {
-      en: "Fraud detection · behavioral risk scoring · SupTech / RegTech",
-      ru: "Детекция мошенничества · поведенческий риск-скоринг · SupTech / RegTech",
-    },
-    bio: {
-      en: "Founder of FinTechLab. Solutions and integrations engineer specializing in AI and machine learning. Leads research on antifraud pipelines and behavioral risk engines within FinTechLab / SupTech-RegTech.",
-      ru: "Инженер по решениям и интеграциям со специализацией в области ИИ и машинного обучения. Ведёт исследования антифрод-пайплайнов и поведенческих риск-движков в рамках направления FinTechLab / SupTech-RegTech.",
-    },
-    detail: {
-      en: "M.Sc. Finance, SPbU; second master's degree in finance from Freie Universität Berlin. Focus: translating behavioral evidence into deployable detection and scoring systems. Builds the technical backbone connecting laboratory experiments to production-grade antifraud and behavioral scoring infrastructure.",
-      ru: "Магистр финансов СПбГУ; вторая магистратура по финансам в Свободном университете Берлина. Фокус работы - превращение поведенческих данных в готовые к внедрению системы детекции и скоринга. Создаёт техническую основу, которая соединяет лабораторные эксперименты с промышленными антифрод- и поведенческими скоринг-системами.",
-    },
-    institution: {
-      en: "Saint Petersburg State University",
-      ru: "Санкт-Петербургский государственный университет",
-    },
-    links: {},
-    initials: "SM",
-    motif: "c",
-    hasPhoto: true,
-    featured: true,
-  },
-  {
+{
     id: "rozanov",
     slug: "ivan-rozanov",
     name: {
@@ -295,7 +295,7 @@ export const people: Person[] = [
     hasPhoto: true,
     featured: true,
   },
-  {
+{
     id: "lobanova",
     slug: "karina-lobanova",
     name: {
@@ -328,7 +328,7 @@ export const people: Person[] = [
     hasPhoto: true,
     featured: true,
   },
-];
+]
 
 export const featuredPeople = people.filter((p) => p.featured);
 

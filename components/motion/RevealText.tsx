@@ -138,7 +138,7 @@ export function FadeIn({
         if (number) {
           tl.fromTo(
             number,
-            { y: 8, opacity: 0 },
+            { y: 8, opacity: 0.35 },
             {
               y: 0,
               opacity: 1,
@@ -151,7 +151,7 @@ export function FadeIn({
         if (title) {
           tl.fromTo(
             title,
-            { y: 20, opacity: 0 },
+            { y: 16, opacity: 0.35 },
             {
               y: 0,
               opacity: 1,
@@ -164,7 +164,7 @@ export function FadeIn({
         if (blocks.length) {
           tl.fromTo(
             blocks,
-            { y, opacity: 0 },
+            { y, opacity: 0.35 },
             {
               y: 0,
               opacity: 1,
@@ -180,7 +180,7 @@ export function FadeIn({
 
       gsap.fromTo(
         root,
-        { y, opacity: 0 },
+        { y, opacity: 0.35 },
         {
           y: 0,
           opacity: 1,

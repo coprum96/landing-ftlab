@@ -2,8 +2,25 @@
 
 import { useId, useState, type FormEvent } from "react";
 import { lab } from "@/data/lab";
-import type { Dictionary } from "@/lib/i18n";
 import { cx } from "@/lib/utils";
+
+export type ContactFormCopy = {
+  title: string;
+  supporting: string;
+  responseTime: string;
+  include: string;
+  name: string;
+  org: string;
+  email: string;
+  message: string;
+  submit: string;
+  copyEmail: string;
+  validation: string;
+  opened: string;
+  copied: string;
+  copyFailed: string;
+  mailSubject: string;
+};
 
 type FormState = "idle" | "opened" | "copied";
 
@@ -11,8 +28,7 @@ type FormState = "idle" | "opened" | "copied";
  * Accessible partnership contact form.
  * Opens a prefilled mailto as the delivery path, with visible email fallback.
  */
-export function PartnershipContactForm({ dict }: { dict: Dictionary }) {
-  const copy = dict.pages.agenticAi.contactForm;
+export function PartnershipContactForm({ copy }: { copy: ContactFormCopy }) {
   const formId = useId();
   const [name, setName] = useState("");
   const [org, setOrg] = useState("");
@@ -149,20 +165,20 @@ export function PartnershipContactForm({ dict }: { dict: Dictionary }) {
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
           <button
             type="submit"
-            className="label-mono inline-flex min-h-12 items-center justify-center border border-accent/70 bg-accent/15 px-6 py-3.5 text-xs tracking-[0.1em] text-ink transition-colors hover:bg-accent/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="label-mono inline-flex min-h-12 items-center justify-center border border-accent/70 bg-accent/15 px-6 py-3.5 text-sm tracking-[0.1em] text-ink transition-colors hover:bg-accent/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             {copy.submit}
           </button>
           <button
             type="button"
             onClick={copyEmail}
-            className="label-mono inline-flex min-h-12 items-center justify-center border border-white/25 px-6 py-3.5 text-xs tracking-[0.1em] text-ink transition-colors hover:border-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="label-mono inline-flex min-h-12 items-center justify-center border border-white/25 px-6 py-3.5 text-sm tracking-[0.1em] text-ink transition-colors hover:border-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             {copy.copyEmail}
           </button>
           <a
             href={`mailto:${lab.contactEmail}`}
-            className="label-mono inline-flex min-h-11 items-center text-xs tracking-[0.1em] text-ink/75 underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="label-mono inline-flex min-h-11 items-center text-sm tracking-[0.1em] text-ink/75 underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             {lab.contactEmail}
           </a>

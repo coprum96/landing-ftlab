@@ -70,7 +70,7 @@ export function AgenticCloseSection({
         </div>
 
         <div className="col-span-12 mt-10 md:col-span-8 md:mt-12">
-          <PartnershipContactForm dict={dict} />
+          <PartnershipContactForm copy={dict.pages.agenticAi.contactForm} />
         </div>
       </div>
     </section>

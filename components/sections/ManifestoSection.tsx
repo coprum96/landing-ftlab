@@ -20,18 +20,18 @@ export function ManifestoSection({ dict }: { dict: Dictionary }) {
       const items = ref.current?.querySelectorAll("[data-manifesto-line]");
       gsap.fromTo(
         items || [],
-        { yPercent: 120, opacity: 0 },
+        { yPercent: 40, opacity: 0.4 },
         {
           yPercent: 0,
           opacity: 1,
-          duration: 1.1,
-          stagger: 0.18,
+          duration: 0.9,
+          stagger: 0.12,
           ease: "expo.out",
           scrollTrigger: {
             trigger: ref.current,
-            start: "top 70%",
-            end: "top 30%",
-            scrub: 0.6,
+            start: "top 75%",
+            end: "top 40%",
+            scrub: 0.5,
           },
         },
       );
@@ -42,20 +42,19 @@ export function ManifestoSection({ dict }: { dict: Dictionary }) {
   return (
     <section
       ref={ref}
-      className="relative flex min-h-[90svh] items-center border-y border-white/10 bg-[#050505] py-32"
+      className="relative flex items-center border-y border-white/10 bg-[#050505] py-20 md:py-28"
     >
       <div className="editorial-grid w-full">
         <div className="col-span-12 md:col-span-11">
           {lines.map((line, index) => (
             <div key={line} className="overflow-hidden">
-              <p
-                data-manifesto-line
-                className="headline-section py-1 md:py-2"
-              >
+              <p data-manifesto-line className="headline-section py-1 md:py-2">
                 {index === 2 ? (
                   <>
                     {line.split(" ").slice(0, -1).join(" ")}{" "}
-                    <span className="text-accent">{line.split(" ").slice(-1)}</span>
+                    <span className="text-accent">
+                      {line.split(" ").slice(-1)}
+                    </span>
                   </>
                 ) : (
                   line

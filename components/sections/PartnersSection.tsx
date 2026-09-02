@@ -14,7 +14,10 @@ export function PartnersSection({
   const items = partners.filter((p) => p.featured && p.logo);
 
   return (
-    <section id="partners" className="section-pad border-t border-white/10">
+    <section
+      id="partners"
+      className="section-anchor section-pad border-t border-white/10"
+    >
       <div className="editorial-grid">
         <div className="col-span-12 md:col-span-7">
           <FadeIn>
@@ -33,33 +36,34 @@ export function PartnersSection({
           </FadeIn>
         </div>
 
-        <div className="col-span-12 mt-16 grid grid-cols-2 gap-px bg-white/10 sm:grid-cols-3 lg:grid-cols-5">
-          {items.map((partner) => (
-            <div
+        <ul className="col-span-12 mt-12 grid list-none grid-cols-2 gap-px bg-white/10 p-0 sm:grid-cols-3 lg:mt-16 lg:grid-cols-5">
+          {items.map((partner, index) => (
+            <li
               key={partner.id}
-              className="group flex min-h-[120px] flex-col justify-between bg-[#080808] px-5 py-5 transition-colors duration-300 hover:bg-[#0e0e0e]"
+              className="flex min-h-[112px] flex-col justify-between bg-[#080808] px-5 py-5"
             >
-              <div className="flex h-16 items-center">
+              <div className="flex h-14 items-center sm:h-16">
                 <Image
                   src={partner.logo!}
                   alt={partner.name[locale]}
                   width={220}
                   height={64}
                   unoptimized
-                  className="h-10 w-auto max-w-[170px] object-contain object-left opacity-90 transition-opacity duration-300 group-hover:opacity-100 sm:h-11 sm:max-w-[190px]"
+                  loading={index < 5 ? "eager" : "lazy"}
+                  className="h-10 w-auto max-w-[170px] object-contain object-left opacity-90 sm:h-11 sm:max-w-[190px]"
                 />
               </div>
-              <div className="mt-5">
+              <div className="mt-4">
                 <p className="text-[13px] leading-snug text-ink/75">
                   {partner.name[locale]}
                 </p>
-                <p className="label-mono mt-2 text-[9px] text-muted">
+                <p className="label-mono mt-2 text-[10px] text-muted">
                   {partner.relationLabel[locale]}
                 </p>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

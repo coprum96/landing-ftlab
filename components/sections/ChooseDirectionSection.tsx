@@ -84,7 +84,7 @@ export function ChooseDirectionSection({
     const ctx = gsap.context(() => {
       gsap.set(header, { opacity: 0, y: 18 });
       gsap.set(forkVisual, { opacity: 0, y: 10 });
-      gsap.set([humanContent, agenticContent], { opacity: 0, y: 18 });
+      gsap.set([humanContent, agenticContent], { opacity: 0.35, y: 12 });
 
       if (hasPaths) {
         const humanLen = humanPath.getTotalLength();
@@ -221,11 +221,13 @@ export function ChooseDirectionSection({
 
   return (
     <section
-      id="choose-direction"
+      id="research-directions"
       ref={sectionRef}
-      className="relative overflow-hidden border-y border-white/10 py-24 md:py-32"
+      className="section-anchor relative overflow-hidden border-y border-white/10 py-16 md:py-24"
       aria-labelledby="choose-direction-heading"
     >
+      {/* Legacy hash kept for older links */}
+      <span id="choose-direction" className="sr-only" aria-hidden />
       <div className="editorial-grid relative z-10">
         <div ref={headerRef} className="col-span-12 md:col-span-10">
           <SectionLabel>{copy.label}</SectionLabel>
@@ -416,18 +418,19 @@ export function ChooseDirectionSection({
               humanDim ? "opacity-35" : "opacity-100",
               hovered === "human" && "md:-translate-y-0.5",
             )}
-            aria-label={`${copy.human.title}. ${copy.human.cta}`}
+            aria-label={copy.human.ariaLabel}
           >
-            <p className="label-mono text-[10px] text-accent md:text-[11px]">
+            <p className="label-mono text-[10px] text-accent md:text-[11px]" aria-hidden>
               {copy.human.code}
             </p>
-            <h3 className="mt-3 text-[clamp(1.05rem,4.2vw,2rem)] font-medium leading-[1.08] tracking-[-0.03em] md:mt-4">
+            <h3 className="mt-3 text-[clamp(1.05rem,4.2vw,2rem)] font-medium leading-[1.08] tracking-[-0.03em] md:mt-4" aria-hidden>
               {copy.human.title}
             </h3>
-            <p className="mt-3 text-[12px] leading-relaxed text-muted md:mt-4 md:text-[0.95rem]">
+            <p className="mt-3 text-[12px] leading-relaxed text-muted md:mt-4 md:text-[0.95rem]" aria-hidden>
               {copy.human.description}
             </p>
             <p
+              aria-hidden
               className={cx(
                 "label-mono mt-4 text-[8px] leading-relaxed tracking-[0.08em] text-ink/40 transition-opacity duration-500 md:mt-5 md:text-[10px] md:tracking-[0.12em]",
                 hovered === "human" || touch ? "opacity-100" : "opacity-45",
@@ -435,9 +438,9 @@ export function ChooseDirectionSection({
             >
               {copy.human.meta}
             </p>
-            <span className="label-mono mt-4 inline-flex min-h-10 items-center gap-1.5 text-[10px] text-ink md:mt-6 md:min-h-11 md:gap-2 md:text-[11px]">
+            <span aria-hidden className="label-mono mt-4 inline-flex min-h-10 items-center gap-1.5 text-sm text-ink md:mt-6 md:min-h-11 md:gap-2">
               {copy.human.cta}
-              <span aria-hidden>→</span>
+              <span>→</span>
             </span>
           </Link>
 
@@ -453,18 +456,19 @@ export function ChooseDirectionSection({
               agenticDim ? "opacity-35" : "opacity-100",
               hovered === "agentic" && "md:-translate-y-0.5",
             )}
-            aria-label={`${copy.agentic.title}. ${copy.agentic.cta}`}
+            aria-label={copy.agentic.ariaLabel}
           >
-            <p className="label-mono text-[10px] text-accent md:text-[11px]">
+            <p className="label-mono text-[10px] text-accent md:text-[11px]" aria-hidden>
               {copy.agentic.code}
             </p>
-            <h3 className="mt-3 text-[clamp(1.05rem,4.2vw,2rem)] font-medium leading-[1.08] tracking-[-0.03em] md:mt-4">
+            <h3 className="mt-3 text-[clamp(1.05rem,4.2vw,2rem)] font-medium leading-[1.08] tracking-[-0.03em] md:mt-4" aria-hidden>
               {copy.agentic.title}
             </h3>
-            <p className="mt-3 ml-auto text-[12px] leading-relaxed text-muted md:mt-4 md:text-[0.95rem]">
+            <p className="mt-3 ml-auto text-[12px] leading-relaxed text-muted md:mt-4 md:text-[0.95rem]" aria-hidden>
               {copy.agentic.description}
             </p>
             <p
+              aria-hidden
               className={cx(
                 "label-mono mt-4 text-[8px] leading-relaxed tracking-[0.08em] text-ink/40 transition-opacity duration-500 md:mt-5 md:text-[10px] md:tracking-[0.12em]",
                 hovered === "agentic" || touch ? "opacity-100" : "opacity-45",
@@ -472,9 +476,9 @@ export function ChooseDirectionSection({
             >
               {copy.agentic.meta}
             </p>
-            <span className="label-mono mt-4 inline-flex min-h-10 items-center justify-end gap-1.5 text-[10px] text-ink md:mt-6 md:min-h-11 md:gap-2 md:text-[11px]">
+            <span aria-hidden className="label-mono mt-4 inline-flex min-h-10 items-center justify-end gap-1.5 text-sm text-ink md:mt-6 md:min-h-11 md:gap-2">
               {copy.agentic.cta}
-              <span aria-hidden>→</span>
+              <span>→</span>
             </span>
           </Link>
         </div>

@@ -19,7 +19,7 @@ export function FieldVideoSection({ dict }: { dict: Dictionary }) {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         frameRef.current,
-        { width: "70vw", borderRadius: 24, scale: 0.96 },
+        { width: "78vw", borderRadius: 16, scale: 0.98 },
         {
           width: "100vw",
           borderRadius: 0,
@@ -27,8 +27,8 @@ export function FieldVideoSection({ dict }: { dict: Dictionary }) {
           ease: "none",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 70%",
-            end: "top 10%",
+            start: "top 75%",
+            end: "top 20%",
             scrub: true,
           },
         },
@@ -36,15 +36,15 @@ export function FieldVideoSection({ dict }: { dict: Dictionary }) {
 
       gsap.fromTo(
         textRef.current,
-        { y: 40, opacity: 0 },
+        { y: 24, opacity: 0.35 },
         {
           y: 0,
           opacity: 1,
           ease: "none",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 60%",
-            end: "top 25%",
+            start: "top 65%",
+            end: "top 30%",
             scrub: true,
           },
         },
@@ -75,8 +75,12 @@ export function FieldVideoSection({ dict }: { dict: Dictionary }) {
   }, [reduced]);
 
   return (
-    <section ref={sectionRef} className="section-pad relative overflow-hidden py-28">
-      <div className="editorial-grid mb-12">
+    <section
+      id="field-signal"
+      ref={sectionRef}
+      className="relative overflow-hidden py-16 md:py-20"
+    >
+      <div className="editorial-grid mb-8 md:mb-10">
         <div className="col-span-12">
           <SectionLabel>{dict.fieldVideo.label}</SectionLabel>
         </div>
@@ -84,7 +88,7 @@ export function FieldVideoSection({ dict }: { dict: Dictionary }) {
 
       <div
         ref={frameRef}
-        className="relative mx-auto flex h-[min(78vh,840px)] min-h-[460px] max-h-[840px] flex-col justify-end overflow-hidden bg-[#0c0c0c]"
+        className="relative mx-auto flex aspect-[16/10] max-h-[min(56vh,560px)] min-h-[280px] w-full flex-col justify-end overflow-hidden bg-[#0c0c0c] md:min-h-[360px]"
         data-cursor="play"
       >
         <video
@@ -95,13 +99,13 @@ export function FieldVideoSection({ dict }: { dict: Dictionary }) {
           muted
           loop
           playsInline
-          preload="none"
+          preload="metadata"
           aria-hidden
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/90 via-[#080808]/35 to-[#080808]/45" />
         <div
           ref={textRef}
-          className="relative z-10 w-full px-6 pb-8 pt-20 sm:px-8 sm:pb-10 md:px-14 md:pb-14 md:pt-24"
+          className="relative z-10 w-full px-6 pb-8 pt-16 sm:px-8 sm:pb-10 md:px-14 md:pb-12 md:pt-20"
         >
           <p className="headline-display max-w-4xl pl-[0.05em] leading-[1.06]">
             {dict.fieldVideo.line1}

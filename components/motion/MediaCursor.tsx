@@ -87,12 +87,12 @@ export function MediaCursor({ labels }: { labels: Labels }) {
         className={cx(
           "absolute left-0 top-0 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 transition-[width,height,background,border-color] duration-400",
           active
-            ? "h-20 w-20 border-accent/60 bg-accent/10"
-            : "h-8 w-8 bg-transparent",
+            ? "h-14 w-14 border-accent/60 bg-accent/10"
+            : "h-6 w-6 bg-transparent",
         )}
       >
         {active && label ? (
-          <span className="label-mono text-[9px] text-ink">{label}</span>
+          <span className="label-mono text-[8px] text-ink">{label}</span>
         ) : null}
       </div>
     </div>

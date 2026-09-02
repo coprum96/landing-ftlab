@@ -2,10 +2,20 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import {
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type KeyboardEvent as ReactKeyboardEvent,
+} from "react";
 import { getLocalizedPath, type Dictionary, type Locale } from "@/lib/i18n";
 import { motion } from "@/lib/motion";
-import { useScrolled, useScrollDirection, useReducedMotionPreferred } from "@/lib/hooks";
+import {
+  useScrolled,
+  useScrollDirection,
+  useReducedMotionPreferred,
+} from "@/lib/hooks";
 import { cx } from "@/lib/utils";
 import { LanguageSwitch } from "@/components/ui/LanguageSwitch";
 import { MobileMenu } from "@/components/layout/MobileMenu";
@@ -23,6 +33,10 @@ function isActivePath(pathname: string, locale: Locale, path: string) {
   return pathname === base || pathname.startsWith(`${base}/`);
 }
 
+function isHomePath(pathname: string, locale: Locale) {
+  return pathname === `/${locale}` || pathname === `/${locale}/`;
+}
+
 export function Header({
   locale,
   dict,
@@ -36,6 +50,10 @@ export function Header({
   const reduced = useReducedMotionPreferred();
   const [open, setOpen] = useState(false);
   const [researchOpen, setResearchOpen] = useState(false);
+  const researchId = useId();
+  const researchWrapRef = useRef<HTMLDivElement>(null);
+  const researchButtonRef = useRef<HTMLButtonElement>(null);
+  const researchItemRefs = useRef<Array<HTMLAnchorElement | null>>([]);
 
   const hide =
     !reduced &&
@@ -48,6 +66,82 @@ export function Header({
     isActivePath(pathname, locale, "research/human") ||
     isActivePath(pathname, locale, "research/agentic-ai") ||
     isActivePath(pathname, locale, "research");
+  const homeActive = isHomePath(pathname, locale);
+
+  const closeResearch = (returnFocus = false) => {
+    setResearchOpen(false);
+    if (returnFocus) researchButtonRef.current?.focus();
+  };
+
+  useEffect(() => {
+    if (!researchOpen) return;
+
+    const onPointer = (event: MouseEvent) => {
+      if (!researchWrapRef.current?.contains(event.target as Node)) {
+        closeResearch();
+      }
+    };
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeResearch(true);
+      }
+    };
+
+    document.addEventListener("mousedown", onPointer);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onPointer);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [researchOpen]);
+
+  const researchLinks = [
+    {
+      path: "research/human",
+      label: dict.nav.researchHuman,
+    },
+    {
+      path: "research/agentic-ai",
+      label: dict.nav.researchAgentic,
+    },
+  ] as const;
+
+  const onResearchKeyDown = (event: ReactKeyboardEvent<HTMLButtonElement>) => {
+    if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      setResearchOpen(true);
+      queueMicrotask(() => researchItemRefs.current[0]?.focus());
+    } else if (event.key === "Escape") {
+      closeResearch(true);
+    }
+  };
+
+  const onResearchItemKeyDown = (
+    event: ReactKeyboardEvent<HTMLAnchorElement>,
+    index: number,
+  ) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      closeResearch(true);
+      return;
+    }
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      const next = (index + 1) % researchLinks.length;
+      researchItemRefs.current[next]?.focus();
+    } else if (event.key === "ArrowUp") {
+      event.preventDefault();
+      const prev = (index - 1 + researchLinks.length) % researchLinks.length;
+      researchItemRefs.current[prev]?.focus();
+    } else if (event.key === "Home") {
+      event.preventDefault();
+      researchItemRefs.current[0]?.focus();
+    } else if (event.key === "End") {
+      event.preventDefault();
+      researchItemRefs.current[researchLinks.length - 1]?.focus();
+    }
+  };
 
   return (
     <>
@@ -69,7 +163,11 @@ export function Header({
         <div className="editorial-grid items-center py-4 xl:py-5">
           <Link
             href={getLocalizedPath(locale)}
-            className="col-span-8 min-w-0 truncate whitespace-nowrap label-mono text-[11px] text-ink transition-colors duration-300 hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent xl:col-span-3"
+            aria-current={homeActive ? "page" : undefined}
+            className={cx(
+              "col-span-8 min-w-0 truncate whitespace-nowrap label-mono text-sm text-ink transition-colors duration-300 hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent xl:col-span-3",
+              homeActive && "underline decoration-accent/70 underline-offset-4",
+            )}
           >
             {dict.nav.brand}
           </Link>
@@ -78,21 +176,21 @@ export function Header({
             className="col-span-6 hidden min-w-0 items-center justify-center gap-5 xl:flex 2xl:gap-7"
             aria-label="Primary"
           >
-            {/* Research → Human / Agentic choice */}
-            <div
-              className="relative"
-              onMouseEnter={() => setResearchOpen(true)}
-              onMouseLeave={() => setResearchOpen(false)}
-            >
+            <div ref={researchWrapRef} className="relative">
               <button
+                ref={researchButtonRef}
                 type="button"
                 className={cx(
-                  "group relative shrink-0 whitespace-nowrap label-mono text-[11px] transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
-                  researchActive ? "text-ink" : "text-muted hover:text-ink",
+                  "group relative shrink-0 whitespace-nowrap label-mono text-sm transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
+                  researchActive || researchOpen
+                    ? "text-ink"
+                    : "text-muted hover:text-ink",
                 )}
                 aria-expanded={researchOpen}
                 aria-haspopup="true"
-                onFocus={() => setResearchOpen(true)}
+                aria-controls={researchId}
+                onClick={() => setResearchOpen((v) => !v)}
+                onKeyDown={onResearchKeyDown}
               >
                 <span className="inline-block transition-transform duration-300 group-hover:translate-x-[2px]">
                   {dict.nav.research}
@@ -100,54 +198,49 @@ export function Header({
                 <span
                   className={cx(
                     "absolute -bottom-1 left-0 h-px bg-accent transition-all duration-300",
-                    researchActive || researchOpen ? "w-full" : "w-0 group-hover:w-full",
+                    researchActive || researchOpen
+                      ? "w-full"
+                      : "w-0 group-hover:w-full",
                   )}
                 />
               </button>
 
               <div
+                id={researchId}
+                role="region"
                 className={cx(
-                  "absolute left-1/2 top-full z-50 w-44 -translate-x-1/2 pt-3 transition-[opacity,transform] duration-300",
+                  "absolute left-1/2 top-full z-50 w-48 -translate-x-1/2 pt-3 transition-[opacity,transform] duration-300",
                   researchOpen
                     ? "pointer-events-auto translate-y-0 opacity-100"
-                    : "pointer-events-none translate-y-1 opacity-0",
+                    : "pointer-events-none invisible translate-y-1 opacity-0",
                 )}
               >
-                <div className="border border-white/10 bg-[#0a0a0a]/95 px-4 py-3 backdrop-blur-md">
-                  <Link
-                    href={getLocalizedPath(locale, "research/human")}
-                    aria-current={
-                      isActivePath(pathname, locale, "research/human")
-                        ? "page"
-                        : undefined
-                    }
-                    className={cx(
-                      "label-mono block min-h-11 py-2 text-xs tracking-[0.1em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
-                      isActivePath(pathname, locale, "research/human")
-                        ? "text-accent underline decoration-accent/70 underline-offset-4"
-                        : "text-muted hover:text-ink",
-                    )}
-                    onClick={() => setResearchOpen(false)}
-                  >
-                    {dict.nav.researchHuman}
-                  </Link>
-                  <Link
-                    href={getLocalizedPath(locale, "research/agentic-ai")}
-                    aria-current={
-                      isActivePath(pathname, locale, "research/agentic-ai")
-                        ? "page"
-                        : undefined
-                    }
-                    className={cx(
-                      "label-mono block min-h-11 py-2 text-xs tracking-[0.1em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
-                      isActivePath(pathname, locale, "research/agentic-ai")
-                        ? "text-accent underline decoration-accent/70 underline-offset-4"
-                        : "text-muted hover:text-ink",
-                    )}
-                    onClick={() => setResearchOpen(false)}
-                  >
-                    {dict.nav.researchAgentic}
-                  </Link>
+                <div className="border border-white/15 bg-[#0a0a0a]/95 px-4 py-3 backdrop-blur-md">
+                  {researchLinks.map((item, index) => {
+                    const active = isActivePath(pathname, locale, item.path);
+                    return (
+                      <Link
+                        key={item.path}
+                        ref={(node) => {
+                          researchItemRefs.current[index] = node;
+                        }}
+                        href={getLocalizedPath(locale, item.path)}
+                        aria-current={active ? "page" : undefined}
+                        className={cx(
+                          "label-mono block min-h-11 py-2 text-sm tracking-[0.1em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
+                          active
+                            ? "text-accent underline decoration-accent/70 underline-offset-4"
+                            : "text-muted hover:text-ink",
+                        )}
+                        onClick={() => closeResearch()}
+                        onKeyDown={(event) =>
+                          onResearchItemKeyDown(event, index)
+                        }
+                      >
+                        {item.label}
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -160,7 +253,7 @@ export function Header({
                   href={getLocalizedPath(locale, item.path)}
                   aria-current={active ? "page" : undefined}
                   className={cx(
-                    "group relative shrink-0 whitespace-nowrap label-mono text-[11px] transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
+                    "group relative shrink-0 whitespace-nowrap label-mono text-sm transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
                     active ? "text-ink" : "text-muted hover:text-ink",
                   )}
                 >

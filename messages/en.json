@@ -49,14 +49,16 @@
       "title": "Human Financial Behavior",
       "description": "How people perceive risk, respond to pressure, and make financial decisions under manipulation.",
       "meta": "PERCEPTION · PRESSURE · BIAS · DECISION · ACTION",
-      "cta": "Explore Human Research"
+      "cta": "Explore Human Research",
+      "ariaLabel": "Explore Human Financial Behavior research"
     },
     "agentic": {
       "code": "02 / AGENTIC SAFETY",
       "title": "Agentic Financial Safety",
       "description": "How autonomous agents act on money - and how unsafe financial actions can be stopped before execution.",
       "meta": "INTENT · BEHAVIOR · ACTION · PREVENTION",
-      "cta": "Explore Agentic Safety"
+      "cta": "Explore Agentic Safety",
+      "ariaLabel": "Explore Agentic Financial Safety research"
     }
   },
   "research": {
@@ -321,13 +323,14 @@
     "doiLabel": "DOI"
   },
   "people": {
-    "label": "/07 - LABORATORY",
+    "label": "/ LABORATORY",
     "heading": "People behind the research.",
     "supporting": "Academia, regulation, and banking practice in one research unit.",
-    "viewProfile": "Profile"
+    "viewProfile": "Profile",
+    "viewAll": "View all people"
   },
   "partners": {
-    "label": "/08 - ECOSYSTEM",
+    "label": "/ ECOSYSTEM",
     "heading": "Science connected to practice.",
     "supporting": "Collaborations named in laboratory materials. Relationship labels stay conservative."
   },
@@ -912,8 +915,26 @@
   "collaborate": {
     "label": "WORK WITH FTLAB",
     "heading": "Want to know more?",
+    "supporting": "Research partnerships, evaluation requests, and education collaborations. Email remains available if the form path is unavailable.",
     "cta": "CONTACT US",
-    "mailSubject": "Contact - FinTechLab SPbU"
+    "mailSubject": "Contact - FinTechLab SPbU",
+    "contactForm": {
+      "title": "Contact the laboratory",
+      "supporting": "Use the form to open a prefilled message in your mail client. The lab email stays visible as a fallback.",
+      "responseTime": "We typically reply within 5–7 business days.",
+      "include": "Please include your institution and whether you need research partnership, evaluation, education, or another collaboration.",
+      "name": "Name",
+      "org": "Organization",
+      "email": "Work email",
+      "message": "Message",
+      "submit": "Compose email",
+      "copyEmail": "Copy lab email",
+      "validation": "Name, work email and message are required.",
+      "opened": "Your mail client should open with a prefilled message. If it does not, write directly to the lab email below.",
+      "copied": "Lab email copied to clipboard.",
+      "copyFailed": "Could not copy. Please select the lab email manually.",
+      "mailSubject": "Contact - FinTechLab SPbU"
+    }
   },
   "evidence": {
     "label": "/ EVIDENCE",

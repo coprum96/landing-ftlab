@@ -18,7 +18,7 @@ export const mediaPaths = {
   projectPoster: (slug: string) => `/media/projects/${slug}.jpg`,
   projectVideo: (slug: string) => `/media/videos/${slug}.mp4`,
   videoPoster: (slug: string) => `/media/posters/${slug}.jpg`,
-  personPortrait: (id: string) => `/media/people/${id}.jpg?v=20260902`,
+  personPortrait: (id: string) => `/media/people/${id}.jpg?v=20260902c`,
   researchPreview: (id: string) => `/media/research/${id}.jpg`,
   fieldNote: (id: string) => `/media/field-notes/${id}.jpg`,
   partnerLogo: (id: string) => `/media/partners/${id}.png`,

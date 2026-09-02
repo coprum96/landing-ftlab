@@ -20,7 +20,7 @@ export function LanguageSwitch({
 
   return (
     <div
-      className="inline-flex items-center gap-1 label-mono text-xs"
+      className="inline-flex items-center gap-1 label-mono text-sm"
       role="group"
       aria-label="Language"
     >

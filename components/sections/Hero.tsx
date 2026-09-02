@@ -4,24 +4,16 @@ import { useRef } from "react";
 import { DecisionNetwork } from "@/components/visual/DecisionNetwork";
 import { MagneticLink } from "@/components/ui/MagneticLink";
 import { useHeroReveal } from "@/components/motion/HeroReveal";
-import { useReducedMotionPreferred } from "@/lib/hooks";
 import type { Dictionary } from "@/lib/i18n";
 
 export function Hero({ dict }: { dict: Dictionary }) {
   const rootRef = useRef<HTMLElement>(null);
   const { headlineRef, lightRef } = useHeroReveal(rootRef);
-  const reduced = useReducedMotionPreferred();
-
-  const scrollToDirections = () => {
-    document
-      .getElementById("choose-direction")
-      ?.scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
-  };
 
   return (
     <section
       ref={rootRef}
-      className="relative flex min-h-[100svh] items-end overflow-hidden pb-16 pt-16 md:pb-24 md:pt-20"
+      className="relative flex min-h-[min(100svh,900px)] items-end overflow-hidden pb-14 pt-16 md:pb-20 md:pt-20"
     >
       <DecisionNetwork
         labels={dict.decisionNetwork.labels}
@@ -75,9 +67,8 @@ export function Hero({ dict }: { dict: Dictionary }) {
 
         <div data-hero-meta className="col-span-12 mt-12 md:col-span-4">
           <MagneticLink
-            type="button"
-            onClick={scrollToDirections}
-            className="label-mono group items-center gap-3 text-[11px] text-ink"
+            href="#research-directions"
+            className="label-mono group items-center gap-3 text-sm text-ink"
             strength={0.2}
           >
             <span className="relative inline-block transition-transform duration-300 group-hover:translate-x-[2px]">
